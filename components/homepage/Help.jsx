@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 const Help = () => {
   return (
-    <div className='w-full h-full rounded-3xl bg-gradient-to-br from-[#4CF6ED] to-[#4AECEC] pt-8 px-8'>
+    <div className='w-full h-full rounded-3xl flex items-center justify-center bg-gradient-to-br from-[#4CF6ED] to-[#4AECEC] pt-8 px-8'>
         <div className='flex flex-col items-center justify-center'>
             <h1 className='text-6xl text-center font-bold my-8'>What can we <br /> help you find today?</h1>
             {/* search bar */}

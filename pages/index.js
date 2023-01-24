@@ -1,7 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Featured from '../components/Featured'
+import Cta from '../components/homepage/Cta'
+import Info from '../components/homepage/Info'
 import Services from '../components/homepage/Services'
+import Speciality from '../components/homepage/Speciality'
+import Testimonials from '../components/homepage/Testimonials'
 
 export default function Home() {
   return (
@@ -14,6 +18,10 @@ export default function Home() {
 
       <Featured />
       <Services />
+      <Speciality />
+      <Info />
+      <Cta />
+      <Testimonials />
     </div>
   )
 }

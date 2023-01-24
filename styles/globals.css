@@ -39,11 +39,26 @@ a {
   font-style: italic;
 }
 
+.ais-SearchBox-form{
+  padding:8px;
+  width: 100%;
+  background: #fff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
 .ais-SearchBox-input{
   background:white;
   width: 100%;
   padding: 12px;
   border-radius: 20px;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
 
-
+.ais-SearchBox-submitIcon{
+  width: 20px;
+  height: 20px;
+  margin: 0 15px 0 15px;
 }

@@ -17,22 +17,25 @@ const Search = () => {
       //   input: 'block w-full bg-red-400',
       //   submitIcon: 'absolute top-0 left-0 bottom-0 w-6',
       // }}
-      
+       className='focus:outline-none'
+       onClick={() => setChange(prev => !prev)}
       />
 
-      <Index indexName="wellness_package"   hitsPerPage={10} >
-        <Hits />
-      </Index>
+      <div className={`w-full h-[200px] overflow-y-auto bg-white p-4  rounded-b-xl ${change == true ? 'block' : 'hidden'}`}>
+        <Index indexName="wellness_package">
+          <Hits />
+        </Index>
 
-      <Index  indexName="test_product" hitsPerPage={10}>
-        <Hits/>
-      </Index>
-      <Index  indexName="test_kit" hitsPerPage={10}>
-        <Hits/>
-      </Index>
-      <Index  indexName="test_profile" hitsPerPage={10}>
-        <Hits/>
-      </Index>
+        <Index  indexName="test_product">
+          <Hits/>
+        </Index>
+        <Index  indexName="test_kit">
+          <Hits/>
+        </Index>
+        <Index  indexName="test_profile">
+          <Hits/>
+        </Index>
+      </div>
     </InstantSearch>
     // <div className=' rounded-full bg-white p-4 w-full my-8'>
     //     <form >

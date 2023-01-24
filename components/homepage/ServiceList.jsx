@@ -33,7 +33,7 @@ const ServiceList = () => {
     ]
 
   return (
-    <div className='flex flex-row'>
+    <div className='flex flex-col md:flex-row'>
         {/* card */}
         {products.map((product) => (
             <ServiceCard key={product.id} product={product}/>

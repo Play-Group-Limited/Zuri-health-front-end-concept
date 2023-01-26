@@ -29,8 +29,8 @@ const Navbar = () => {
                 </div>
             </div>
             {openMenu ? (
-                <div className='w-full h-screen bg-white'>
-                    <div className='mx-60 my-12 '>
+                <div className='w-full h-full md:h-screen bg-white duration-300 transition ease-in-out delay-150'>
+                    <div className=' mx-4 md:mx-60 my-12 '>
                         <div className=''>
                             <hr className='my-8'/>
                             <div className='flex flex-row items-center justify-between'>
@@ -40,7 +40,7 @@ const Navbar = () => {
                             <hr className='my-8'/>
                         </div>
 
-                        <div className='flex flex-row justify-between'>
+                        <div className='flex flex-col md:flex-row justify-between'>
                             <div className='flex flex-col'>
                                 {/* item */}
                                 <div className='flex flex-col'>
@@ -181,7 +181,7 @@ const Navbar = () => {
                         <div className='items-start'> 
                             <Image src={logo} alt="logo" className='' width={80} height={40}/>
                         </div>
-                        <RxHamburgerMenu size={40}/>
+                        <RxHamburgerMenu size={40} onClick={() => setOpenMenu(true)}/>
                     </div>
 
                     <div className='md:flex flex-row hidden '>

@@ -7,6 +7,9 @@ const Search = () => {
   const [change, setChange] = useState(false)
 
   console.log(change)
+  const hitComponent = ({hit})=>{
+    return <p className='py-4 border-b-4'>{hit.name}</p>
+  }
 
   return (
     <InstantSearch searchClient={searchClient} indexName="pharmacy_products"  >
@@ -21,19 +24,22 @@ const Search = () => {
        onClick={() => setChange(prev => !prev)}
       />
 
-      <div className={`w-full h-[200px] overflow-y-auto bg-white p-4  rounded-b-xl ${change == true ? 'block' : 'hidden'}`}>
+      <div className={`w-full h-[200px] overflow-y-auto bg-white p-4 rounded-t-xl rounded-b-xl ${change == true ? 'block' : 'hidden'}`}>
         <Index indexName="wellness_package">
-          <Hits />
+          <Hits hitComponent={hitComponent}/>
+        </Index>
+        <Index indexName="pharmacy_products">
+          <Hits hitComponent={hitComponent}/>
         </Index>
 
         <Index  indexName="test_product">
-          <Hits/>
+          <Hits hitComponent={hitComponent}/>
         </Index>
         <Index  indexName="test_kit">
-          <Hits/>
+          <Hits hitComponent={hitComponent}/>
         </Index>
         <Index  indexName="test_profile">
-          <Hits/>
+          <Hits hitComponent={hitComponent}/>
         </Index>
       </div>
     </InstantSearch>

@@ -41,10 +41,9 @@ a {
 
 .ais-SearchBox-form{
   padding:8px;
-  padding-bottom: 20px;
   width: 100%;
   background: #fff;
-  border-radius: 20px;
+  border-top-radius: 20px;
   display: flex;
   flex-direction: row;
 }

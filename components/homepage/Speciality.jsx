@@ -9,8 +9,8 @@ const Speciality = () => {
 
   return (
     <div className='w-full h-full '>
-        <div className='md:mx-60 my-12'>
-            <div className='bg-[#00F9ED] w-full h-full p-12 md:rounded-3xl border border-blue-400 '>
+        <div className='lg:mx-60 my-12'>
+            <div className='bg-[#5BDADD] w-full h-full p-12 md:rounded-3xl border border-blue-400 '>
                 <div className='flex flex-col md:flex-row justify-between'>
                     <div className='flex flex-col items-start justify-center'>
                         <h3 className='text-3xl font-bold'>Explore by Speciality</h3>

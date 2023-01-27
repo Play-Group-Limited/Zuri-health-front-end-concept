@@ -24,7 +24,7 @@ const Search = () => {
        onClick={() => setChange(prev => !prev)}
       />
 
-      <div className={`w-full h-[200px] overflow-y-auto bg-white p-4 rounded-t-xl rounded-b-xl ${change == true ? 'block' : 'hidden'}`}>
+      <div className={`w-auto pt-5 h-[200px] absolute overflow-y-auto bg-white p-4 rounded-t-xl rounded-b-xl ${change == true ? 'block' : 'hidden'}`}>
         <Index indexName="wellness_package">
           <Hits hitComponent={hitComponent}/>
         </Index>

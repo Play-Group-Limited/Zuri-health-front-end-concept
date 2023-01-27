@@ -10,7 +10,7 @@ const ServiceCard = ({product, setActive, active}) => {
         <div onClick={() => setActive(product.id)} className='w-full h-full rounded-3xl p-4 py-6 relative'>
             <Image src={product.img} alt='' width={50} height={50} className='w-full h-full object-contain' />
             <div className='absolute bottom-10 left-[30%] right-[30%] items-center justify-center text-center'>
-                <p className='font-bold text-white text-lg'>{product.text}</p>
+                <p className='font-bold text-white text-lg leading-4'>{product.text}</p>
             </div>
         </div>
       {/* </Link> */}

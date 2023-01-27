@@ -29,9 +29,9 @@ const Navbar = () => {
                         <Image src={flag} alt='flag' className='hidden md:block'/>
                     </span>
                     <span className='flex flex-row items-center md:ml-12'>
-                        <BsPerson size={25} className='mr-2 text-[#58E5E8] hover:cursor-pointer'/>
-                        <TbHeartPlus size={25} className='mx-2 text-[#58E5E8] hover:cursor-pointer'/>
-                        <BsCart2 size={25} className='mx-2 text-[#58E5E8] hover:cursor-pointer'/>
+                        <BsPerson size={25} className='mr-2 text-[#5BDADD] hover:cursor-pointer'/>
+                        <TbHeartPlus size={25} className='mx-2 text-[#5BDADD] hover:cursor-pointer'/>
+                        <BsCart2 size={25} className='mx-2 text-[#5BDADD] hover:cursor-pointer'/>
                     </span>
                 </div>
             </div>

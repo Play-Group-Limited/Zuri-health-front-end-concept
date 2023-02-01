@@ -43,7 +43,7 @@ a {
   padding:8px;
   width: 100%;
   background: #fff;
-  border-top-radius: 20px;
+  border-radius: 20px;
   display: flex;
   flex-direction: row;
 }
@@ -52,7 +52,7 @@ a {
   background:white;
   width: 100%;
   padding: 12px;
-  border-radius: 20px;
+  border-radius: 80px;
   outline: 2px solid transparent;
   outline-offset: 2px;
 }

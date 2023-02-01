@@ -7,11 +7,11 @@ import woman1 from '../../public/assets/people/3.png'
 const Testimonials = () => {
   return (
     <div className='w-full h-full'>
-        <div className='md:mx-60 my-12'>
-            <div className='flex flex-col'>
+        <div className='my-12'>
+            <div className='flex flex-col w-full'>
                 <h3 className='text-center text-xl font-bold text-[#ED3763]'>What Our Customers Have To Say</h3>
 
-                <div className='flex flex-row overflow-x-auto justify-between my-4'>
+                <div className='flex flex-row w-full overflow-x-auto justify-between my-4'>
                     {/* card */}
                     <div className='flex flex-col items-center mx-4 my-8'>
                         <Image src={man} alt='johny' />

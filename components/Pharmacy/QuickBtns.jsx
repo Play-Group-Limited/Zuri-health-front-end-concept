@@ -17,7 +17,7 @@ const QuickBtns = () => {
                 Now!  
             </p>
         </div>
-        <div className='flex flex-row items-center mx-4 justify-evenly bg-[#DC246F] px-6 py-4 rounded-xl w-full'>
+        <div className='flex flex-row items-center my-4 md:my-0 mx-4 justify-evenly bg-[#DC246F] px-6 py-4 rounded-xl w-full'>
             <Image src={clip} alt='prescription' className='mr-4'/>
             <p className='text-xl text-left text-white leading-6'>
                 Get a

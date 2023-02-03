@@ -17,8 +17,8 @@ const TestCard = ({test}) => {
             <p className='border-2 p-2 border-black rounded-lg whitespace-nowrap'>
                 KSH. {test.price}.00
             </p>
-            <button className='border-2 ml-2 border-black p-2 rounded-lg whitespace-nowrap'>
-                Book Now
+            <button className=' ml-2 bg-[#00FFFF] border-2 border-black font-bold uppercase p-2 rounded-lg whitespace-nowrap'>
+                Book 
             </button>
         </div>                  
     </div>

@@ -41,12 +41,13 @@ a {
 
 .ais-SearchBox-form{
   padding:8px;
-  width: 100%;
+  width: 30vw;
   background: #fff;
   border-radius: 20px;
   display: flex;
   flex-direction: row;
 }
+
 
 .ais-SearchBox-input{
   background:white;
@@ -61,4 +62,15 @@ a {
   width: 20px;
   height: 20px;
   margin: 0 15px 0 15px;
+}
+
+@media screen and (max-width: 480px){
+    .ais-SearchBox-form{
+    padding:8px;
+    width: 100%;
+    background: #fff;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+  }
 }

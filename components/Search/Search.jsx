@@ -14,12 +14,11 @@ const Search = () => {
   return (
     <InstantSearch searchClient={searchClient} indexName="pharmacy_products"  >
       <SearchBox 
-      // classNames={{
-      //   root: 'p-3 shadow-sm',
-      //   form: 'relative',
-      //   input: 'block w-full bg-red-400',
-      //   submitIcon: 'absolute top-0 left-0 bottom-0 w-6',
-      // }}
+        translations={{
+          submitTitle: 'Submit your search query.',
+          resetTitle: 'Clear your search query.',
+          placeholder: 'Type your search keywords here (eg Panadol 500MG)',
+        }}
        className='focus:outline-none'
        onClick={() => setChange(prev => !prev)}
       />

@@ -3,7 +3,7 @@ import Search from './Search'
 
 const SearchXl = () => {
   return (
-    <div className='bg-[#5BDADD] w-full h-[100%] rounded-xl flex flex-col mx-2 p-4 md:py-8 items-center justify-center'>
+    <div className='bg-[#5BDADD] w-full h-[100%] rounded-xl lg:min-h-[250px] flex flex-col mx-2 p-4 md:py-8 items-center justify-center'>
         <h3 className='text-lg font-bold text-center'>
             Best Quality, Best Prices Here.
             <br />

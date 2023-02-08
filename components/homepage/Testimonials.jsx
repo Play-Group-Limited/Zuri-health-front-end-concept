@@ -68,7 +68,7 @@ const Testimonials = () => {
                         </Swiper>
 
                 </div>
-                <div className='hidden md:flex flex-row w-full overflow-x-auto justify-between my-4 '>
+                <div className='hidden md:flex flex-row w-full overflow-x-auto justify-center items-center my-4'>
                     {/* card */}
                     <div className='flex flex-col items-center mx-4 my-8'>
                         <Image src={man} alt='johny' />

@@ -12,9 +12,9 @@ const StickySearch = () => {
   return (
     <div className= "sticky hidden md:flex flex-col justify-center top-[50%] -translate-y-[50%] z-30 ">
     
-        <div  className={`bg-black flex items-center justify-center rounded-tr-lg p-2 ${ clicked == true ? "w-[35%]" : "w-[5vh]"}`}>
+        <div  className={`bg-black flex items-center justify-center rounded-tr-lg p-2 ${ clicked == true ? "w-[35%] rounded-r-4xl" : "w-[5vh]"}`}>
             <button className="" onClick={() => setClicked(prev => ! prev)}>
-                <div className="p-2 rounded-full bg-[#00FFFF]">
+                <div className={`p-2 rounded-full bg-[#00FFFF] ${clicked == true ? 'mx-4' : null}`}>
                     <BiSearchAlt className=" text-black"/>
                 </div>
                 <p className="text-[#00FFFF] text-xs mt-2">

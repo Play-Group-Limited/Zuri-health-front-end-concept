@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
 import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch, SearchBox, Hits, Index } from 'react-instantsearch-dom';
 
-const Search = () => {
+const MobileSearch = () => {
   const searchClient = algoliasearch("M0J8AA6NZ9","804ee1df36055dec9d006a729a82ee2d" )
   const [change, setChange] = useState(false)
 
@@ -21,7 +20,7 @@ const Search = () => {
         }}
        className='focus:outline-none'
        onClick={() => setChange(prev => !prev)}
-       submit={<img src="/assets/btns/search.png" alt=""/>}
+       submit={<img src="/assets/btns/mobileSearch.png" alt=""/>}
       />
 
       <div className={`w-auto pt-5 h-[200px] absolute overflow-y-auto bg-white p-4 rounded-t-xl rounded-b-xl ${change == true ? 'block' : 'hidden'}`}>
@@ -43,17 +42,8 @@ const Search = () => {
         </Index>
       </div>
     </InstantSearch>
-    // <div className=' rounded-full bg-white p-4 w-full my-8'>
-    //     <form >
-    //         <div className='flex flex-row'>
-    //             {/* <input placeholder='Type you search keywords here e.g (Panadol 500MG)' type="text" name="" id="" className='w-full p-2 focus:outline-none ml-4' /> */}
-    //             <button className='mx-2 bg-[#ED3763] rounded-full p-4 px-8'>
-    //                 <p className='text-white font-bold tracking-wider'>SEARCH</p>
-    //             </button>
-    //         </div>
-    //     </form>
-    // </div>
+
   )
 }
 
-export default Search
+export default MobileSearch

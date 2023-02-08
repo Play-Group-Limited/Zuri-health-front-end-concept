@@ -43,7 +43,7 @@ a {
   padding:8px;
   width: 30vw;
   background: #fff;
-  border-radius: 20px;
+  border-radius: 60px;
   display: flex;
   flex-direction: row;
 }
@@ -74,3 +74,4 @@ a {
     flex-direction: row;
   }
 }
+

@@ -198,12 +198,20 @@ const Navbar = () => {
                         <div onClick={() => setOpenMenu(true)} className='flex flex-row items-center mx-2'>
                             <p className='mx-2'>Lab Test & Diagnostics</p>
                             <RiArrowDropDownLine />
+
+                            {/* {openLabs ? (
+                                <div className='absolute w-full h-full'>
+
+                                </div>
+                            ) : null} */}
                         </div>
                         <div onClick={() => setOpenMenu(true)} className='flex flex-row items-center mx-2'>
                             <p className='mx-2'>Pharmacy</p>
                             <RiArrowDropDownLine />
                         </div>
                     </div>
+
+                    
                     
                     <div className='hidden md:block'>
                         <RxHamburgerMenu size={40}/>

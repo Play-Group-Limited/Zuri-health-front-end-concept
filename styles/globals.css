@@ -44,6 +44,7 @@ a {
   width: 30vw;
   background: #fff;
   border-radius: 60px;
+  border-width: 2px;
   border-color: black;
   display: flex;
   flex-direction: row;

@@ -24,7 +24,7 @@ const DrugCard = () => {
         <div className='flex flex-row justify-evenly items-center'>
             <p className='whitespace-nowrap px-2'>KSH 2,503</p>
             <button className='p-2 bg-[#E9526F] rounded-lg w-[50%]'>
-                <p className='text-white '>Add to Cart</p>
+                <p className='text-white uppercase'>Add to Cart</p>
             </button>
         </div>
     </div>

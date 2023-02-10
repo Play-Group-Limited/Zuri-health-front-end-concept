@@ -10,7 +10,7 @@ const DrugList = () => {
         <DrugCard />
         <DrugCard />
         <DrugCard />
-        <DrugCard />
+        <DrugCardRx />
 
     </div>
   )

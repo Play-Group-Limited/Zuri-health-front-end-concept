@@ -4,7 +4,7 @@ import DrugCardRx from './DrugCardRx'
 
 const DrugList = () => {
   return (
-    <div className='flex flex-wrap items-end'>
+    <div className='flex flex-col md:flex-row md:flex-wrap md:items-end justify-center'>
         <DrugCard />
         <DrugCard />
         <DrugCard />

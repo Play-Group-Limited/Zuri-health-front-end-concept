@@ -7,8 +7,8 @@ const CategoryCard = ({category}) => {
 
   console.log("cate" , category)
   return (
-    <div className='relative mx-2 my-4 md:my-0 w-full'>
-        <Image src={category.img} width='310' height="200" alt="baby meds" className='object-contain w-full h-full'/>
+    <div className='relative mx-2 my-4 md:my-0 w-[310px]'>
+        <Image src={category.img} width='310' height="200" alt="baby meds" className='object-contain w-[100%] h-full'/>
         <p className='absolute text-white  font-bold right-5 bottom-5'>
             {category.text}
         </p>

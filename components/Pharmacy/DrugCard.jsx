@@ -1,10 +1,12 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 import drug from '../../public/assets/stockImgs/Pharmacy/drug.png'
 
 const DrugCard = ({product}) => {
   return (
     <div className='flex flex-col mx-4 min-w-[70vw] md:min-w-[12vw] md:w-[30vw]'>
+      <Link href={`/Drug/${product._id}`}>
         <div className='mb-4'>
             <Image src={drug} alt='med' className='object-fill w-full h-full'/>
         </div>
@@ -15,6 +17,7 @@ const DrugCard = ({product}) => {
                 KSH. {product?.price}.00
             </p>
         </div>
+      </Link>
     </div>
   )
 }

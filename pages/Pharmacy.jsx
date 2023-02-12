@@ -37,26 +37,6 @@ const Pharmacy = ({products}) => {
             <div className='mx-2 md:mx-20 lg:mx-60 flex flex-row  justify-center items-center'>
                 <div className=' w-full relative'>
                     <Swiper />
-                    {/* <div>
-                        <BsChevronLeft />   
-                    </div>
-                    {/* middle */}
-                    {/* <div className='flex flex-row'>
-                        <div className='bg-black/60 rounded-xl py-4 px-6 '>
-                            <h3 className='font-bold text-xl text-[#DC246F]'>Pharmacy</h3>
-
-                            <p className='mt-4 text-white'>
-                                Find here all the medicines, cosmetics,
-                                and wellness products you&apos;ll ever need.
-                            </p>
-                        </div>
-                        <Image src={doc} alt="doctor"/>
-                    </div>
-                    
-                    <div>
-                        <BsChevronRight />
-                    </div> */} 
-
                     <div className='w-full relative h-fit'>
 
                         <Swiper navigation={true} modules={[Navigation]} className='z-0 relative'>

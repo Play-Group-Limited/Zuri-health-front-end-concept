@@ -4,12 +4,21 @@ import logo from '../public/assets/logo.png'
 import flag from '../public/assets/flags/england.png'
 import { BsGlobe } from 'react-icons/bs'
 import { RiArrowDropDownLine } from 'react-icons/ri'
+import { MdOutlineShoppingCart } from 'react-icons/md'
 import { RxCrossCircled, RxHamburgerMenu } from 'react-icons/rx'
 import Link from "next/link"
+import { useRouter } from "next/router";
+import Badge from '@mui/material/Badge';
+import { useSelector } from 'react-redux'
 
 const Navbar = () => {
 
     const [openMenu, setOpenMenu] = useState(false)
+
+    const router = useRouter();
+  // console.log(router.route === item.name ? "page" : undefined)
+
+    const cart = useSelector((state) => state.cart);
 
   return (
     <div className='w-full h-full'>
@@ -33,7 +42,7 @@ const Navbar = () => {
                 </div>
             </div>
             {openMenu ? (
-                <div className='w-full h-full top-0 bottom-0 overflow-y-auto left-0 right-0 z-50 md:h-screen bg-white'>
+                <div className='md:hidden w-full h-full top-0 bottom-0 overflow-y-auto left-0 right-0 z-50 md:h-screen bg-white'>
                     <div className=' mx-4 md:mx-60 my-12'>
                         <div className=''>
                             <hr className='my-8'/>
@@ -181,7 +190,9 @@ const Navbar = () => {
             <div className='w-full py-4 flex flex-row items-center'>
                 <div className='flex  w-full items-center justify-between mx-4 md:mx-60'>
                     
-                    <Image src={logo} alt="logo" className='hidden md:block'/>
+                    <Link href='/'>
+                        <Image src={logo} alt="logo" className='hidden md:block'/>
+                    </Link>
 
                     <div className='flex flex-row md:hidden w-full h-full mt-8 justify-between'>
                         <div className='items-start'> 
@@ -205,17 +216,28 @@ const Navbar = () => {
                                 </div>
                             ) : null} */}
                         </div>
-                        <div onClick={() => setOpenMenu(true)} className='flex flex-row items-center mx-2'>
-                            <p className='mx-2'>Pharmacy</p>
-                            <RiArrowDropDownLine />
-                        </div>
+                        <Link href='/Pharmacy'>
+                            <div onClick={() => setOpenMenu(true)} className='flex flex-row items-center mx-2'>
+                                <p className='mx-2'>Pharmacy</p>
+                                <RiArrowDropDownLine />
+                            </div>
+                        </Link>
+                        
                     </div>
-
+                    
+                    <Link href='/Cart'>
+                        <Badge badgeContent={cart.quantity} color="warning">
+                            <div className='hidden md:flex flex-row px-4 py-2 ml-12 bg-[#FFF1F6] border border-[#FF2869] rounded-full items-center'>
+                                <p className='text-[#FF2869] mx-2 '>Cart</p>
+                                <MdOutlineShoppingCart className='text-[#FF2869]'/>
+                            </div>
+                        </Badge>
+                    </Link>
                     
                     
-                    <div className='hidden md:block'>
+                    {/* <div className='hidden md:block'>
                         <RxHamburgerMenu size={40}/>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 

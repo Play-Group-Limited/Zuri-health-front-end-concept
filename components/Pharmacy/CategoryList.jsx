@@ -7,22 +7,26 @@ const CategoryList = () => {
     {
       id: 1,
       img: "/assets/stockImgs/Pharmacy/categories/baby.png",
-      text: "Mum & Baby"
+      text: "Mum & Baby",
+      link: "/Categories"
     },
     {
       id: 2,
       img: "/assets/stockImgs/Pharmacy/categories/cosmetics.png",
-      text: "Cosmetics"
+      text: "Cosmetics",
+      link: "/Categories"
     },
     {
       id: 3,
       img: "/assets/stockImgs/Pharmacy/categories/flu.png",
-      text: "Cough & Cold"
+      text: "Cough & Cold",
+      link: "/Categories"
     },
     {
       id: 4,
       img: "/assets/stockImgs/Pharmacy/categories/all.png",
-      text: "View All"
+      text: "View All",
+      link: "/Categories"
     },
   ]
 

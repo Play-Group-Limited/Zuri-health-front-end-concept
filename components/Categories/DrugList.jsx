@@ -1,17 +1,15 @@
 import React from 'react'
 import DrugCard from './DrugCard'
-import DrugCardRx from './DrugCardRx'
 
-const DrugList = () => {
+const DrugList = ({products}) => {
+  console.log("categoryyyyyy: ", products)
   return (
     <div className='flex flex-col md:flex-row md:flex-wrap md:items-end justify-center'>
-        <DrugCard />
-        <DrugCard />
-        <DrugCard />
-        <DrugCard />
-        <DrugCard />
-        <DrugCard />
+      {products?.length > 0 && products.map((product) => {
+        return <DrugCard key={product._id} product={product}/>
+      })}
 
+      
     </div>
   )
 }

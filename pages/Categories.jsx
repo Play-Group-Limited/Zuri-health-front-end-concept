@@ -1,3 +1,4 @@
+import axios from 'axios'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { BsArrowRight } from 'react-icons/bs'
@@ -7,11 +8,13 @@ import CategoryList from '../components/Pharmacy/CategoryList'
 import CategoryListMobile from '../components/Pharmacy/CategoryListMobile'
 import TalkToDoc from '../components/Pharmacy/TalkToDoc'
 import Search from '../components/Search/Search'
+import { API_URL } from '../config/api.config'
 
 
-const Categories = () => {
+const Categories = ({products}) => {
     
     const [open, setOpen] = useState(false)
+    console.log("first***", products)
 
   return (
     <div className='w-full h-full'>
@@ -66,7 +69,7 @@ const Categories = () => {
                             <p className='whitespace-nowrap pr-4'>Baby Care</p>
                         </div>
                     </div>
-                </div>
+                </div> 
 
                 <div className='md:hidden flex flex-col w-full h-full overflow-x-auto'>
                     <h3 className='text-xl mb-4 font-bold'>Categories</h3>
@@ -132,7 +135,7 @@ const Categories = () => {
                         <Search />
                     </div>
 
-                    <DrugList />
+                    <DrugList products={products}/>
                 </div>
 
             </div>
@@ -143,6 +146,19 @@ const Categories = () => {
         </div>
     </div>
   )
+}
+
+export const getServerSideProps = async () => {
+    const res = await axios.get(`${API_URL}/pharmacy/pharmacy_product_list?page=1`);
+
+    // const data = await res.json();
+    console.log(res.data)
+  
+    return{
+      props:{
+        products: res.data.pharmacy_products,
+      }
+    }
 }
 
 export default Categories

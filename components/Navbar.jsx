@@ -11,9 +11,14 @@ import { useRouter } from "next/router";
 import Badge from '@mui/material/Badge';
 import { useSelector } from 'react-redux'
 
+import account from "../public/assets/icons/Navbar/account.png"
+import wish from "../public/assets/icons/Navbar/wish.png"
+import cartPic from "../public/assets/icons/Navbar/cart.png"
+
 const Navbar = () => {
 
     const [openMenu, setOpenMenu] = useState(false)
+    const [openDrop, setOpenDrop] = useState(false)
 
     const router = useRouter();
   // console.log(router.route === item.name ? "page" : undefined)
@@ -24,20 +29,35 @@ const Navbar = () => {
     <div className='w-full h-full'>
         
         <div className='flex flex-col '>
-            <div className='bg-black py-4 w-full h-full items-end'>
-                <div className=' flex flex-row justify-center md:justify-end md:items-end md:mx-60'>
+            <div className='bg-black py-4 w-full h-full  md:items-end'>
+                <div className=' flex flex-row justify-center md:justify-end md:items-center md:mx-60'>
                     <p className='text-white mx-2 text-sm hidden md:block'>Corparate Services</p>
                     <p className='text-white mx-2 text-sm hidden md:block'>Become a Partner</p>
                     <span className='flex flex-row items-center'>
-                        <p className='text-white mx-2 text-sm'>Country Selector</p>
-                        <BsGlobe className='text-white' size={20}/>
+                        <p className='text-white mx-2 text-sm hidden md:block'>Country Selector</p>
+                        <BsGlobe className='text-white mr-8 md:mr-0' size={20}/>
+                    </span>
+                    <span className='flex flex-row  items-center mx-8 md:hidden'>
+                        <Image src={account} alt="account" className='mx-2  ' />
+                        <Image src={wish} alt="WishList" className='mx-2 ' />
+                        <Link href='/Cart'>
+                            <Badge badgeContent={cart.quantity} color="warning">
+                                <Image src={cartPic} alt="Cart" className='mx-2 ' />
+                            </Badge>
+                        </Link>
                     </span>
                     <span className='flex flex-row items-center'>
                         <p className='text-white ml-4 mr-2 text-sm'>ENG</p>
-                        <Image src={flag} alt='flag' />
+                        <Image src={flag} alt='flag' className='hidden md:block'/>
                     </span>
-                    <span className='flex flex-row items-center'>
-                        
+                    <span className='md:flex flex-row items-center ml-8 hidden'>
+                        <Image src={account} alt="account" className='mx-2  ' />
+                        <Image src={wish} alt="WishList" className='mx-2 ' />
+                        <Link href='/Cart'>
+                            <Badge badgeContent={cart.quantity} color="warning">
+                                <Image src={cartPic} alt="Cart" className='mx-2 ' />
+                            </Badge>
+                        </Link>
                     </span>
                 </div>
             </div>
@@ -206,7 +226,7 @@ const Navbar = () => {
                             <p className='mx-2'>Engagae with doctors</p>
                             <RiArrowDropDownLine />
                         </div>
-                        <div onClick={() => setOpenMenu(true)} className='flex flex-row items-center mx-2'>
+                        <div onClick={() => setOpenDrop(prev => !prev)} className='flex flex-row items-center mx-2'>
                             <p className='mx-2'>Lab Test & Diagnostics</p>
                             <RiArrowDropDownLine />
 
@@ -222,25 +242,24 @@ const Navbar = () => {
                                 <RiArrowDropDownLine />
                             </div>
                         </Link>
-                        
                     </div>
-                    
-                    <Link href='/Cart'>
-                        <Badge badgeContent={cart.quantity} color="warning">
-                            <div className='hidden md:flex flex-row px-4 py-2 ml-12 bg-[#FFF1F6] border border-[#FF2869] rounded-full items-center'>
-                                <p className='text-[#FF2869] mx-2 '>Cart</p>
-                                <MdOutlineShoppingCart className='text-[#FF2869]'/>
-                            </div>
-                        </Badge>
-                    </Link>
-                    
-                    
-                    {/* <div className='hidden md:block'>
+ 
+                    <div className='hidden md:block'>
                         <RxHamburgerMenu size={40}/>
-                    </div> */}
+                    </div>
                 </div>
             </div>
-
+            {openDrop ? (
+                <div className='absolute right-[35%] top-[15%] w-fit p-4 bg-white border border-black rounded-lg'>
+                    <h3 className='text-lg'>Pharmacy</h3>
+                    <hr className='my-4'/>
+                    <h3 className='text-lg'>Pharmacy</h3>
+                    <hr className='my-4'/>
+                    <h3 className='text-lg'>Pharmacy</h3>
+                    <hr className='my-4'/>
+                    <h3 className='text-lg'>Pharmacy</h3>
+                </div>
+            ) : null}
             
         </div>
     </div>

@@ -4,7 +4,7 @@ import { InstantSearch, SearchBox, Hits, Index } from 'react-instantsearch-dom';
 
 const Search = () => {
   const searchClient = algoliasearch("M0J8AA6NZ9","804ee1df36055dec9d006a729a82ee2d" )
-  const [change, setChange] = useState(false)
+  const [change, setChange] = useState(true)
 
   console.log(change)
   const hitComponent = ({hit})=>{

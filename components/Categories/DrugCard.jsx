@@ -17,7 +17,7 @@ const DrugCard = ({product}) => {
             { product.prescription == true ? 
                 (<div className='bg-[#5BDADD] absolute top-0 left-0 w-full py-2 px-4 rounded-t-lg'>Requires Prescription</div>) 
             : null}
-                <Image src={drug} alt="drug" className='object-contain my-2'/>
+                <Image src={drug} alt="drug" className='object-contain my-2 mx-6'/>
             </div>
         </Link>
         <div className='flex flex-col border border-black rounded-lg my-2 p-4'>

@@ -6,7 +6,7 @@ import {FiChevronDown} from "react-icons/fi"
 import CartCard from '../components/Cart/CartCard'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
-// import { API_URL } from '../../config/api.config'
+import { API_URL } from '../config/api.config'
 import { useRouter } from "next/router"
 
 
@@ -28,6 +28,26 @@ const Cart = () => {
     // }
 
     // console.log('bug',formErrors)
+
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
+    const [address, setAddress] = useState('')
+    const [hseNumber, setHseNumber] = useState('')
+    const [city, setCity] = useState('')
+    const [country, setCountry] = useState('')
+
+    // const [formData, setFormData] = useState({
+    //     name: '',
+    //     email: '',
+    //     phone: '',
+    //     address: '',
+    //     hseNumber: '',
+    //     city: '',
+    //     country: ''
+    // })
+
+    console.log(name, email, phone, address, hseNumber, city, country)
 
     const handleSubmit = (e) => {
         try {
@@ -61,10 +81,10 @@ const Cart = () => {
         })
 
         const paylaod = {
-            name: formData.name,
-            email: formData.email,
-            country: capitalizeFirstLetter(formData.country),
-            phone: formData.phone,
+            name: name,
+            email: email,
+            country: capitalizeFirstLetter(country),
+            phone: phone,
             pharmacy_id: "60a8d5fe626f28e1cbe94ef4",
             details,
             delivery_address: {
@@ -80,7 +100,7 @@ const Cart = () => {
             fromCurrency: "KES",
             amount,
             delivery_fee: 300,
-            final_amount: 50
+            final_amount: amount
         }
         const { data } = await axios.post(`${API_URL}/pharmacy/add_zurihealth_direct_pharmacy_order`, paylaod);
         if (data) {
@@ -96,6 +116,17 @@ const Cart = () => {
         let item_serialized = JSON.stringify(item)
         console.log('serial', item_serialized)
     }
+
+    // const handleChange = (e) => {
+    //     const { name, value } = e.target
+    //     console.log('formData',formData)
+    //     setFormData({
+    //         ...formData,
+    //         [name]: value.trimStart()
+    //     })
+    //     // setFormErrors(validate(formData))
+
+    // }
 
     
 
@@ -170,9 +201,9 @@ const Cart = () => {
 
                                 { openBasic ? (
                                     <div className='mt-6'>
-                                        <input type="text" placeholder="Name" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
-                                        <input type="text" placeholder="Contact Number" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
-                                        <input type="text" placeholder="Email Address" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
+                                        <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
+                                        <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email Address" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
+                                        <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Contact Number" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
                                     </div>
                                 ) : null}
                             </div>
@@ -189,10 +220,10 @@ const Cart = () => {
 
                                 { openDelivery ? (
                                     <div className='mt-6'>
-                                        <input type="text" placeholder="Address" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
-                                        <input type="text" placeholder="House no / Flat no" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
-                                        <input type="text" placeholder="City / Town" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
-                                        <input type="text" placeholder="State / County" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
+                                        <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Address" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
+                                        <input type="text" value={hseNumber} onChange={(e) => setHseNumber(e.target.value)} placeholder="House no / Flat no" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
+                                        <input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="City / Town" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
+                                        <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} placeholder="State / County" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
                                     </div>
                                 ) : null}
                             </div>

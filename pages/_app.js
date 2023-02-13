@@ -11,8 +11,8 @@ function MyApp({ Component, pageProps }) {
   return(
     <Provider store={store}>
       <Layout>
-          <StickySearch />
           <Component {...pageProps} />
+          <StickySearch />
       </Layout>
     </Provider>
 

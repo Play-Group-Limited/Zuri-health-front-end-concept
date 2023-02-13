@@ -22,6 +22,10 @@ const Categories = ({products}) => {
             <p>home</p>
         </div> */}
         <div className='lg:mx-60 md:mx-20 md:ml-4 flex flex-col items-center justify-center'>
+
+            <div>
+                <CategoryListMobile />
+            </div>
             {/* category list */}
             <div className='flex flex-col md:flex-row my-8 mx-12 md:mx-0 justify-center'>
                 <div className='hidden md:flex flex-col border-r'>
@@ -128,10 +132,12 @@ const Categories = ({products}) => {
 
                 </div>
 
+                <hr className='my-2 md:hidden mb-4'/>
+
                 
 
                 <div className='w-full flex md:ml-8 flex-col justify-center'>
-                    <div className='mx-4 mb-8'>
+                    <div className='mx-4 mb-8 hidden md:block'>
                         <Search />
                     </div>
 

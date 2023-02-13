@@ -10,9 +10,9 @@ const StickySearch = () => {
     const [whatsapp, setWhatsapp] = useState(false)
 
   return (
-    <div className= "sticky hidden md:flex flex-col justify-center w-fit bottom-[40%] -translate-y-[50%] z-30 ">
+    <div className= {`sticky hidden md:flex flex-col justify-center w-fit bottom-[40%] -translate-y-[50%] z-30 ${clicked ? "w-full" : null}`}>
     
-        <div  className={`bg-black flex items-center justify-center rounded-tr-lg p-2 ${ clicked == true ? "w-[35%] rounded-r-4xl" : "w-[5vh]"}`}>
+        <div  className={`bg-black flex items-center justify-center rounded-tr-lg p-2 ${ clicked == true ? "w-full rounded-r-4xl" : "w-[5vh]"}`}>
             <button className="" onClick={() => setClicked(prev => ! prev)}>
                 <div className={`p-2 rounded-full bg-[#00FFFF] ${clicked == true ? 'mx-4' : null}`}>
                     <BiSearchAlt className=" text-black"/>
@@ -29,7 +29,7 @@ const StickySearch = () => {
             ) : null}
             
         </div>
-        <div  className={`bg-[#32BA46] flex items-center justify-center    rounded-br-lg p-2 ${ whatsapp == true ? "w-[14%]" : "w-[5vh]"}`}>
+        <div  className={`bg-[#32BA46] flex items-center justify-center    rounded-br-lg p-2 ${ whatsapp == true ? "w-full rounded-tr-lg" : "w-[5vh]"}`}>
             <button className="" onClick={() => setWhatsapp(prev => ! prev)}>
                 <div className="p-2 rounded-full">
                     <BsWhatsapp size={20} className="text-white"/>

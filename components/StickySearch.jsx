@@ -10,7 +10,7 @@ const StickySearch = () => {
     const [whatsapp, setWhatsapp] = useState(false)
 
   return (
-    <div className= "sticky hidden md:flex flex-col justify-center top-[50%] -translate-y-[50%] z-30 ">
+    <div className= "sticky hidden md:flex flex-col justify-center w-fit bottom-[40%] -translate-y-[50%] z-30 ">
     
         <div  className={`bg-black flex items-center justify-center rounded-tr-lg p-2 ${ clicked == true ? "w-[35%] rounded-r-4xl" : "w-[5vh]"}`}>
             <button className="" onClick={() => setClicked(prev => ! prev)}>

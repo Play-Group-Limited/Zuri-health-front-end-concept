@@ -10,7 +10,7 @@ import Image from 'next/image'
 
 import bg from '../public/assets/stockImgs/Labs/bgW.png'
 import bgLg from '../public/assets/stockImgs/Labs/bgLg.png'
-import wpackage from '../public/assets/stockImgs/Labs/Wpackage.png'
+// import wpackage from '../public/assets/stockImgs/Labs/Wpackage.png'
 import thome from '../public/assets/stockImgs/Labs/Thome.png'
 
 import SearchXl from '../components/Search/SearchXl'
@@ -97,7 +97,7 @@ const Labs = ({testProduct}) => {
 
                     <div className='flex flex-col md:flex-row relative'>
                         <div className='w-full  relative mr-2 my-2'>
-                            <Image src={wpackage} alt='Wellness Package' className='w-full h-full'/>
+                            {/* <Image src={wpackage} alt='Wellness Package' className='w-full h-full'/> */}
                             <div className='absolute bottom-8 p-4 left-8 '>
                                 <h3 className='text-3xl font-bold text-white'>
                                     Select the perfect

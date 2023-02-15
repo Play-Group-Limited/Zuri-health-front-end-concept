@@ -8,6 +8,7 @@ import CorporateForm from '../components/Forms/CorporateForm'
 import FeaturedSm from '../components/Coparate/FeaturedSm'
 
 const Coparate = () => {
+    console.log("hi")
   return (
     <div className='w-full h-full'>
         <div className='bg-[#FCB7AC] w-full h-[50vh] mb-12'>

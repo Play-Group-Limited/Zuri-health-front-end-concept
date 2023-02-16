@@ -79,7 +79,7 @@ const Coparate = () => {
             </div>
         </div>
         <div className='mx-4 md:mx-20 lg:mx-60 relative md:my-[14rem] py-12 h-[50vh]'>
-            <div className='flex flex-col md:flex-row relative justify-evenly items-center'>
+            <div className='flex flex-col md:flex-row relative justify-between items-center'>
                 <div className='flex flex-col relative h-full'>
                     <p className='text-black flex items-center justify-center font-bold text-4xl '>
                         Ready To Book Your 
@@ -87,7 +87,7 @@ const Coparate = () => {
                         Corporate Health Checkup?
                     </p>
 
-                    <Image src={line} alt='line' className='absolute -bottom-[6vw] -right-24 hidden md:block'/>
+                    <Image src={line} alt='line' className='absolute -bottom-[6vw] md:-right-[10%] md:hidden lg:-right-24 hidden lg:block'/>
                 </div>
 
                 <CorporateForm />

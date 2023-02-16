@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import logo from '../public/assets/logo.png'
 import flag from '../public/assets/flags/england.png'
 import { BsGlobe } from 'react-icons/bs'
@@ -24,6 +24,15 @@ const Navbar = () => {
   // console.log(router.route === item.name ? "page" : undefined)
 
     const cart = useSelector((state) => state.cart);
+
+    useEffect(() => {
+      if(openMenu == true && router.reload()){
+        setOpenMenu(false)
+      }
+    
+      
+    }, [])
+    
 
   return (
     <div className='w-full h-full'>
@@ -62,7 +71,7 @@ const Navbar = () => {
                 </div>
             </div>
             {openMenu ? (
-                <div className='md:hidden w-full h-full top-0 bottom-0 overflow-y-auto left-0 right-0 z-50 md:h-screen bg-white'>
+                <div className=' w-full h-full top-0 bottom-0 overflow-y-auto left-0 right-0 z-50 md:h-screen bg-white'>
                     <div className=' mx-4 md:mx-60 my-12'>
                         <div className=''>
                             <hr className='my-8'/>
@@ -73,7 +82,7 @@ const Navbar = () => {
                             <hr className='my-8'/>
                         </div>
 
-                        <div className='flex flex-col md:flex-row justify-between'>
+                        <div className='flex flex-col md:flex-row justify-evenly'>
                             <div className='flex flex-col'>
                                 {/* item */}
                                 <div className='flex flex-col'>
@@ -104,19 +113,21 @@ const Navbar = () => {
                                     </div>
                                     {/* list */}
                                     <div className='my-4 mx-2'>
-                                        <p className='text-slate-600 my-2'>Find a doctor</p>
-                                        <p className='text-slate-600 my-2'>Video Consultation</p>
+                                        <p className='text-slate-600 my-2'>Choose a Country</p>
+                                        <p className='text-slate-600 my-2'>Choose a Language</p>
                                     
                                     </div>
                                 </div>
                                 {/* item */}
                                 <div className='flex flex-col'>
                                     {/* category */}
-                                    <div className='flex flex-row items-center border-b-4  border-[#00F9ED]'>
-                                        <p className='mx-2'>Contact us</p>
-                                        <RiArrowDropDownLine />
-                                        <span className='py-4 border-b border-[#00F9ED]'/>
-                                    </div>
+                                    <Link href='/Contacts'>
+                                        <div className='flex flex-row items-center border-b-4  border-[#00F9ED]'>
+                                            <p className='mx-2'>Contact us</p>
+                                            <RiArrowDropDownLine />
+                                            <span className='py-4 border-b border-[#00F9ED]'/>
+                                        </div>
+                                    </Link>
                                     {/* list */}
                                     <div className='my-4 mx-2'>
                                         {/* <p className='text-slate-600 my-2'>Find a doctor</p>
@@ -129,19 +140,23 @@ const Navbar = () => {
                                 {/* item */}
                                 <div className='flex flex-col'>
                                     {/* category */}
-                                    <div className='flex flex-row items-center border-b-4  border-[#00F9ED]'>
-                                        <p className='mx-2'>Lab Tests and Diagnostics</p>
-                                        <RiArrowDropDownLine />
-                                        <span className='py-4 border-b border-[#00F9ED]'/>
-                                    </div>
+                                    <Link  href='/Labs'>
+                                        <div className='flex flex-row items-center border-b-4  border-[#00F9ED]'>
+                                            <p className='mx-2'>Lab Tests and Diagnostics</p>
+                                            <RiArrowDropDownLine />
+                                            <span className='py-4 border-b border-[#00F9ED]'/>
+                                        </div>
+                                    </Link>
                                     {/* list */}
                                     <div className='my-4 mx-2'>
-                                        <p className='text-slate-600 my-2'>Find a doctor</p>
-                                        <p className='text-slate-600 my-2'>Video Consultation</p>
-                                        <p className='text-slate-600 my-2'>Book a home vist</p>
+                                        <Link href='/Labs'>
+                                            <p className='text-slate-600 my-2'>Book a Lab test</p>
+                                            <p className='text-slate-600 my-2'>Get Tested At Home</p>
+                                            <p className='text-slate-600 my-2'>Get Vaccinated</p>
+                                        </Link>
                                         <p className='text-slate-600 my-2'>Ask free health</p>
-                                        <p className='text-slate-600 my-2'>Read health articles</p>
-                                        <p className='text-slate-600 my-2'>Chat with a doctor</p>
+                                        <p className='text-slate-600 my-2'>Men Wellness Packages</p>
+                                        <p className='text-slate-600 my-2'>Womens Wellness Packages</p>
                                     </div>
                                 </div>
 
@@ -155,8 +170,9 @@ const Navbar = () => {
                                     </div>
                                     {/* list */}
                                     <div className='my-4 mx-2'>
-                                        <p className='text-slate-600 my-2'>Find a doctor</p>
-                                        <p className='text-slate-600 my-2'>Video Consultation</p>
+                                        <p className='text-slate-600 my-2'>Chat With Vera</p>
+                                        <p className='text-slate-600 my-2'>Talk to a CX Champion</p>
+                                        <p className='text-slate-600 my-2'>Blog</p>
                                     
                                     </div>
                                 </div>
@@ -175,30 +191,41 @@ const Navbar = () => {
                                     </Link>
                                     {/* list */}
                                     <div className='my-4 mx-2'>
-                                        <p className='text-slate-600 my-2'>Find a doctor</p>
-                                        <p className='text-slate-600 my-2'>Video Consultation</p>
-                                        <p className='text-slate-600 my-2'>Book a home vist</p>
-                                        <p className='text-slate-600 my-2'>Ask free health</p>
-                                        <p className='text-slate-600 my-2'>Read health articles</p>
-                                        <p className='text-slate-600 my-2'>Chat with a doctor</p>
-                                        <p className='text-slate-600 my-2'>Ask free health</p>
-                                        <p className='text-slate-600 my-2'>Read health articles</p>
-                                        <p className='text-slate-600 my-2'>Chat with a doctor</p>
+                                        <p className='text-slate-600 my-2'>Order Medication</p>
+                                        <p className='text-slate-600 my-2'>Upload Prescription</p>
+                                        <Link href='/Categories'>
+                                            <p className='text-slate-600 my-2'>Vitamins &amp; Supplements</p>
+                                            <p className='text-slate-600 my-2'>Health &amp; Beauty</p>
+                                            <p className='text-slate-600 my-2'>Personal Care</p>
+                                            <p className='text-slate-600 my-2'>Hair Care</p>
+                                            <p className='text-slate-600 my-2'>Eye Care</p>
+                                            <p className='text-slate-600 my-2'>Mum &amp; Baby</p>
+                                            <p className='text-slate-600 my-2'>Perfumes And Sprays</p>
+                                            <p className='text-slate-600 my-2'>Medical Devices - Diagnostics</p>
+                                        </Link>
+                                        <p className='text-slate-600 my-2'>Read about medicines</p>
                                     </div>
                                 </div>
 
                                 {/* item */}
                                 <div className='flex flex-col'>
                                     {/* category */}
-                                    <div className='flex flex-row items-center border-b-4  border-[#00F9ED]'>
-                                        <p className='mx-2'>Care and technology</p>
-                                        <RiArrowDropDownLine />
-                                        <span className='py-4 border-b border-[#00F9ED]'/>
-                                    </div>
+                                    <Link href='/ContinuosCare' >
+                                        <div className='flex flex-row items-center border-b-4  border-[#00F9ED]'>
+                                            <p className='mx-2'>Care and technology</p>
+                                            <RiArrowDropDownLine />
+                                            <span className='py-4 border-b border-[#00F9ED]'/>
+                                        </div>
+                                    </Link>
                                     {/* list */}
                                     <div className='my-4 mx-2'>
-                                        <p className='text-slate-600 my-2'>Find a doctor</p>
-                                        <p className='text-slate-600 my-2'>Video Consultation</p>
+                                        <Link href='/ContinuosCare' >
+                                            <p className='text-slate-600 my-2'>Continuous Care Programme</p>
+                                        </Link>
+                                        <p className='text-slate-600 my-2'>Download our App</p>
+                                        <Link href='/Partner'>
+                                            <p className='text-slate-600 my-2'>Become a Partner</p>
+                                        </Link>
                                     
                                     </div>
                                 </div>
@@ -244,8 +271,8 @@ const Navbar = () => {
                         </Link>
                     </div>
  
-                    <div className='hidden md:block'>
-                        <RxHamburgerMenu size={40}/>
+                    <div onClick={() => setOpenMenu(true)} className='hidden md:block'>
+                        <RxHamburgerMenu size={40} />
                     </div>
                 </div>
             </div>

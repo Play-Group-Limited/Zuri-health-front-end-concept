@@ -3,18 +3,15 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import { BsArrowRight } from 'react-icons/bs'
 import { HiChevronDown } from 'react-icons/hi'
-import DrugList from '../components/Categories/DrugList'
+import TestList from '../components/Categories/TestList'
 import CategoryList from '../components/Pharmacy/CategoryList'
 import CategoryListMobile from '../components/Pharmacy/CategoryListMobile'
 import TalkToDoc from '../components/Pharmacy/TalkToDoc'
 import Search from '../components/Search/Search'
 import { API_URL } from '../config/api.config'
 
-
-const Categories = ({products}) => {
-    
+const TestCategories = ({testProduct}) => {
     const [open, setOpen] = useState(false)
-    console.log("first***", products)
 
   return (
     <div className='w-full h-full'>
@@ -31,48 +28,48 @@ const Categories = ({products}) => {
             {/* category list */}
             <div className='flex flex-col md:flex-row my-8 mx-12 md:mx-0 justify-center'>
                 <div className='hidden md:flex flex-col border-r'>
-                    <h2 className='uppercase font-bold text-2xl pb-8'>Categories</h2>
+                    <h2 className='uppercase font-bold text-2xl pb-8'>Test Categories</h2>
                     
                     <div className='mr-4'>
                         <hr  className='my-4'/>
                         <div className='flex flex-row items-center'>
                             <BsArrowRight className='mr-4'/>
-                            <p className='whitespace-nowrap pr-4'>Family Care</p>
+                            <p className='whitespace-nowrap pr-4'>Cancer Screening</p>
                         </div>
                         <hr  className='my-4'/>
                         <div className='flex flex-row items-center'>
                             <BsArrowRight className='mr-4'/>
-                            <p className='whitespace-nowrap pr-4'>Fitness &amp; Wellness</p>
+                            <p className='whitespace-nowrap pr-4'>Diabetes Screening</p>
                         </div>
                         <hr  className='my-4'/>
                         <div className='flex flex-row items-center'>
                             <BsArrowRight className='mr-4'/>
-                            <p className='whitespace-nowrap pr-4'>Skin Care</p>
+                            <p className='whitespace-nowrap pr-4'>Domestic Staff Test</p>
                         </div>
                         <hr  className='my-4'/>
                         <div className='flex flex-row items-center'>
                             <BsArrowRight className='mr-4'/>
-                            <p className='whitespace-nowrap pr-4'>Hair Care</p>
+                            <p className='whitespace-nowrap pr-4'>General Health Checkup</p>
                         </div>
                         <hr  className='my-4'/>
                         <div className='flex flex-row items-center'>
                             <BsArrowRight className='mr-4'/>
-                            <p className='whitespace-nowrap pr-4'>Lip Care</p>
+                            <p className='whitespace-nowrap pr-4'>Heart Health Screening</p>
                         </div>
                         <hr  className='my-4'/>
                         <div className='flex flex-row items-center'>
                             <BsArrowRight className='mr-4'/>
-                            <p className='whitespace-nowrap pr-4'>Sexual wellness</p>
+                            <p className='whitespace-nowrap pr-4'>Hypertension</p>
                         </div>
                         <hr  className='my-4'/>
                         <div className='flex flex-row items-center'>
                             <BsArrowRight className='mr-4'/>
-                            <p className=''>Women&apos;s Care</p>
+                            <p className=''>Pre-Wedding Health Test</p>
                         </div>
                         <hr  className='my-4'/>
                         <div className='flex flex-row items-center'>
                             <BsArrowRight className='mr-4'/>
-                            <p className='whitespace-nowrap pr-4'>Baby Care</p>
+                            <p className='whitespace-nowrap pr-4'>STD Test</p>
                         </div>
                     </div>
                 </div> 
@@ -143,7 +140,7 @@ const Categories = ({products}) => {
                         <Search />
                     </div>
 
-                    <DrugList products={products}/>
+                    <TestList products={testProduct.test_products}/>
                 </div>
 
             </div>
@@ -157,16 +154,30 @@ const Categories = ({products}) => {
 }
 
 export const getServerSideProps = async () => {
-    const res = await axios.get(`${API_URL}/pharmacy/pharmacy_product_list?page=1`);
-
-    // const data = await res.json();
-    console.log(res.data)
+    const testKit = await axios.get(
+      `${API_URL}/labs_and_diagnostic/testkit?page=1`
+    )
+    const testProfile = await axios.get(
+      `${API_URL}/test_profile/get_test_profiles`
+    )
+    const testProduct = await axios.get(
+      `${API_URL}/test_diagnostic/test_product_list`
+    )
+    const testPackage = await axios.get(
+      `${API_URL}/test_diagnostic/display_wellness_packages`
+    )
   
-    return{
-      props:{
-        products: res.data.pharmacy_products,
-      }
+    // const data = await res.json();
+    // console.log(res.data)
+  
+    return {
+      props: {
+        testKit: testKit.data,
+        testProfile: testProfile.data,
+        testProduct: testProduct.data,
+        testPackage: testPackage.data,
+      },
     }
-}
+  }
 
-export default Categories
+export default TestCategories

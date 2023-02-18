@@ -39,7 +39,7 @@ const SpecialityList = () => {
     ]
 
   return (
-    <div className='md:flex grid grid-cols-2 gap-2 my-12 md:my-0 md:flex-row md:justify-evenly items-center md:mx-8'>
+    <div className='md:grid-rows-2 md:grid-cols-3 lg:grid-cols-6 lg:grid-rows-1 grid grid-cols-2 gap-2 my-12 md:my-0 md:flex-row md:justify-evenly items-center '>
         {/* card */}
         {products.map((product) => (
             <SpecialityCard key={product.id} product={product}/>

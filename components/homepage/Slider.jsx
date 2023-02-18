@@ -10,11 +10,11 @@ import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper"
 
 const Slider = () => {
   return (
-    <div className='rounded-3xl w-full h-full relative'>
-      <Swiper navigation={true} modules={[Navigation]} className='z-0'>
+    <div className='rounded-3xl h-fit relative w-full flex items-center justify-center'>
+      <Swiper navigation={true} modules={[Navigation]} className='z-0  w-full'>
           <SwiperSlide>
             <div className='w-full  relative '>
-              <Image src={woman} alt='woman' className='w-full h-full object-fill'/>
+              <Image src={woman} alt='woman' className='w-full h-full object-cover '/>
               <div className='absolute bottom-8 bg-blue-400/80 rounded-full p-4 left-20 right-20 text-center py-12'>
                   <h3 className='text-3xl font-bold text-white'>Join our <br /> Continuous <br /> Care <br /> Program</h3>
               </div>

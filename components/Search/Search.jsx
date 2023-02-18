@@ -19,7 +19,7 @@ const Search = () => {
           resetTitle: 'Clear your search query.',
           placeholder: 'Type your search keywords here (eg Panadol 500MG)',
         }}
-       className='focus:outline-none'
+       className='focus:outline-none w-full'
        onClick={() => setChange(prev => !prev)}
        submit={<img src="/assets/btns/search.png" alt=""/>}
       />

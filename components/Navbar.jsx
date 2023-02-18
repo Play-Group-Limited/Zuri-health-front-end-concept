@@ -26,27 +26,34 @@ const Navbar = () => {
     const cart = useSelector((state) => state.cart);
 
     useEffect(() => {
-      if(openMenu == true && router.reload()){
-        setOpenMenu(false)
-      }
+        const handleRouteChange = (url) => {
+          console.log(`Route changed to: ${url}`);
+          // Do something when the route changes
+          setOpenMenu(false)
+        };
     
-      
-    }, [])
+        router.events.on('routeChangeComplete', handleRouteChange);
+    
+        return () => {
+          router.events.off('routeChangeComplete', handleRouteChange);
+        };
+      }, [router.events]);
+    
     
 
   return (
     <div className='w-full h-full'>
         
-        <div className='flex flex-col '>
-            <div className='bg-black py-4 w-full h-full  md:items-end'>
-                <div className=' flex flex-row justify-center md:justify-end md:items-center md:mx-60'>
-                    <p className='text-white mx-2 text-sm hidden md:block'>Corparate Services</p>
-                    <p className='text-white mx-2 text-sm hidden md:block'>Become a Partner</p>
+        <div className='flex flex-col w-full'>
+            <div className='bg-black py-4 w-full h-full flex justify-center items-center pr-4 md:pr-0'>
+                <div className=' flex flex-row justify-center md:justify-end md:items-end w-full max-w-[1440px] lg:pr-4'>
+                    <p className='text-white mx-2 text-sm hidden lg:block whitespace-nowrap'>Corparate Services</p>
+                    <p className='text-white mx-2 text-sm hidden lg:block whitespace-nowrap'>Become a Partner</p>
                     <span className='flex flex-row items-center'>
-                        <p className='text-white mx-2 text-sm hidden md:block'>Country Selector</p>
+                        <p className='text-white mx-2 text-sm hidden lg:block whitespace-nowrap'>Country Selector</p>
                         <BsGlobe className='text-white mr-8 md:mr-0' size={20}/>
                     </span>
-                    <span className='flex flex-row  items-center mx-8 md:hidden'>
+                    <span className='flex flex-row  items-center mx-8 lg:hidden'>
                         <Image src={account} alt="account" className='mx-2  ' />
                         <Image src={wish} alt="WishList" className='mx-2 ' />
                         <Link href='/Cart'>
@@ -57,9 +64,9 @@ const Navbar = () => {
                     </span>
                     <span className='flex flex-row items-center'>
                         <p className='text-white ml-4 mr-2 text-sm'>ENG</p>
-                        <Image src={flag} alt='flag' className='hidden md:block'/>
+                        <Image src={flag} alt='flag' className='hidden lg:block'/>
                     </span>
-                    <span className='md:flex flex-row items-center ml-8 hidden'>
+                    <span className='lg:flex flex-row items-center ml-8 hidden'>
                         <Image src={account} alt="account" className='mx-2  ' />
                         <Image src={wish} alt="WishList" className='mx-2 ' />
                         <Link href='/Cart'>
@@ -234,21 +241,21 @@ const Navbar = () => {
                     </div>
                 </div>
             ) : null}
-            <div className='w-full py-4 flex flex-row items-center'>
-                <div className='flex  w-full items-center justify-between mx-4 md:mx-60'>
+            <div className='w-full py-4 flex flex-row items-center justify-center'>
+                <div className='flex  w-full items-center justify-between mx-4 max-w-[1440px]'>
                     
                     <Link href='/'>
-                        <Image src={logo} alt="logo" className='hidden md:block'/>
+                        <Image src={logo} alt="logo" className='hidden lg:block object-scale-down'/>
                     </Link>
 
-                    <div className='flex flex-row md:hidden w-full h-full mt-8 justify-between'>
+                    <div className='flex flex-row lg:hidden w-full h-full mt-8 justify-between'>
                         <div className='items-start'> 
                             <Image src={logo} alt="logo" className='' width={80} height={40}/>
                         </div>
                         <RxHamburgerMenu size={40} onClick={() => setOpenMenu(true)}/>
                     </div>
 
-                    <div className='md:flex flex-row hidden '>
+                    <div className='lg:flex flex-row hidden '>
                         <div onClick={() => setOpenMenu(true)} className='flex flex-row items-center mx-2'>
                             <p className='mx-2'>Engagae with doctors</p>
                             <RiArrowDropDownLine />
@@ -264,14 +271,14 @@ const Navbar = () => {
                             ) : null} */}
                         </div>
                         <Link href='/Pharmacy'>
-                            <div onClick={() => setOpenMenu(true)} className='flex flex-row items-center mx-2'>
+                            <div  className='flex flex-row items-center mx-2'>
                                 <p className='mx-2'>Pharmacy</p>
                                 <RiArrowDropDownLine />
                             </div>
                         </Link>
                     </div>
  
-                    <div onClick={() => setOpenMenu(true)} className='hidden md:block'>
+                    <div onClick={() => setOpenMenu(true)} className='hidden lg:block'>
                         <RxHamburgerMenu size={40} />
                     </div>
                 </div>

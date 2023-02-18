@@ -10,7 +10,7 @@ import Image from 'next/image'
 
 import bg from '../public/assets/stockImgs/Labs/bgW.png'
 import bgLg from '../public/assets/stockImgs/Labs/bgLg.png'
-import wpackage from '../public/assets/stockImgs/Labs/Wpackage.png'
+import wpackage from '../public/assets/stockImgs/Labs/2121.png'
 import thome from '../public/assets/stockImgs/Labs/Thome.png'
 
 import SearchXl from '../components/Search/SearchXl'

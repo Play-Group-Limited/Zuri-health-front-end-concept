@@ -1,9 +1,9 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
-const FAQs = () => {
+const Faqs = () => {
 
   const [openOne, setOpenOne] = useState(false)
-
+  
   return (
     <div className='w-full h-full'>
         <div className='bg-[#5BDADD] w-full px-4 h-[10%] lg:px-80 py-8 my-8'>
@@ -85,4 +85,4 @@ const FAQs = () => {
   )
 }
 
-export default FAQs
+export default Faqs

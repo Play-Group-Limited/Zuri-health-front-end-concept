@@ -5,9 +5,9 @@ import Image from 'next/image'
 
 const Help = () => {
   return (
-    <div className='w-full h-full rounded-3xl flex items-center justify-center bg-[#5BDADD] pt-8 px-8 relative'>
+    <div className='w-full h-full rounded-3xl flex items-center justify-center bg-[#5BDADD] pt-8 px-8 relative '>
         <div className='flex flex-col items-center justify-between'>
-            <h1 className='text-6xl text-center font-bold my-8'>What can we <br /> help you find today?</h1>
+            <h1 className='text-xl lg:text-6xl text-center font-bold my-8'>What can we <br /> help you find today?</h1>
             {/* search bar */}
             <div className='w-full'>
                 <Search />

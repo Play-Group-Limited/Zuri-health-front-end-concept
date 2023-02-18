@@ -4,53 +4,17 @@ import ServiceList from './ServiceList'
 
 const Services = () => {
 
-  const products = [
-    {
-        id: 1,
-        img: '/assets/product/man.png',
-        text: 'Engage with a doctor',
-        link: '/Doctors'
+  
 
-    },
-    {
-        id: 2,
-        img: '/assets/product/1.png',
-        text: 'Order Medicine',
-        link: '/ContinousCare'
-
-    },
-    {
-        id: 3,
-        img: '/assets/product/2.png',
-        text: 'Lab Tests & diagnostics',
-        link: '/ContinousCare'
-
-    },
-    {
-        id: 4,
-        img: '/assets/product/3.png',
-        text: 'Wellness and more',
-        link: '/ContinousCare'
-
-    },
-    {
-        id: 5,
-        img: '/assets/product/4.png',
-        text: 'Continuos Care Program',
-        link: '/ContinuosCare'
-
-    }
-  ]
-
-  const [active, setActive] = useState(products[0])
-  console.log("first", active)
+  // const [active, setActive] = useState(products[0])
+  // console.log("first", active)
 
   return (
-    <div className=' h-full'>
-      <div className='md:mx-60'>
-        <ServiceList products={products} active={active} setActive={setActive}/>
+    <div className='w-full h-full'>
+      <div className='flex items-center justify-center '>
+        <ServiceList />
 
-        {active >=1 ? (
+        {/* {active >=1 ? (
         
         <div className='my-2 mx-8'>
           <div className='p-4 bg-red-500  rounded-xl items-center justify-center flex flex-col md:flex-row'>
@@ -71,7 +35,7 @@ const Services = () => {
           </div>
         </div>
 
-        ) : null}
+        ) : null} */}
       
       </div>
 

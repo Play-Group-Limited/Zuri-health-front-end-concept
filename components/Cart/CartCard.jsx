@@ -37,7 +37,7 @@ const CartCard = ({product, index}) => {
     <div className='flex flex-col md:flex-row p-8 border my-6 border-black rounded-lg justify-between'>
         <div className='flex flex-col md:flex-row text-center md:text-left'>
             <div className='mx-2 md:max-w-[200px] my-4 md:my-0 rounded-lg flex justify-center items-center'>
-                <Image src={drug} alt='medd'/>
+                <Image src={drug} alt='medd' width={200}/>
             </div>
             <div className='flex flex-col md:ml-4 justify-between'>
                 <div className='flex flex-col'>

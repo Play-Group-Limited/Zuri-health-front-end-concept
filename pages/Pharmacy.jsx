@@ -45,7 +45,7 @@ const Pharmacy = ({products}) => {
                                             <Image src={bg} alt='woman' className='hidden md:block top-0 w-full h-full'/>
                                             <Image src={doc} alt='woman' className='md:hidden top-0 z-10 w-full h-full'/>
                                             <Image src={bgDrug} alt='woman' className='md:hidden absolute scale-75 z-0 top-0 w-full h-full'/>
-                                            <div className='md:absolute bg-black/70 rounded-xl my-8 md:mt-0 z-10 px-6 md:w-[40%] md:left-[5%] md:top-[35%] text-left py-8 '>
+                                            <div className='md:absolute bg-black/70 rounded-xl mx-2  my-8 md:mt-0 z-10 px-6 md:w-[60%] md:left-[5%] md:top-[25%] text-left py-8 '>
                                                 <h3 className='font-bold text-3xl mb-4 md:text-6xl text-[#DC246F]'>Pharmacy</h3>
                                                 <p className='md:mt-4 text-lg text-white'>
                                                     Find here all the medicines, cosmetics,
@@ -75,42 +75,44 @@ const Pharmacy = ({products}) => {
                     </div>
                 </div>
          </div>
-         <div className='my-4 flex flex-col mx-2 md:mx-20 lg:mx-60'>
-            <div className='flex  flex-col md:flex-row items-center h-full w-full'>
-                <SearchXl />
-                <TalkToDoc />
-
-            </div>
-
-            <div className='my-4 flex flex-col'>
-                <h3 className='text-xl font-bold'>Popular Items</h3>
-
-                <div className='flex flex-row w-full h-full overflow-x-auto'>
-                    {/* drug list */}
-                    <DrugList products={products.pharmacy_products}/>
+         <div className='my-4 flex flex-col mx-2  w-full items-center justify-center'>
+            <div className='lg:max-w-[1440px] w-full flex flex-col items-center justify-center'>
+                <div className='flex  flex-col md:flex-row items-center h-full w-full'>
+                    <SearchXl />
+                    <TalkToDoc />
 
                 </div>
-            </div>
 
-            <div className='my-4 flex flex-col'>
-                <h3 className='text-xl font-bold'>Categories</h3>
+                <div className='my-4 flex flex-col'>
+                    <h3 className='text-xl font-bold'>Popular Items</h3>
+
+                    <div className='flex flex-row  h-full overflow-x-auto w-[100vw] lg:max-w-[1440px]'>
+                        {/* drug list */}
+                        <DrugList products={products.pharmacy_products}/>
+
+                    </div>
+                </div>
+
+                <div className='my-4 flex flex-col'>
+                    <h3 className='text-xl font-bold'>Categories</h3>
+                    
+                    {/* category list */}
+                    <div className='my-4'>
+                        <CategoryList />
+                    </div>
+                </div>
+
+                <div className=' w-full'>
+                    <QuickBtns />
+                </div>
+
+                <div className='my-4 w-full'>
+                    <Info />
+                </div>
                 
-                {/* category list */}
-                <div className='my-4'>
-                    <CategoryList />
+                <div className='my-4 w-full'>
+                    <Testimonials />
                 </div>
-            </div>
-
-            <div className=''>
-                <QuickBtns />
-            </div>
-
-            <div className='my-4'>
-                <Info />
-            </div>
-            
-            <div className='my-4'>
-                <Testimonials />
             </div>
             
 

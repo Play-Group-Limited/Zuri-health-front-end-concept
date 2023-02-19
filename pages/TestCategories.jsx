@@ -14,13 +14,13 @@ const TestCategories = ({testProduct}) => {
     const [open, setOpen] = useState(false)
 
   return (
-    <div className='w-full h-full'>
+    <div className='w-full h-full flex flex-col items-center justify-center'>
         <div className='bg-[#5BDADD] w-full px-4  py-8 flex items-center justify-center'>
             <div className='w-[75%]'>
                 <p>home</p>
             </div>
         </div>
-        <div className='lg:mx-60 md:mx-20 md:ml-4 flex flex-col items-center justify-center'>
+        <div className='max-w-[1440px] mx-4 md:ml-4 flex flex-col items-center justify-center'>
 
             {/* <div>
                 <CategoryListMobile />

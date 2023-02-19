@@ -48,8 +48,8 @@ const Test = ({testProduct}) => {
                 <p>home</p>
             </div>
         </div>
-        <div className='w-full max-w-[1440px] mx-4 flex items-center justify-center'>
-            <div className='my-8  mx-4'>
+        <div className='w-full mx-4 flex items-center justify-center'>
+            <div className='my-8  max-w-[1440px] mx-4'>
                 <div className='flex flex-col md:flex-row'>
                     {/* left */}
                     <div className='flex flex-row'>

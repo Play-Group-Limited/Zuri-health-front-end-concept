@@ -89,7 +89,7 @@ const Navbar = () => {
                             <hr className='my-8'/>
                         </div>
 
-                        <div className='flex flex-col md:flex-row justify-evenly'>
+                        <div className='flex flex-col md:flex-row justify-between'>
                             <div className='flex flex-col'>
                                 {/* item */}
                                 <div className='flex flex-col'>

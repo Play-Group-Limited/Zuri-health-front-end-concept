@@ -24,7 +24,7 @@ const Search = () => {
        submit={<img src="/assets/btns/search.png" alt=""/>}
       />
 
-      <div className={`w-auto pt-5 h-[200px] absolute overflow-y-auto bg-white p-4 rounded-t-xl rounded-b-xl ${change == true ? 'block' : 'hidden'}`}>
+      <div className={`w-auto pt-5 h-[200px] absolute overflow-y-auto bg-white p-4 z-50 rounded-t-xl rounded-b-xl ${change == true ? 'block' : 'hidden'}`}>
         <Index indexName="wellness_package">
           <Hits hitComponent={hitComponent}/>
         </Index>

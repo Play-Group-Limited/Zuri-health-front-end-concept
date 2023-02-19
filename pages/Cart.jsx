@@ -124,124 +124,125 @@ const Cart = () => {
 
   return (
     <div className='w-full h-full flex item-center justify-center'>
-        <div className='flex flex-col max-w-[1440px]  mx-4 md:w-auto  w-full'>
-            <h2 className='font-semibold text-3xl uppercase my-8 text-center md:text-start'>Shopping Cart</h2>
-
-            <div className='flex flex-col mx-4 md:mx-0'>
-                <div className='md:flex flex-row items-center justify-between mb-4 hidden'>
-                    <div className='flex flex-row'>
-                        <div className='w-8 h-8 rounded-full bg-[#5BDADD] mr-4 flex justify-center items-center '>
-                            <p className='text-xl '>1</p>
-                        </div>
-                        <p className='text-xl font-bold'>Confirm your order</p>
-                    </div>
-                    <div className='flex flex-row'>
-                        <div className='w-8 h-8 rounded-full bg-[#5BDADD] mr-4 flex justify-center items-center '>
-                            <p className='text-xl '>2</p>
-                        </div>
-                        <p className='text-xl font-bold'>Confirm your details</p>
-                    </div>
-                </div>
-
-                <div className='flex flex-col lg:flex-row w-full justify-between'>
-                    {/* left */}
-                    <div className='flex flex-col w-full lg:w-[60%] mr-16'>
-                        <div className='flex flex-col md:flex-row items-center justify-between mt-8'>
-                            <div className='flex flex-row'>
-                                <p className='md:text-xl font-bold '>Your Order Summary: </p>
-                                <p className='md:text-xl font-bold text-gray-500 ml-2'>{cart.quantity} items</p>
+        <div className='flex flex-col mx-4 items-cent justify-center max-w-[1440px]  w-full'>
+            <h2 className='font-semibold text-3xl uppercase my-8 flex items-start text-start md:text-start'>Shopping Cart</h2>
+            <div className='flex flex-col items-center justify-center w-full'>
+                <div className='flex flex-col mx-4 md:mx-0 w-full max-w-[1440px]  '>
+                    <div className='md:flex flex-row items-center justify-between mb-4 hidden'>
+                        <div className='flex flex-row'>
+                            <div className='w-8 h-8 rounded-full bg-[#5BDADD] mr-4 flex justify-center items-center '>
+                                <p className='text-xl '>1</p>
                             </div>
-
-                            <div className='flex flex-row items-center'>
-                                <BiTrash size={20}/>
-                                <p className='text-lg font-semibold ml-4'>Clear Cart</p>
-                            </div>
+                            <p className='text-xl font-bold'>Confirm your order</p>
                         </div>
-                        <hr className='my-4 border-black'/>
-
-                        {cart.products?.length > 0 && cart.products.map((product, index) => {
-                            return (<CartCard key={product._id} product={product} index={index} />)
-                        })}
-
-                        <div className='w-full flex flex-row justify-end items-end'>
-                            <div className='flex flex-row items-center'>
-                                <p className='mr-2'>Not ready to checkout?</p>
-                                <button className='p-2 cursor-pointer border border-black'>
-                                    <p>Continue shopping here</p>
-                                </button>
+                        <div className='flex flex-row'>
+                            <div className='w-8 h-8 rounded-full bg-[#5BDADD] mr-4 flex justify-center items-center '>
+                                <p className='text-xl '>2</p>
                             </div>
-                        </div>
-
-                        <div className='p-4 my-12  bg-[#5BDADD] flex flex-row justify-between rounded-md'>
-                            <h2 className='uppercase font-bold text-xl'>Sub total</h2>
-                            <p className='uppercase font-bold text-xl'> KES {cart.total}</p>
+                            <p className='text-xl font-bold'>Confirm your details</p>
                         </div>
                     </div>
 
-                    {/* right */}
-                    <div className='lg:w-[40%] my-20 border-t py-20 md:py-0 lg:border-t-0 lg:border-l border-black'>
-                        <div className='flex flex-col items-center w-full py-8 lg:py-0'>
-                            <div  className='px-8 py-4 md:w-[80%] border border-black bg-gray-200 flex flex-col rounded-lg '>
-                                <div onClick={() => setOpenBasic(prev => !prev)} className='flex flex-row justify-between'>
-                                    <div className='flex flex-col mr-16'>
-                                        <h3 className='font-bold text-xl'>Basic Infomation</h3>
-                                        <p className='text-xs'>please fill in the basic information</p>
-                                    </div>
-
-                                    <FiChevronDown size={40}/>
+                    <div className='flex flex-col lg:flex-row w-full justify-between'>
+                        {/* left */}
+                        <div className='flex flex-col w-full lg:w-[60%] mr-16'>
+                            <div className='flex flex-col md:flex-row items-center justify-between mt-8'>
+                                <div className='flex flex-row'>
+                                    <p className='md:text-xl font-bold '>Your Order Summary: </p>
+                                    <p className='md:text-xl font-bold text-gray-500 ml-2'>{cart.quantity} items</p>
                                 </div>
 
-                                { openBasic ? (
-                                    <div className='mt-6'>
-                                        <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
-                                        <input type="text" value={num} onChange={(e) => setName(e.target.value)}placeholder="Contact Number" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
-                                        <input type="text" value={name} onChange={(e) => setName(e.target.value)}placeholder="Email Address" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
-                                    </div>
-                                ) : null}
+                                <div className='flex flex-row items-center'>
+                                    <BiTrash size={20}/>
+                                    <p className='text-lg font-semibold ml-4'>Clear Cart</p>
+                                </div>
+                            </div>
+                            <hr className='my-4 border-black'/>
+
+                            {cart.products?.length > 0 && cart.products.map((product, index) => {
+                                return (<CartCard key={product._id} product={product} index={index} />)
+                            })}
+
+                            <div className='w-full flex flex-row justify-end items-end'>
+                                <div className='flex flex-row items-center'>
+                                    <p className='mr-2'>Not ready to checkout?</p>
+                                    <button className='p-2 cursor-pointer border border-black'>
+                                        <p>Continue shopping here</p>
+                                    </button>
+                                </div>
                             </div>
 
-                            <div  className='px-8 my-8 py-4 md:w-[80%] border border-black bg-gray-200 flex flex-col rounded-lg '>
-                                <div onClick={() => setOpenDelivery(prev => !prev)} className='flex flex-row justify-between'>
-                                    <div className='flex flex-col mr-16'>
-                                        <h3 className='font-bold text-xl'>Delivery Address</h3>
-                                        <p className='text-xs'>Please enter the address you would like us to deliver to</p>
-                                    </div>
-
-                                    <FiChevronDown size={40}/>
-                                </div>
-
-                                { openDelivery ? (
-                                    <div className='mt-6'>
-                                        <input type="text" placeholder="Address" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
-                                        <input type="text" placeholder="House no / Flat no" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
-                                        <input type="text" placeholder="City / Town" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
-                                        <input type="text" placeholder="State / County" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
-                                    </div>
-                                ) : null}
-                            </div>
-
-                            <div  className='px-8 py-4 md:w-[80%] border border-black bg-gray-200 flex flex-col rounded-lg '>
-                                <div onClick={() => setOpenPrescription(prev => !prev)} className='flex flex-row justify-between'>
-                                    <div className='flex flex-col mr-16'>
-                                        <h3 className='font-bold text-xl'>Upload Prescription</h3>
-                                        <p className='text-xs'>Some items on this order require a Doctor&apos;s prescription</p>
-                                    </div>
-
-                                    <FiChevronDown size={40}/>
-                                </div>
-
-                                { openPrescription ? (
-                                    <div className='mt-6'>
-                                        <input type="file"  className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
-                                    </div>
-                                ) : null}
+                            <div className='p-4 my-12  bg-[#5BDADD] flex flex-row justify-between rounded-md'>
+                                <h2 className='uppercase font-bold text-xl'>Sub total</h2>
+                                <p className='uppercase font-bold text-xl'> KES {cart.total}</p>
                             </div>
                         </div>
 
-                        <button  onClick={() => makeOrder()} className='px-8 py-2 flex flex-row justify-between items-center bg-red-400 my-8 md:mx-16'>
-                            <p className='uppercase text-white'>Place order now</p>
-                            <BsArrowRightShort size={30} className='ml-8 text-white'/>
-                        </button>
+                        {/* right */}
+                        <div className='lg:w-[40%] my-20 border-t py-20 md:py-0 lg:border-t-0 lg:border-l border-black'>
+                            <div className='flex flex-col items-center w-full py-8 lg:py-0'>
+                                <div  className='px-8 py-4 md:w-[80%] border border-black bg-gray-200 flex flex-col rounded-lg '>
+                                    <div onClick={() => setOpenBasic(prev => !prev)} className='flex flex-row justify-between'>
+                                        <div className='flex flex-col mr-16'>
+                                            <h3 className='font-bold text-xl'>Basic Infomation</h3>
+                                            <p className='text-xs'>please fill in the basic information</p>
+                                        </div>
+
+                                        <FiChevronDown size={40}/>
+                                    </div>
+
+                                    { openBasic ? (
+                                        <div className='mt-6'>
+                                            <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
+                                            <input type="text" value={num} onChange={(e) => setName(e.target.value)}placeholder="Contact Number" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
+                                            <input type="text" value={name} onChange={(e) => setName(e.target.value)}placeholder="Email Address" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
+                                        </div>
+                                    ) : null}
+                                </div>
+
+                                <div  className='px-8 my-8 py-4 md:w-[80%] border border-black bg-gray-200 flex flex-col rounded-lg '>
+                                    <div onClick={() => setOpenDelivery(prev => !prev)} className='flex flex-row justify-between'>
+                                        <div className='flex flex-col mr-16'>
+                                            <h3 className='font-bold text-xl'>Delivery Address</h3>
+                                            <p className='text-xs'>Please enter the address you would like us to deliver to</p>
+                                        </div>
+
+                                        <FiChevronDown size={40}/>
+                                    </div>
+
+                                    { openDelivery ? (
+                                        <div className='mt-6'>
+                                            <input type="text" placeholder="Address" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
+                                            <input type="text" placeholder="House no / Flat no" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
+                                            <input type="text" placeholder="City / Town" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
+                                            <input type="text" placeholder="State / County" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
+                                        </div>
+                                    ) : null}
+                                </div>
+
+                                <div  className='px-8 py-4 md:w-[80%] border border-black bg-gray-200 flex flex-col rounded-lg '>
+                                    <div onClick={() => setOpenPrescription(prev => !prev)} className='flex flex-row justify-between'>
+                                        <div className='flex flex-col mr-16'>
+                                            <h3 className='font-bold text-xl'>Upload Prescription</h3>
+                                            <p className='text-xs'>Some items on this order require a Doctor&apos;s prescription</p>
+                                        </div>
+
+                                        <FiChevronDown size={40}/>
+                                    </div>
+
+                                    { openPrescription ? (
+                                        <div className='mt-6'>
+                                            <input type="file"  className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
+                                        </div>
+                                    ) : null}
+                                </div>
+                            </div>
+
+                            <button  onClick={() => makeOrder()} className='px-8 py-2 flex flex-row justify-between items-center bg-red-400 my-8 md:mx-16'>
+                                <p className='uppercase text-white'>Place order now</p>
+                                <BsArrowRightShort size={30} className='ml-8 text-white'/>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -9,11 +9,11 @@ const ContinuosCare = () => {
     <div className='w-full h-screen'>
         <div className='bg-[#58E5E8] w-full h-[50vh]'>
 
-            <div className='mx-4 md:mx-20 lg:mx-60 relative'>
-                <div className='absolute top-10'>
+            <div className='mx-4 md:mx-20 lg:mx-60 relative flex flex-col'>
+                <div className='lg:absolute top-10'>
                     <Featured />
                 </div>
-                <div className='absolute top-60 right-0'>
+                <div className='lg:absolute top-60 right-0'>
                     <CCPForm />
                 </div>
 

@@ -45,14 +45,14 @@ const Drug = ({product}) => {
     }
     
   return (
-    <div className='w-full h-full flex items-center justify-center'>
+    <div className='w-full h-full flex flex-col items-center justify-center'>
         <div className='bg-[#5BDADD] w-full px-4  py-8 flex items-center justify-center'>
             <div className='w-[75%]'>
                 <p>home</p>
             </div>
         </div>
-        <div className='my-8 max-w-[1440px] mx-4'>
-            <div className='mx-4 flex items-center justify-center'>
+        <div className='w-full mx-4 flex items-center justify-center'>
+            <div className='my-8  max-w-[1440px] mx-4'>
                 <div className='flex flex-col md:flex-row'>
                     {/* left */}
                     <div className='flex flex-row'>
@@ -89,7 +89,7 @@ const Drug = ({product}) => {
                     </div>
 
                     {/* right */}
-                    <div className='flex flex-col md:ml-6 w-full md:max-w-[50%]'>
+                    <div className='flex flex-col md:ml-6 w-full'>
                         <div className='md:max-w-[60%] text-center md:text-start'>
                             <h3 className='font-semibold text-3xl mb-2'>{product.name}</h3>
                             <p className='mb-6'>Manufactured By  Apex Laboratories Pvt. Ltd.</p>

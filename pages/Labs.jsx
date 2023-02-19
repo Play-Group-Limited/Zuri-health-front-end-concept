@@ -30,15 +30,15 @@ const Labs = ({testProduct}) => {
     console.log("first", testProduct)
   return (
     <div className='w-full h-full'>
-        <div className='bg-[#AFDB26]  w-full'>
-            <div className='mx-2 md:mx-20 lg:mx-60 flex flex-row h-full justify-center items-center'>
+        <div className='bg-[#AFDB26]  w-full flex items center justify-center'>
+            <div className='lg:max-w-[1440px] flex flex-row h-full justify-center items-center'>
                 <div className='h-full w-full relative'>
-                <Swiper navigation={true} modules={[Navigation]} className='z-0 h-[100%]'>
+                <Swiper navigation={true} modules={[Navigation]} className=' max-w-[100vw]'>
                     <SwiperSlide>
                         <div className='w-full h-max flex flex-col my-8 md:flex-row items-center md:mx-12'>
                             <Image src={bgLg} alt='woman' className='hidden md:block top-0 w-full h-full'/>
                             <Image src={bg} alt='woman' className='md:hidden mt-4 top-0 z-10 '/>
-                            <div className='md:absolute bg-black/70 rounded-xl my-8 md:mt-0 z-10 px-6 md:w-[40%] md:left-[5%] md:top-[35%] text-left py-8 '>
+                            <div className='md:absolute bg-black/70 rounded-xl my-8 md:mt-0 z-10 px-6 md:w-[50%] md:left-[5%] md:top-[30%] text-left py-8 '>
                                 <h3 className='font-bold text-3xl mb-4 md:text-6xl text-[#AFDB26]'>Labs Tests</h3>
                                 <p className='md:mt-4 text-lg text-white'>
                                     Get Accurate results with our lab test
@@ -69,80 +69,82 @@ const Labs = ({testProduct}) => {
             </div>
         </div>
 
-        <div className='my-4 flex flex-col mx-2 md:mx-20 lg:mx-60'>
-            <div className='flex  flex-col md:flex-row items-center h-full w-full'>
-                <SearchXl />
-                <TalkToDoc />
+        <div className='my-4 flex flex-col mx-2  w-full items-center justify-center'>
+            <div className='lg:max-w-[1440px] w-full flex flex-col items-center justify-center'>
+                <div className='flex  flex-col md:flex-row items-center h-full w-full max-w-[1440px]'>
+                    <SearchXl />
+                    <TalkToDoc />
 
-            </div>
-
-            {/* tests */}
-            <div className='flex flex-col h-full w-full'>
-                <div className='my-6 flex flex-col'>
-                    <h3 className='text-xl font-bold'>Popular Items</h3>
-
-                    <div className='flex flex-row w-full h-full'>
-                        {/* test list */}
-                        <div className='my-6 overflow-x-auto'>
-                            <TestList testProducts={testProduct.test_products}/>
-                        </div>
-
-                    </div>
                 </div>
-            </div>
 
-            {/* categories */}
-            <div className='flex flex-col h-full w-full'>
-                <div className='my-6 flex flex-col'>
-                    <h3 className='text-xl font-bold mb-6'>Popular Items</h3>
+                {/* tests */}
+                <div className='flex flex-col h-full w-full'>
+                    <div className='my-6 flex flex-col'>
+                        <h3 className='text-xl font-bold'>Popular Items</h3>
 
-                    <div className='flex flex-col md:flex-row relative'>
-                        <div className='w-full  relative mr-2 my-2'>
-                            <Link href='/TestCategories'>
-                                <Image src={wpackage} alt='Wellness Package' className='w-full h-full'/>
-                                <div className='absolute bottom-8 p-4 left-8 '>
-                                    <h3 className='text-3xl font-bold text-white'>
-                                        Select the perfect
-                                        <br /> 
-                                        Wellness Package
-                                    </h3>
-                                </div>
-                            </Link>
+                        <div className='flex flex-row w-full h-full'>
+                            {/* test list */}
+                            <div className='my-6 overflow-x-auto'>
+                                <TestList testProducts={testProduct.test_products}/>
                             </div>
-                        <div className='w-full  relative '>
-                            <Link href='/TestCategories'>
-                                <Image src={thome} alt='Wellness Package' className='w-full h-full'/>
-                                <div className='absolute bottom-8 p-4 left-8 '>
-                                    <h3 className='text-3xl font-bold text-white'>
-                                        Book a lab
-                                        <br />
-                                        test at home
-                                    </h3>
-                                </div>
-                            </Link>
+
                         </div>
-                    
                     </div>
                 </div>
-            </div>
 
-            <hr className='my-12'/>
+                {/* categories */}
+                <div className='flex flex-col h-full w-full'>
+                    <div className='my-6 flex flex-col'>
+                        <h3 className='text-xl font-bold mb-6'>Popular Items</h3>
 
-            <div className='my-4'>
-                <Info />
-            </div>
+                        <div className='flex flex-col md:flex-row relative'>
+                            <div className='w-full  relative mr-2 my-2'>
+                                <Link href='/TestCategories'>
+                                    <Image src={wpackage} alt='Wellness Package' className='w-full h-full'/>
+                                    <div className='absolute bottom-8 p-4 left-8 '>
+                                        <h3 className='text-3xl font-bold text-white'>
+                                            Select the perfect
+                                            <br /> 
+                                            Wellness Package
+                                        </h3>
+                                    </div>
+                                </Link>
+                                </div>
+                            <div className='w-full  relative '>
+                                <Link href='/TestCategories'>
+                                    <Image src={thome} alt='Wellness Package' className='w-full h-full'/>
+                                    <div className='absolute bottom-8 p-4 left-8 '>
+                                        <h3 className='text-3xl font-bold text-white'>
+                                            Book a lab
+                                            <br />
+                                            test at home
+                                        </h3>
+                                    </div>
+                                </Link>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+
+                <hr className='my-12'/>
+
+                <div className='my-4 w-full'>
+                    <Info />
+                </div>
+                
+                <hr className='my-12'/>
+
+                <div className='my-4 w-full'>
+                    <Testimonials />
+                </div>
+
+
             
-            <hr className='my-12'/>
+            
 
-            <div className='my-4'>
-                <Testimonials />
+
             </div>
-
-
-           
-        
-
-
         </div>
     </div>
   )

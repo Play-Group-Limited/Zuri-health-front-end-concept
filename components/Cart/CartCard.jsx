@@ -41,7 +41,7 @@ const CartCard = ({product, index}) => {
             </div>
             <div className='flex flex-col md:ml-4 justify-between'>
                 <div className='flex flex-col'>
-                    <p className='font-bold text-[#5BDADD] uppercase mb-4'>Requires prescription</p>
+                    <p className={`font-bold text-[#5BDADD] uppercase mb-4 ${product?.product.name == true ? "flex" : "hidden"}`}>Requires prescription</p>
                     <p className='font-bold text-xl my-2 md:my-0'>{product?.product.name}</p>
                     <p className='uppercase text-gray-400 mb-4 md:mb-0 my-2 md:my-0'>Apex laboritories PVT LTD</p>
                 </div>

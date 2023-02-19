@@ -47,8 +47,8 @@ const Navbar = () => {
         <div className='flex flex-col w-full'>
             <div className='bg-black py-4 w-full h-full flex justify-center items-center pr-4 md:pr-0'>
                 <div className=' flex flex-row justify-center md:justify-end md:items-end w-full max-w-[1440px] lg:pr-4'>
-                    <p className='text-white mx-2 text-sm hidden lg:block whitespace-nowrap'>Corparate Services</p>
-                    <p className='text-white mx-2 text-sm hidden lg:block whitespace-nowrap'>Become a Partner</p>
+                    <p className='text-white mx-2 text-sm hidden md:block whitespace-nowrap'>Corparate Services</p>
+                    <p className='text-white mx-2 text-sm hidden md:block whitespace-nowrap'>Become a Partner</p>
                     <span className='flex flex-row items-center'>
                         <p className='text-white mx-2 text-sm hidden lg:block whitespace-nowrap'>Country Selector</p>
                         <BsGlobe className='text-white mr-8 md:mr-0' size={20}/>
@@ -89,7 +89,7 @@ const Navbar = () => {
                             <hr className='my-8'/>
                         </div>
 
-                        <div className='flex flex-col md:flex-row justify-evenly'>
+                        <div className='flex flex-col md:flex-row justify-between'>
                             <div className='flex flex-col'>
                                 {/* item */}
                                 <div className='flex flex-col'>

@@ -66,6 +66,13 @@ a {
   margin: 0 15px 0 15px;
 }
 
+.swiper-button-next::after{
+  color: black;
+}
+.swiper-button-prev:after{
+  color: black;
+}
+
 @media screen and (max-width: 480px){
     .ais-SearchBox-form{
     padding:8px;

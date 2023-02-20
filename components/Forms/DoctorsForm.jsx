@@ -3,7 +3,7 @@ import { BiChevronRight } from 'react-icons/bi'
 
 const DoctorsForm = () => {
   return (
-    <div className='bg-gray-200 flex flex-col border px-12 py-6 w-[25vw] rounded-xl'>
+    <div className='bg-gray-200 flex flex-col border px-12 py-6  rounded-xl'>
         <h2 className='text-2xl mb-4'>Continuos with doctors Virtually</h2>
         <p>Please ﬁll in the form below to join</p>
 

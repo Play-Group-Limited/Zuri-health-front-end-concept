@@ -120,7 +120,7 @@ const About = () => {
                             <Image src={onep} alt='hope' />
                         </div>
                     </div>
-                    <h4 className='font-bold text-3xl whitespace-nowrap'>
+                    <h4 className='font-bold text-xl whitespace-nowrap'>
                         Best price guarantee
                     </h4>
                     <p className='text-gray-400 mt-4'>
@@ -135,7 +135,7 @@ const About = () => {
                             <Image src={twop} alt='hope' />
                         </div>
                     </div>
-                    <h4 className='font-bold text-3xl'>
+                    <h4 className='font-bold text-xl'>
                         Certified healthcare services
                     </h4>
                     <p className='text-gray-400 mt-4'>
@@ -163,7 +163,7 @@ const About = () => {
             <h2 className='text-[#1A4A96] text-3xl font-bold'>Watch Our Corporate Video</h2>
             <Image src={vid} alt='coporate video' className='mt-16' />
         </div>
-        <div className='flex flex-col items-center justify-center mt-16 py-8 text-center h-[60vh] bg-[#1D2631]'>
+        <div className='flex flex-col items-center justify-center mt-16 py-8 text-center h-full lg:h-[60vh] bg-[#1D2631]'>
             <h2 className='text-white text-3xl font-bold'>Awards</h2>
             <div className='flex flex-wrap lg:max-w-[50%]  justify-center  mt-8'>
                 <Image src={one} alt='award' className='p-4 bg-white rounded-lg m-2'/>

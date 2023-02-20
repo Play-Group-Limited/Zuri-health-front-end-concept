@@ -89,10 +89,11 @@ const Navbar = () => {
                             <hr className='my-8'/>
                         </div>
 
-                        <div className='flex flex-col md:flex-row justify-between'>
+                        <div className='flex flex-col-reverse md:flex-row justify-between'>
                             <div className='flex flex-col'>
                                 {/* item */}
                                 <div className='flex flex-col'>
+                                    
                                     {/* category */}
                                     <div className='flex flex-row items-center border-b-4  border-[#00F9ED]'>
                                         <p className='mx-2'>Engage with doctors</p>
@@ -187,6 +188,9 @@ const Navbar = () => {
                             </div>
                             <div className='flex flex-col'>
                                 {/* item */}
+                                <Link href='/'>
+                                    <p className='py-4 pl-2 md:hidden'>Back Home</p>
+                                </Link>
                                 <div className='flex flex-col'>
                                     {/* category */}
                                     <Link href="/Pharmacy">
@@ -236,6 +240,8 @@ const Navbar = () => {
                                     
                                     </div>
                                 </div>
+
+                                
                             </div>
                         </div>
                     </div>
@@ -249,9 +255,11 @@ const Navbar = () => {
                     </Link>
 
                     <div className='flex flex-row lg:hidden w-full h-full mt-8 justify-between'>
-                        <div className='items-start'> 
-                            <Image src={logo} alt="logo" className='' width={80} height={40}/>
-                        </div>
+                        <Link href='/'>
+                            <div className='items-start'> 
+                                <Image src={logo} alt="logo" className='' width={80} height={40}/>
+                            </div>
+                        </Link>
                         <RxHamburgerMenu size={40} onClick={() => setOpenMenu(true)}/>
                     </div>
 

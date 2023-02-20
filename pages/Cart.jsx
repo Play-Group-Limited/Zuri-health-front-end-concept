@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 // import { API_URL } from '../../config/api.config'
 import { useRouter } from "next/router"
+import { API_URL } from '../config/api.config'
+import Link from 'next/link'
 
 
 const Cart = () => {
@@ -37,35 +39,18 @@ const Cart = () => {
         }
     }
 
+    const router = useRouter();
+
     const dispatch = useDispatch()
     const cart = useSelector((state) => state.cart);
-    
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        address: '',
-        hseNumber: '',
-        city: '',
-        country: ''
-    })
 
-    const [formErrors, setFormErrors] = useState({
-        name: '',
-        nameBorder: '',
-        email: '',
-        emailBorder: '',
-        phone: '',
-        phoneBorder: '',
-        address: '',
-        addressBorder: '',
-        hseNumber: '',
-        hseBorder: '',
-        city: '',
-        cityBorder: '',
-        country: '',
-        countryBorder: ''
-      })
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
+    const [address, setAddress] = useState('')
+    const [hseNumber, setHseNumber] = useState('')
+    const [city, setCity] = useState('')
+    const [country, setCountry] = useState('')
 
     let amount = cart.total
     console.log("cart",cart)
@@ -84,10 +69,10 @@ const Cart = () => {
         })
 
         const paylaod = {
-            name: formData.name,
-            email: formData.email,
-            country: capitalizeFirstLetter(formData.country),
-            phone: formData.phone,
+            name: name,
+            email: email,
+            country: capitalizeFirstLetter(country),
+            phone: phone,
             pharmacy_id: "60a8d5fe626f28e1cbe94ef4",
             details,
             delivery_address: {
@@ -166,9 +151,11 @@ const Cart = () => {
                             <div className='w-full flex flex-row justify-end items-end'>
                                 <div className='flex flex-row items-center'>
                                     <p className='mr-2'>Not ready to checkout?</p>
-                                    <button className='p-2 cursor-pointer border border-black'>
-                                        <p>Continue shopping here</p>
-                                    </button>
+                                    <Link href='/Pharmacy'>
+                                        <button className='p-2 cursor-pointer border border-black'>
+                                            <p>Continue shopping here</p>
+                                        </button>
+                                    </Link>
                                 </div>
                             </div>
 
@@ -194,8 +181,8 @@ const Cart = () => {
                                     { openBasic ? (
                                         <div className='mt-6'>
                                             <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
-                                            <input type="text" value={num} onChange={(e) => setName(e.target.value)}placeholder="Contact Number" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
-                                            <input type="text" value={name} onChange={(e) => setName(e.target.value)}placeholder="Email Address" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
+                                            <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)}placeholder="Contact Number" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
+                                            <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}placeholder="Email Address" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
                                         </div>
                                     ) : null}
                                 </div>
@@ -212,10 +199,10 @@ const Cart = () => {
 
                                     { openDelivery ? (
                                         <div className='mt-6'>
-                                            <input type="text" placeholder="Address" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
-                                            <input type="text" placeholder="House no / Flat no" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
-                                            <input type="text" placeholder="City / Town" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
-                                            <input type="text" placeholder="State / County" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
+                                            <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Address" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
+                                            <input type="text" value={hseNumber} onChange={(e) => setHseNumber(e.target.value)} placeholder="House no / Flat no" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
+                                            <input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="City / Town" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
+                                            <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} placeholder="State / County" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
                                         </div>
                                     ) : null}
                                 </div>

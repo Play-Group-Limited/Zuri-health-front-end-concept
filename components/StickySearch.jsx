@@ -1,7 +1,8 @@
+import Link from 'next/link'
 import React, { useState } from 'react'
 
 import { BiSearchAlt } from 'react-icons/bi'
-import { BsWhatsapp } from 'react-icons/bs'
+import { BsUpload, BsWhatsapp } from 'react-icons/bs'
 import Search from './Search/Search'
 
 const StickySearch = () => {
@@ -10,12 +11,12 @@ const StickySearch = () => {
     const [whatsapp, setWhatsapp] = useState(false)
 
   return (
-    <div className= {`sticky hidden md:flex flex-col justify-center w-fit bottom-[40%] -translate-y-[50%] z-30 ${clicked ? "w-full" : null}`}>
+    <div className= {`sticky hidden md:flex flex-col justify-center w-fit bottom-[40%] -translate-y-[50%] z-30 ${clicked ? "w-fit" : null}`}>
     
         <div  className={`bg-black flex items-center justify-center rounded-tr-lg p-2 ${ clicked == true ? "w-full rounded-r-4xl" : "w-[5vh]"}`}>
             <button className="" onClick={() => setClicked(prev => ! prev)}>
                 <div className={`p-2 rounded-full bg-[#00FFFF] ${clicked == true ? 'mx-4' : null}`}>
-                    <BiSearchAlt className=" text-black"/>
+                    <BiSearchAlt  size={20} className=" text-black"/>
                 </div>
                 <p className="text-[#00FFFF] text-xs mt-2">
                     Quick <br /> Finder
@@ -29,7 +30,14 @@ const StickySearch = () => {
             ) : null}
             
         </div>
-        <div  className={`bg-[#32BA46] flex items-center justify-center    rounded-br-lg p-2 ${ whatsapp == true ? "w-full rounded-tr-lg" : "w-[5vh]"}`}>
+        <Link href='/Pharmacy'>
+            <div  className='bg-black flex items-center justify-center w-fit p-2'>
+                <button className='p-2 rounded-full'>
+                    <BsUpload  size={20} className=" text-white"/>
+                </button>
+            </div>
+        </Link>
+        <div  className={`bg-[#32BA46] flex items-center justify-center    rounded-br-lg p-2 ${ whatsapp == true ? "w-fit rounded-tr-none" : "w-[5vh]"}`}>
             <button className="" onClick={() => setWhatsapp(prev => ! prev)}>
                 <div className="p-2 rounded-full">
                     <BsWhatsapp size={20} className="text-white"/>

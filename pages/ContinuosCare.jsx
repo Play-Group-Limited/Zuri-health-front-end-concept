@@ -1,25 +1,30 @@
 import Image from 'next/image'
 import React from 'react'
 import Featured from '../components/ContinuosCare/Featured'
+import Featuredsm from '../components/ContinuosCare/Featuredsm'
 import CCPForm from '../components/Forms/CCPForm'
 
 
 const ContinuosCare = () => {
   return (
-    <div className='w-full h-screen'>
+    <div className='w-full h-full'>
         <div className='bg-[#58E5E8] w-full h-[50vh]'>
 
-            <div className='mx-4 md:mx-20 lg:mx-60 relative flex flex-col'>
-                <div className='lg:absolute top-10'>
+            <div className='mx-4 max-w-[1440px] relative flex flex-col'>
+                <div className='hidden md:block absolute top-10'>
                     <Featured />
                 </div>
-                <div className='lg:absolute top-60 right-0'>
+                <div className='md:hidden top-10 w-full flex items-center justify-center'>
+                    <Featuredsm />
+                </div>
+                <div className='hidden md:block absolute top-60 right-0'>
                     <CCPForm />
                 </div>
+                
 
             </div>
         </div>
-        <div className='mx-4 md:mx-20 lg:mx-60 relative my-[12rem] '>
+        <div className='mx-4 max-w-[1440px]  my-[12rem] '>
             <div className='ml-12'>
                 <h3 className='my-4 text-[#58E5E8] text-lg font-semibold'>Benefits</h3>
                 <p>
@@ -31,6 +36,9 @@ const ContinuosCare = () => {
                     <li>Personal Healthcare Assistant</li>
                     <li>Healthcare advice</li>
                 </p>
+            </div>
+            <div className='md:hidden '>
+                <CCPForm />
             </div>
         </div>
     </div>

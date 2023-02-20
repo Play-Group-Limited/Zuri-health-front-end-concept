@@ -1,6 +1,7 @@
 import React from 'react'
 import DoctorAtHome from '../components/Doctors/DoctorAtHome'
 import Featured from '../components/Doctors/Featured'
+import Featuredsm from '../components/Doctors/Featuredsm'
 import Sms from '../components/Doctors/Sms'
 import DoctorsForm from '../components/Forms/DoctorsForm'
 
@@ -8,20 +9,24 @@ const Doctors = () => {
   return (
     <div className='w-full h-full'>
         <div className='bg-[#FF7F00] w-full h-[50vh]'>
-
-            <div className='mx-4 md:mx-20 lg:mx-60 relative'>
-                <div className='absolute top-10'>
+            <div className='mx-4 xl:mx-60 max-w-[1440px] relative'>
+                <div className='hidden md:block absolute top-10 xl:max-w-[60%]'>
                     <Featured />
                 </div>
-                <div className=' hidden lg:absolute top-60 right-0 w-[25vw]'>
+                <div className='absolute top-10 md:hidden'>
+                    <Featuredsm />
+                </div>
+                <div className=' hidden md:block absolute top-40 right-0 w-full lg:w-[40vw] xl:w-[25vw]'>
                     <DoctorsForm />
                 </div>
 
             </div>
         </div>
         <div className='w-full flex items-center justify-center'>
-            <div className='mx-4 max-w-[1440px] relative my-[12rem] '>
-                <DoctorsForm />
+            <div className='mx-4 max-w-[1440px] relative mt-8 md:my-[12rem] '>
+                <div className=' md:hidden md:max-w-[25vw]'>
+                    <DoctorsForm />
+                </div>
                 <div className='ml-12'>
                     <h3 className='my-4 text-[#FF7F00] text-lg font-semibold'>Benefits</h3>
                     <p>

@@ -1,16 +1,16 @@
 import Image from 'next/image'
 import React from 'react'
-import ccp from '../../public/assets/stockImgs/Partner/bgsm.png'
+import ccp from '../../public/assets/ccp/ccpsm.png'
 
 const Featuredsm = () => {
   return (
     <div className='w-full max-w-[80vw] lg:max-w-[80vw] rounded-xl md:mx-12 my-4'>
-        <div className='relative '>
-            <Image src={ccp} alt='ccp' className='w-full h-full object-contain' />
-            <div className='absolute w-[80%] rounded-r-xl h-[70%] top-[25%] p-6 bg-[#052749]/60'>
+        <div className='relative flex items-center justify-center'>
+            <Image src={ccp} alt='ccp'  className='w-full'/>
+            <div className='absolute w-[80%] rounded-xl -bottom-[5%] p-6 bg-cyan-700/60'>
                 <div className='flex flex-col justify-center h-full'>
-                    <h1 className='md:text-5xl text-lg font-bold text-white text-left'>Become a Happy <br /> Zuri Partner</h1>
-                    <p className='text-left text-white py-4 text-sm'>
+                    <h1 className='lg:text-5xl text-2xl font-bold text-[#55F0F4] text-left'>Continuous Care <br /> Programme</h1>
+                    <p className='text-left text-white py-4'>
                         Take advantage of tailor-made
                         <br />
                         healthcare for your loved ones.

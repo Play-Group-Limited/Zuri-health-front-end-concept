@@ -79,37 +79,41 @@ const Navbar = () => {
             </div>
             {openMenu ? (
                 <div className=' w-full h-full top-0 bottom-0 overflow-y-auto left-0 right-0 z-50 md:h-screen bg-white'>
-                    <div className=' mx-4 max-w-[1440px] my-12'>
+                    <div className=' mx-4 xl:mx-60 my-12'>
                         <div className=''>
                             <hr className='my-8'/>
                             <div className='flex flex-row items-center justify-between'>
-                                <Image src={logo} alt="logo" className='hidden md:block'/>
+                                <Link href='/'>
+                                    <Image src={logo} alt="logo" className='hidden md:block'/>
+                                    <Image src={logo} alt="logo" width={80} height={40} className='md:hidden'/>
+                                </Link>
                                 <RxCrossCircled size={40} onClick={() => setOpenMenu(false)} className='mr-4'/>
                             </div>
                             <hr className='my-8'/>
                         </div>
 
-                        <div className='flex flex-col-reverse md:flex-row justify-between'>
-                            <div className='flex flex-col'>
-                                {/* item */}
+                            <div className='flex flex-col-reverse md:flex-row justify-between'>
                                 <div className='flex flex-col'>
-                                    
-                                    {/* category */}
-                                    <div className='flex flex-row items-center border-b-4  border-[#00F9ED]'>
-                                        <p className='mx-2'>Engage with doctors</p>
-                                        <RiArrowDropDownLine />
-                                        <span className='py-4 border-b border-[#00F9ED]'/>
+                                    {/* item */}
+                                    <div className='flex flex-col'>
+                                        {/* category */}
+                                        <Link href='/Doctors'>
+                                            <div className='flex flex-row items-center border-b-4  border-[#00F9ED]'>
+                                                <p className='mx-2'>Engage with doctors</p>
+                                                <RiArrowDropDownLine />
+                                                <span className='py-4 border-b border-[#00F9ED]'/>
+                                            </div>
+                                        </Link>
+                                        {/* list */}
+                                        <div className='my-4 mx-2'>
+                                            <p className='text-slate-600 my-2'>Find a doctor</p>
+                                            <p className='text-slate-600 my-2'>Video Consultation</p>
+                                            <p className='text-slate-600 my-2'>Book a home vist</p>
+                                            <p className='text-slate-600 my-2'>Ask free health</p>
+                                            <p className='text-slate-600 my-2'>Read health articles</p>
+                                            <p className='text-slate-600 my-2'>Chat with a doctor</p>
+                                        </div>
                                     </div>
-                                    {/* list */}
-                                    <div className='my-4 mx-2'>
-                                        <p className='text-slate-600 my-2'>Find a doctor</p>
-                                        <p className='text-slate-600 my-2'>Video Consultation</p>
-                                        <p className='text-slate-600 my-2'>Book a home vist</p>
-                                        <p className='text-slate-600 my-2'>Ask free health</p>
-                                        <p className='text-slate-600 my-2'>Read health articles</p>
-                                        <p className='text-slate-600 my-2'>Chat with a doctor</p>
-                                    </div>
-                                </div>
 
                                 {/* item */}
                                 <div className='flex flex-col'>
@@ -148,7 +152,7 @@ const Navbar = () => {
                                 {/* item */}
                                 <div className='flex flex-col'>
                                     {/* category */}
-                                    <Link  href='/Labs'>
+                                    <Link href='/Labs'>
                                         <div className='flex flex-row items-center border-b-4  border-[#00F9ED]'>
                                             <p className='mx-2'>Lab Tests and Diagnostics</p>
                                             <RiArrowDropDownLine />
@@ -184,68 +188,63 @@ const Navbar = () => {
                                     
                                     </div>
                                 </div>
-                                
-                            </div>
-                            <div className='flex flex-col'>
-                                {/* item */}
-                                <Link href='/'>
-                                    <p className='py-4 pl-2 md:hidden'>Back Home</p>
-                                </Link>
-                                <div className='flex flex-col'>
-                                    {/* category */}
-                                    <Link href="/Pharmacy">
-                                        <div className='flex flex-row items-center border-b-4  border-[#00F9ED]'>
-                                            <p className='mx-2'>Pharmacy</p>
-                                            <RiArrowDropDownLine />
-                                            <span className='py-4 border-b border-[#00F9ED]'/>
-                                        </div>
-                                    </Link>
-                                    {/* list */}
-                                    <div className='my-4 mx-2'>
-                                        <p className='text-slate-600 my-2'>Order Medication</p>
-                                        <p className='text-slate-600 my-2'>Upload Prescription</p>
-                                        <Link href='/Categories'>
-                                            <p className='text-slate-600 my-2'>Vitamins &amp; Supplements</p>
-                                            <p className='text-slate-600 my-2'>Health &amp; Beauty</p>
-                                            <p className='text-slate-600 my-2'>Personal Care</p>
-                                            <p className='text-slate-600 my-2'>Hair Care</p>
-                                            <p className='text-slate-600 my-2'>Eye Care</p>
-                                            <p className='text-slate-600 my-2'>Mum &amp; Baby</p>
-                                            <p className='text-slate-600 my-2'>Perfumes And Sprays</p>
-                                            <p className='text-slate-600 my-2'>Medical Devices - Diagnostics</p>
-                                        </Link>
-                                        <p className='text-slate-600 my-2'>Read about medicines</p>
-                                    </div>
-                                </div>
-
-                                {/* item */}
-                                <div className='flex flex-col'>
-                                    {/* category */}
-                                    <Link href='/ContinuosCare' >
-                                        <div className='flex flex-row items-center border-b-4  border-[#00F9ED]'>
-                                            <p className='mx-2'>Care and technology</p>
-                                            <RiArrowDropDownLine />
-                                            <span className='py-4 border-b border-[#00F9ED]'/>
-                                        </div>
-                                    </Link>
-                                    {/* list */}
-                                    <div className='my-4 mx-2'>
-                                        <Link href='/ContinuosCare' >
-                                            <p className='text-slate-600 my-2'>Continuous Care Programme</p>
-                                        </Link>
-                                        <p className='text-slate-600 my-2'>Download our App</p>
-                                        <Link href='/Partner'>
-                                            <p className='text-slate-600 my-2'>Become a Partner</p>
-                                        </Link>
                                     
+                                </div>
+                                <div className='flex flex-col'>
+                                    {/* item */}
+                                    <div className='flex flex-col'>
+                                        {/* category */}
+                                        <Link href="/Pharmacy">
+                                            <div className='flex flex-row items-center border-b-4  border-[#00F9ED]'>
+                                                <p className='mx-2'>Pharmacy</p>
+                                                <RiArrowDropDownLine />
+                                                <span className='py-4 border-b border-[#00F9ED]'/>
+                                            </div>
+                                        </Link>
+                                        {/* list */}
+                                        <div className='my-4 mx-2'>
+                                            <p className='text-slate-600 my-2'>Order Medication</p>
+                                            <p className='text-slate-600 my-2'>Upload Prescription</p>
+                                            <Link href='/Categories'>
+                                                <p className='text-slate-600 my-2'>Vitamins &amp; Supplements</p>
+                                                <p className='text-slate-600 my-2'>Health &amp; Beauty</p>
+                                                <p className='text-slate-600 my-2'>Personal Care</p>
+                                                <p className='text-slate-600 my-2'>Hair Care</p>
+                                                <p className='text-slate-600 my-2'>Eye Care</p>
+                                                <p className='text-slate-600 my-2'>Mum &amp; Baby</p>
+                                                <p className='text-slate-600 my-2'>Perfumes And Sprays</p>
+                                                <p className='text-slate-600 my-2'>Medical Devices - Diagnostics</p>
+                                            </Link>
+                                            <p className='text-slate-600 my-2'>Read about medicines</p>
+                                        </div>
+                                    </div>
+
+                                    {/* item */}
+                                    <div className='flex flex-col'>
+                                        {/* category */}
+                                        <Link href='/ContinuosCare' >
+                                            <div className='flex flex-row items-center border-b-4  border-[#00F9ED]'>
+                                                <p className='mx-2'>Care and technology</p>
+                                                <RiArrowDropDownLine />
+                                                <span className='py-4 border-b border-[#00F9ED]'/>
+                                            </div>
+                                        </Link>
+                                        {/* list */}
+                                        <div className='my-4 mx-2'>
+                                            <Link href='/ContinuosCare' >
+                                                <p className='text-slate-600 my-2'>Continuous Care Programme</p>
+                                            </Link>
+                                            <p className='text-slate-600 my-2'>Download our App</p>
+                                            <Link href='/Partner'>
+                                                <p className='text-slate-600 my-2'>Become a Partner</p>
+                                            </Link>
+                                        
+                                        </div>
                                     </div>
                                 </div>
-
-                                
                             </div>
                         </div>
                     </div>
-                </div>
             ) : null}
             <div className='w-full py-4 flex flex-row items-center justify-center'>
                 <div className='flex  w-full items-center justify-between mx-4 max-w-[1440px]'>
@@ -264,20 +263,24 @@ const Navbar = () => {
                     </div>
 
                     <div className='lg:flex flex-row hidden '>
-                        <div onClick={() => setOpenMenu(true)} className='flex flex-row items-center mx-2'>
-                            <p className='mx-2'>Engagae with doctors</p>
-                            <RiArrowDropDownLine />
-                        </div>
-                        <div onClick={() => setOpenDrop(prev => !prev)} className='flex flex-row items-center mx-2'>
-                            <p className='mx-2'>Lab Test & Diagnostics</p>
-                            <RiArrowDropDownLine />
+                        <Link href='/Doctors'>
+                            <div onClick={() => setOpenMenu(true)} className='flex flex-row items-center mx-2'>
+                                <p className='mx-2'>Engagae with doctors</p>
+                                <RiArrowDropDownLine />
+                            </div>
+                        </Link>
+                        <Link href='/Labs'>
+                            <div className='flex flex-row items-center mx-2'>
+                                <p className='mx-2'>Lab Test & Diagnostics</p>
+                                <RiArrowDropDownLine />
 
-                            {/* {openLabs ? (
-                                <div className='absolute w-full h-full'>
+                                {/* {openLabs ? (
+                                    <div className='absolute w-full h-full'>
 
-                                </div>
-                            ) : null} */}
-                        </div>
+                                    </div>
+                                ) : null} */}
+                            </div>
+                        </Link>
                         <Link href='/Pharmacy'>
                             <div  className='flex flex-row items-center mx-2'>
                                 <p className='mx-2'>Pharmacy</p>

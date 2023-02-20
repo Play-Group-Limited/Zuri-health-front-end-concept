@@ -21,7 +21,7 @@ const Featured = () => {
     <div className='w-full h-full'>
       <div className='w-full flex items-center justify-center h-full'>
         <div className=' w-full relative flex flex-col items-center justify-center'>
-          <div className='lg:max-w-[50%] w-full my-4'>
+          <div className='lg:max-w-[50%] w-full my-4 px-4'>
             <Search />
           </div>
           <Swiper />

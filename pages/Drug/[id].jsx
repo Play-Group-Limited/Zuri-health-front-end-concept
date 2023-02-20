@@ -36,6 +36,7 @@ const Drug = ({product}) => {
     const handleAdd = () => {
         let quant = quantity + 1
         setQuantity(quant) ;
+        dispatch(modifyProductQuantity({id: product._id, index: index, quantity: quant, price: product.price, product}))
     }
 
     const handleClick = () => {

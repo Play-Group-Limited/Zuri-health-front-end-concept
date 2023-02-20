@@ -258,20 +258,24 @@ const Navbar = () => {
                     </div>
 
                     <div className='lg:flex flex-row hidden '>
-                        <div onClick={() => setOpenMenu(true)} className='flex flex-row items-center mx-2'>
-                            <p className='mx-2'>Engagae with doctors</p>
-                            <RiArrowDropDownLine />
-                        </div>
-                        <div onClick={() => setOpenDrop(prev => !prev)} className='flex flex-row items-center mx-2'>
-                            <p className='mx-2'>Lab Test & Diagnostics</p>
-                            <RiArrowDropDownLine />
+                        <Link href='/Doctors'>
+                            <div onClick={() => setOpenMenu(true)} className='flex flex-row items-center mx-2'>
+                                <p className='mx-2'>Engagae with doctors</p>
+                                <RiArrowDropDownLine />
+                            </div>
+                        </Link>
+                        <Link href='/Labs'>
+                            <div className='flex flex-row items-center mx-2'>
+                                <p className='mx-2'>Lab Test & Diagnostics</p>
+                                <RiArrowDropDownLine />
 
-                            {/* {openLabs ? (
-                                <div className='absolute w-full h-full'>
+                                {/* {openLabs ? (
+                                    <div className='absolute w-full h-full'>
 
-                                </div>
-                            ) : null} */}
-                        </div>
+                                    </div>
+                                ) : null} */}
+                            </div>
+                        </Link>
                         <Link href='/Pharmacy'>
                             <div  className='flex flex-row items-center mx-2'>
                                 <p className='mx-2'>Pharmacy</p>

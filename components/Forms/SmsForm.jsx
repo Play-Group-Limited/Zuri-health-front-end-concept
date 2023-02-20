@@ -3,7 +3,7 @@ import { BiChevronRight } from 'react-icons/bi'
 
 const SmsForm = () => {
   return (
-    <div className='bg-gray-200 flex flex-col border px-8 py-8 w-[25vw] rounded-xl'>
+    <div className='bg-gray-200 flex flex-col border px-8 py-8  rounded-xl'>
         <h2 className='text-2xl mb-4'>Subscribe to SMS Service</h2>
         <p>Please ﬁll in the form below to join</p>
 

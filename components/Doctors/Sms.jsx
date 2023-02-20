@@ -6,7 +6,7 @@ const Sms = () => {
   return (
     <div className='w-full my-4 flex flex-col'>
         <div className='flex flex-row'>
-            <div className='w-full flex flex-row justify-center  my-8'>
+            <div className='w-full flex flex-col lg:flex-row justify-center  my-8'>
                 <div className='w-full'>
                     <div className='w-[50%] border-2 p-4 my-4 rounded-xl'>
                         <select className='w-full  '>
@@ -20,7 +20,7 @@ const Sms = () => {
                     </p>
                 </div>
                 
-                <div className=' w-full flex justify-end items-end '>
+                <div className=' w-full flex justify-end items-end pt-8'>
                     <SmsForm />
                 </div>
             </div>

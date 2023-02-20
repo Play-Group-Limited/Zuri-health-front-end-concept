@@ -69,7 +69,9 @@ a {
 .swiper-button-next::after{
   color: black;
 }
-.swiper-button-prev:after{
+
+.swiper-button-prev::after{
+
   color: black;
 }
 

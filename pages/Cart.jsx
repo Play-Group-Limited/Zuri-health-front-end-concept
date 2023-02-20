@@ -8,8 +8,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 // import { API_URL } from '../../config/api.config'
 import { useRouter } from "next/router"
+
+import { API_URL } from '../config/api.config'
+import Link from 'next/link'
 import validate from "../components/utils/validate"
 import { reset } from '../redux/cartSlice'
+
 
 const Cart = () => {
 
@@ -68,7 +72,6 @@ const Cart = () => {
         localStorage.clear()
         dispatch(reset())
     }
-
     const handleSubmit = (e) => {
         try {
 
@@ -76,6 +79,9 @@ const Cart = () => {
             console.log(err)
         }
     }
+
+
+    const router = useRouter();
 
     const dispatch = useDispatch()
     const cart = useSelector((state) => state.cart);
@@ -97,10 +103,10 @@ const Cart = () => {
         })
 
         const paylaod = {
-            name: formData.name,
-            email: formData.email,
-            country: capitalizeFirstLetter(formData.country),
-            phone: formData.phone,
+            name: name,
+            email: email,
+            country: capitalizeFirstLetter(country),
+            phone: phone,
             pharmacy_id: "60a8d5fe626f28e1cbe94ef4",
             details,
             delivery_address: {
@@ -148,9 +154,28 @@ const Cart = () => {
                                 </div>
                                 <p className='text-xl font-bold'>Confirm your order</p>
                             </div>
+                            
+                            <hr className='my-4 border-black'/>
+
+                            {cart.products?.length > 0 && cart.products.map((product, index) => {
+                                return (<CartCard key={product._id} product={product} index={index} />)
+                            })}
+
+                            <div className='w-full flex flex-row justify-end items-end'>
+                                <div className='flex flex-row items-center'>
+                                    <p className='mr-2'>Not ready to checkout?</p>
+                                    <Link href='/Pharmacy'>
+                                        <button className='p-2 cursor-pointer border border-black'>
+                                            <p>Continue shopping here</p>
+                                        </button>
+                                    </Link>
+                                </div>
+                            </div>
+
                             <div className='flex flex-row'>
                                 <div className='w-8 h-8 rounded-full bg-[#5BDADD] mr-4 flex justify-center items-center '>
                                     <p className='text-xl '>2</p>
+
                                 </div>
                                 <p className='text-xl font-bold'>Confirm your details</p>
                             </div>
@@ -188,6 +213,7 @@ const Cart = () => {
                                 <div className='p-4 my-12  bg-[#5BDADD] flex flex-row justify-between rounded-md'>
                                     <h2 className='uppercase font-bold text-xl'>Sub total</h2>
                                     <p className='uppercase font-bold text-xl'> KES {cart.total}</p>
+
                                 </div>
                             </div>
 
@@ -224,6 +250,7 @@ const Cart = () => {
                                                 <h3 className='font-bold text-xl'>Delivery Address</h3>
                                                 <p className='text-xs'>Please enter the address you would like us to deliver to</p>
                                             </div>
+
 
                                             <FiChevronDown size={40} />
                                         </div>

@@ -23,15 +23,18 @@ const Categories = ({products}) => {
                 <p>home</p>
             </div>
         </div>
-        <div className='max-w-[1440px] mx-4 md:ml-4 flex flex-col items-center justify-center'>
+        <div className='max-w-[1440px] mx-2 md:ml-4 flex flex-col items-center justify-center'>
 
             {/* <div>
                 <CategoryListMobile />
             </div> */}
+            
             {/* category list */}
-            <div className='flex flex-col md:flex-row my-8 mx-12 md:mx-0 justify-center'>
+            <div className='flex flex-col md:flex-row my-8 mx-4 md:mx-0 justify-center'>
                 <div className='hidden md:flex flex-col border-r'>
                     <h2 className='uppercase font-bold text-2xl pb-8'>Categories</h2>
+
+                    
                     
                     <div className='mr-4'>
                         <hr  className='my-4'/>

@@ -15,8 +15,8 @@ const DoctorAtHome = () => {
                     <option value="Airport">Airport</option>
                 </select>
             </div>
-            <div className='flex flex-row'>
-                <div className='rounded-l-xl justify-center items-center flex flex-row  my-8'>
+            <div className='flex md:flex-col lg:flex-row'>
+                <div className='rounded-l-xl justify-center items-center flex flex-col lg:flex-row  my-8'>
                     <div className='w-full relative'>
                         <Image src={patient} alt='patient' />
 
@@ -30,7 +30,7 @@ const DoctorAtHome = () => {
                             </div>
                         </div>
                     </div>
-                    <div className=''>
+                    <div className='pt-8'>
                         <DocAtHomeForm />
                     </div>
                 </div>

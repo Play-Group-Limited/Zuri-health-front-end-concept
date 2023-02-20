@@ -3,7 +3,7 @@ import {BiChevronRight} from 'react-icons/bi'
 
 const PartnerForm = () => {
   return (
-    <div className='bg-gray-200 flex flex-col border px-6 md:px-12 py-6 md:w-[25vw] rounded-3xl'>
+    <div className='bg-gray-200 flex flex-col border px-6 md:px-12 py-6 md:w-[35vw] lg: rounded-3xl'>
         <h2 className='text-2xl font-bold mb-4 pt-4'>Become a Partner</h2>
         <p>Please ﬁll in the form below to join</p>
 

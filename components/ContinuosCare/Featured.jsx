@@ -4,7 +4,7 @@ import ccp from '../../public/assets/ccp/ccp.png'
 
 const Featured = () => {
   return (
-    <div className='w-[60vw] rounded-xl'>
+    <div className='w-full lg:max-w-[80vw] rounded-xl'>
         <div className='relative'>
             <Image src={ccp} alt='ccp' />
             <div className='absolute w-[50%] rounded-r-xl h-[50%] top-[25%] p-6 bg-cyan-700/60'>

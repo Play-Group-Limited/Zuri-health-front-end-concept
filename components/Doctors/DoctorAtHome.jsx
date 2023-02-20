@@ -18,7 +18,7 @@ const DoctorAtHome = () => {
             <div className='flex md:flex-col lg:flex-row'>
                 <div className='rounded-l-xl justify-center items-center flex flex-col lg:flex-row  my-8'>
                     <div className='w-full relative'>
-                        <Image src={patient} alt='patient' />
+                        <Image src={patient} alt='patient'  className='pr-4'/>
 
                         <div className='absolute w-[60%] rounded-r-xl  h-[60%] top-[25%] p-6 bg-black/60'>
                             <div className='h-full flex flex-col justify-center'>

@@ -65,6 +65,7 @@ const Cart = () => {
     }
 
     const handleReset = () => {
+        localStorage.clear()
         dispatch(reset())
     }
 

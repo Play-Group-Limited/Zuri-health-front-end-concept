@@ -113,7 +113,7 @@ const Cart = () => {
             <h2 className='font-semibold text-3xl uppercase my-8 flex items-start text-start md:text-start'>Shopping Cart</h2>
             <div className='flex flex-col items-center justify-center w-full'>
                 <div className='flex flex-col mx-4 md:mx-0 w-full max-w-[1440px]  '>
-                    <div className='md:flex flex-row items-center justify-between mb-4 hidden'>
+                    <div className='lg:flex flex-row items-center justify-between mb-4 hidden lg:max-w-[85%] xl:max-w-[80%]'>
                         <div className='flex flex-row'>
                             <div className='w-8 h-8 rounded-full bg-[#5BDADD] mr-4 flex justify-center items-center '>
                                 <p className='text-xl '>1</p>
@@ -130,6 +130,12 @@ const Cart = () => {
 
                     <div className='flex flex-col lg:flex-row w-full justify-between'>
                         {/* left */}
+                        <div className='flex flex-row lg:hidden'>
+                            <div className='w-8 h-8 rounded-full bg-[#5BDADD] mr-4 flex justify-center items-center '>
+                                <p className='text-xl '>1</p>
+                            </div>
+                            <p className='text-xl font-bold'>Confirm your order</p>
+                        </div>
                         <div className='flex flex-col w-full lg:w-[60%] mr-16'>
                             <div className='flex flex-col md:flex-row items-center justify-between mt-8'>
                                 <div className='flex flex-row'>
@@ -167,8 +173,14 @@ const Cart = () => {
 
                         {/* right */}
                         <div className='lg:w-[40%] my-20 border-t py-20 md:py-0 lg:border-t-0 lg:border-l border-black'>
+                            <div className='md:hidden flex flex-row mb-8 '>
+                                <div className='w-8 h-8 rounded-full bg-[#5BDADD] mr-4 flex justify-center items-center '>
+                                    <p className='text-xl '>2</p>
+                                </div>
+                                <p className='text-xl font-bold'>Confirm your details</p>
+                            </div>
                             <div className='flex flex-col items-center w-full py-8 lg:py-0'>
-                                <div  className='px-8 py-4 md:w-[80%] border border-black bg-gray-200 flex flex-col rounded-lg '>
+                                <div  className='px-8 py-4 md:w-[80%] border border-black bg-gray-200 flex flex-col rounded-lg w-full'>
                                     <div onClick={() => setOpenBasic(prev => !prev)} className='flex flex-row justify-between'>
                                         <div className='flex flex-col mr-16'>
                                             <h3 className='font-bold text-xl'>Basic Infomation</h3>
@@ -187,7 +199,7 @@ const Cart = () => {
                                     ) : null}
                                 </div>
 
-                                <div  className='px-8 my-8 py-4 md:w-[80%] border border-black bg-gray-200 flex flex-col rounded-lg '>
+                                <div  className='px-8 my-8 py-4 md:w-[80%] border border-black bg-gray-200 flex flex-col rounded-lg  w-full '>
                                     <div onClick={() => setOpenDelivery(prev => !prev)} className='flex flex-row justify-between'>
                                         <div className='flex flex-col mr-16'>
                                             <h3 className='font-bold text-xl'>Delivery Address</h3>
@@ -207,7 +219,7 @@ const Cart = () => {
                                     ) : null}
                                 </div>
 
-                                <div  className='px-8 py-4 md:w-[80%] border border-black bg-gray-200 flex flex-col rounded-lg '>
+                                <div  className='px-8 py-4 md:w-[80%] border border-black bg-gray-200 flex flex-col rounded-lg  w-full '>
                                     <div onClick={() => setOpenPrescription(prev => !prev)} className='flex flex-row justify-between'>
                                         <div className='flex flex-col mr-16'>
                                             <h3 className='font-bold text-xl'>Upload Prescription</h3>
@@ -225,7 +237,7 @@ const Cart = () => {
                                 </div>
                             </div>
 
-                            <button  onClick={() => makeOrder()} className='px-8 py-2 flex flex-row justify-between items-center bg-red-400 my-8 md:mx-16'>
+                            <button  onClick={() => makeOrder()} className='px-8 py-2 flex flex-row rounded-lg justify-between items-center bg-red-400 my-8 md:mx-16'>
                                 <p className='uppercase text-white'>Place order now</p>
                                 <BsArrowRightShort size={30} className='ml-8 text-white'/>
                             </button>

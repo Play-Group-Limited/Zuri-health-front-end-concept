@@ -15,12 +15,12 @@ const Sms = () => {
                             <option value="Airport">Airport</option>
                         </select>
                     </div>
-                    <p className='text-[#ED3763] font-semibold'>
+                    <p className='text-[#ED3763] font-semibold text-ellipsis'>
                         Subscribe to Zuri Health to receive first medical consultation from qualified practitioners via SMS.
                     </p>
                 </div>
                 
-                <div className=' w-full flex justify-end items-end pt-8'>
+                <div className=' w-full flex justify-end items-end pt-8 max-w-[525px]'>
                     <SmsForm />
                 </div>
             </div>

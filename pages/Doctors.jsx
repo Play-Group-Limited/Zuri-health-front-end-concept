@@ -24,10 +24,10 @@ const Doctors = () => {
         </div>
         <div className='w-full flex items-center justify-center'>
             <div className='mx-4 max-w-[1440px] relative mt-8 md:my-[12rem] '>
-                <div className=' md:hidden pt-24 md:max-w-[25vw]'>
+                <div className=' md:hidden pt-8 md:max-w-[25vw]'>
                     <DoctorsForm />
                 </div>
-                <div className='ml-12'>
+                <div className='md:ml-12 ml-4'>
                     <h3 className='my-4 text-[#FF7F00] text-lg font-semibold'>Benefits</h3>
                     <p>
                         <li>Timely and aﬀordable medication reﬁlls</li>

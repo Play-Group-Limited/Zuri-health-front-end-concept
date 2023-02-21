@@ -78,7 +78,7 @@ const Navbar = () => {
                 </div>
             </div>
             {openMenu ? (
-                <div className=' w-full h-full top-0 bottom-0 overflow-y-hidden fixed left-0 right-0 z-50 md:h-screen bg-white'>
+                <div className=' w-full h-full top-0 bottom-0 overflow-y-auto fixed left-0 right-0 z-50 md:h-screen bg-white'>
                     <div className=' mx-4 xl:mx-60 my-12'>
                         <div className=''>
                             <hr className='my-8'/>

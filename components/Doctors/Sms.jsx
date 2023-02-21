@@ -20,7 +20,7 @@ const Sms = () => {
                     </p>
                 </div>
                 
-                <div className=' w-full flex justify-end items-end pt-8 max-w-[525px]'>
+                <div className=' w-full flex justify-end items-end pt-8 max-w-[420px]'>
                     <SmsForm />
                 </div>
             </div>

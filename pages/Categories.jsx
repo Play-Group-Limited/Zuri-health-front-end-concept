@@ -151,7 +151,15 @@ const Categories = ({products}) => {
 
             </div>
             <div className='flex flex-row'>
-                <TalkToDoc />
+                
+                <div className='w-full  relative mr-2 my-2'>
+                    <Image src='/assets/stockImgs/categories/bg.png' width="10000" height={20} alt='Wellness Package' className='object-fill w-full h-full'/>
+                    <div className='absolute bottom-4 p-4  '>
+                        <h3 className='text-sm  text-white'>
+                            <span className='font-bold'>Download our app |</span>  A world of possibilties awaits
+                        </h3>
+                    </div>
+                </div>
                 <TalkToDoc />
             </div>
         </div>

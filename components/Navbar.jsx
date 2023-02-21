@@ -78,7 +78,7 @@ const Navbar = () => {
                 </div>
             </div>
             {openMenu ? (
-                <div className=' w-full h-full top-0 bottom-0 overflow-y-auto left-0 right-0 z-50 md:h-screen bg-white'>
+                <div className=' w-full h-full top-0 bottom-0 overflow-y-hidden fixed left-0 right-0 z-50 md:h-screen bg-white'>
                     <div className=' mx-4 xl:mx-60 my-12'>
                         <div className=''>
                             <hr className='my-8'/>
@@ -247,7 +247,7 @@ const Navbar = () => {
                     </div>
             ) : null}
             <div className='w-full py-4 flex flex-row items-center justify-center'>
-                <div className='flex  w-full items-center justify-between mx-4 max-w-[1440px]'>
+                <div className='flex  w-full items-end justify-between mx-4 max-w-[1440px]'>
                     
                     <Link href='/'>
                         <Image src={logo} alt="logo" className='hidden lg:block object-scale-down'/>
@@ -265,7 +265,7 @@ const Navbar = () => {
                     <div className='lg:flex flex-row hidden '>
                         <Link href='/Doctors'>
                             <div onClick={() => setOpenMenu(true)} className='flex flex-row items-center mx-2'>
-                                <p className='mx-2'>Engagae with doctors</p>
+                                <p className='mx-2'>Engage with doctors</p>
                                 <RiArrowDropDownLine />
                             </div>
                         </Link>

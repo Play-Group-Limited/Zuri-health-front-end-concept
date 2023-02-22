@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 import { BsArrowRightShort } from 'react-icons/bs'
 import logo from '../public/assets/icons/FooterLogo.svg'
@@ -14,10 +15,12 @@ const Footer = () => {
           <div className='h-full flex flex-col my-2 pb-8 items-center justify-between md:hidden'>
             <div className='flex flex-col items-center justify-between'>
               <h3 className='text-[#00F9ED] my-4'>Join our community</h3>
-              <button className='w-full rounded-full bg-white p-4 flex flex-row items-center justify-between min-w-[240px]'>
-                <p className='text-black'>Email</p>
-                <BsArrowRightShort className='text-black'/>
-              </button>
+              <Link href='mailto:support@zuri.health'>
+                <button className='w-full rounded-full bg-white p-4 flex flex-row items-center justify-between  min-w-[240px]'>
+                  <p className='text-black'>Email</p>
+                  <BsArrowRightShort className='text-black'/>
+                </button>
+              </Link>
             </div>
 
             
@@ -56,10 +59,12 @@ const Footer = () => {
           <div className='h-full md:flex flex-col items-center justify-center hidden'>
             <div className='flex flex-col items-center justify-between'>
               <h3 className='text-[#00F9ED] mb-4'>Join our community</h3>
-              <button className='w-full rounded-full bg-white p-4 flex flex-row items-center justify-between min-w-[270px]'>
-                <p className='text-black'>Email</p>
-                <BsArrowRightShort size={20} className='text-black'/>
-              </button>
+              <Link href='mailto:support@zuri.health'>
+                <button className='w-full rounded-full bg-white p-4 flex flex-row items-center justify-between md:min-w-[40px] lg:min-w-[270px]'>
+                  <p className='text-black'>Email</p>
+                  <BsArrowRightShort size={20} className='text-black'/>
+                </button>
+              </Link>
             </div>
 
             <p className='pt-12 text-sm'>(C) 2023 Zuri Health</p>

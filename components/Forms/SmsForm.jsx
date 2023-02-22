@@ -1,5 +1,6 @@
 import React from 'react'
 import { BiChevronRight } from 'react-icons/bi'
+import { toast } from 'react-toastify'
 
 const SmsForm = () => {
   const handleSubmit = (e) => {
@@ -13,7 +14,7 @@ const SmsForm = () => {
 
         <form className='my-4'>
             <input type="text" placeholder='Name' className='border-2 w-full p-4 rounded-xl my-2' />
-            <input type="text" placeholder='Contact Number' className='border-2 w-full p-4 rounded-xl my-2' />
+            <input type="number" placeholder='Contact Number' className='border-2 w-full p-4 rounded-xl my-2' />
             
             <button type='submit' onSubmit={(e) => handleSubmit(e)} className='w-full bg-[#ED3763] p-4 rounded-xl my-4 flex flex-row items-center justify-between'>
                 <p className='font-bold text-white'>Submit Information Now</p>

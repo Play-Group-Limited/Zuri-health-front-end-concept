@@ -1,5 +1,6 @@
 import React from 'react'
 import {BiChevronRight} from 'react-icons/bi'
+import { toast } from 'react-toastify'
 
 const PartnerForm = () => {
   const handleSubmit = (e) => {
@@ -13,8 +14,8 @@ const PartnerForm = () => {
 
         <form className='my-4'>
             <input type="text" placeholder='Name' className='border-2 w-full p-4 rounded-xl my-2' />
-            <input type="text" placeholder='Contact Number' className='border-2 w-full p-4 rounded-xl my-2' />
-            <input type="text" placeholder='Email Address' className='border-2 w-full p-4 rounded-xl my-2' />
+            <input type="number" placeholder='Contact Number' className='border-2 w-full p-4 rounded-xl my-2' />
+            <input type="email" placeholder='Email Address' className='border-2 w-full p-4 rounded-xl my-2' />
             <input type="text" placeholder='Partner as' className='border-2 w-full p-4 rounded-xl my-2' />
             <input type="text" placeholder='Country Selection' className='border-2 w-full p-4 rounded-xl my-2' />
 

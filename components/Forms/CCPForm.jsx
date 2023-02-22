@@ -2,7 +2,7 @@ import React from 'react'
 import {BiChevronRight} from 'react-icons/bi'
 import { toast } from 'react-toastify'
 const CCPForm = () => {
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     toast.success("Form submitted")
   }
@@ -11,7 +11,7 @@ const CCPForm = () => {
         <h2 className='text-2xl font-bold mb-4'>Continuos Care Programe</h2>
         <p>Please ﬁll in the form below to join</p>
 
-        <form className='my-4' onSubmit={handleSubmit}>
+        <form className='my-4' onSubmit={(e) => handleSubmit(e)}>
             <input type="text" placeholder='Name' className='border-2 w-full p-4 rounded-xl my-2' />
             <input type="text" placeholder='Contract Number' className='border-2 w-full p-4 rounded-xl my-2' />
             <input type="text" placeholder='Email Address' className='border-2 w-full p-4 rounded-xl my-2' />

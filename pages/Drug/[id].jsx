@@ -12,6 +12,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper"
 import { API_URL } from '../../config/api.config'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 import { useDispatch } from 'react-redux'
 import { addProduct } from '../../redux/cartSlice'
@@ -41,7 +42,7 @@ const Drug = ({product}) => {
 
     const handleClick = () => {
         dispatch(addProduct({product:product, price:product.price, quantity:quantity}))
-        
+        toast.success("items added to cart")
         setOpen(true)
     }
     

@@ -80,7 +80,7 @@ const Labs = ({testProduct}) => {
                 {/* tests */}
                 <div className='flex flex-col h-full w-full'>
                     <div className='my-6 flex flex-col'>
-                        <h3 className='text-xl font-bold'>Popular Items</h3>
+                        <h3 className='text-xl font-bold pl-2 md:pl-0 '>Popular Items</h3>
 
                         <div className='flex flex-row w-full h-full'>
                             {/* test list */}
@@ -111,7 +111,7 @@ const Labs = ({testProduct}) => {
                                 </Link>
                             </div>
                             <div className='w-full  relative md:mx-2'>
-                                <Link href='/TestCategories'>
+                                <Link href='/Doctors'>
                                     <Image src={thome} alt='Wellness Package' className='w-full h-full'/>
                                     <div className='absolute bottom-8 p-4 left-8 '>
                                         <h3 className='text-xl md:text-3xl font-bold text-white'>
@@ -127,13 +127,13 @@ const Labs = ({testProduct}) => {
                     </div>
                 </div>
 
-                <hr className='my-12'/>
+                <hr className='my-6 md:my-12'/>
 
                 <div className='my-4 w-full'>
                     <Info />
                 </div>
                 
-                <hr className='my-12'/>
+                <hr className='my-6 md:my-12'/>
 
                 <div className='my-4 w-full'>
                     <Testimonials />

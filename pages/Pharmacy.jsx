@@ -124,7 +124,7 @@ const Pharmacy = ({products}) => {
 
 export const getServerSideProps = async () => {
     const res = await axios.get(
-      `${API_URL}/pharmacy/pharmacy_product_list?page=1`
+      `${API_URL}/pharmacy/pharmacy_product_list?page=1&latitude=-1.292066&longitude=36.821945`
     )
   
     // const data = await res.json();

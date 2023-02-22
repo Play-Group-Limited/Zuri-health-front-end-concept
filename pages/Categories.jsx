@@ -150,10 +150,9 @@ const Categories = ({products}) => {
                 </div>
 
             </div>
-            <div className='flex flex-row'>
-                
-                <div className='w-full  relative mr-2 my-2'>
-                    <Image src='/assets/stockImgs/categories/bg.png' width="10000" height={20} alt='Wellness Package' className='object-fill w-full h-full'/>
+            <div className='flex flex-col md:flex-row '>
+                <div className='w-full  relative mr-2 my-2 '>
+                    <Image src='/assets/stockImgs/categories/bg.png' width="10000" height={20} alt='Wellness Package' className='object-cover min-h-[240px] md:min-h- w-full rounded-xl h-full'/>
                     <div className='absolute bottom-4 p-4  '>
                         <h3 className='text-sm  text-white'>
                             <span className='font-bold'>Download our app |</span>  A world of possibilties awaits
@@ -168,7 +167,7 @@ const Categories = ({products}) => {
 }
 
 export const getServerSideProps = async () => {
-    const res = await axios.get(`${API_URL}/pharmacy/pharmacy_product_list?page=1`);
+    const res = await axios.get(`${API_URL}/pharmacy/pharmacy_product_list?page=1&latitude=-1.292066&longitude=36.821945`);
 
     // const data = await res.json();
     console.log(res.data)

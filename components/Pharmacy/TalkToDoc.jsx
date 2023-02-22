@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 import { GoChevronRight } from 'react-icons/go'
 
@@ -13,11 +14,12 @@ const TalkToDoc = () => {
                 <br />
                 A Doctor
             </h3>
-
-            <button className='bg-black mt-6 text-white rounded-xl flex flex-row items-center p-4'>
-                <p className='text-sm '>Book Now</p>
-                <GoChevronRight  className='ml-4'/>
-            </button>
+            <Link href='/Doctors'>
+                <button className='bg-black mt-6 text-white rounded-xl flex flex-row items-center p-4'>
+                    <p className='text-sm '>Book Now</p>
+                    <GoChevronRight  className='ml-4'/>
+                </button>
+            </Link>
         </div>
 
         <div>

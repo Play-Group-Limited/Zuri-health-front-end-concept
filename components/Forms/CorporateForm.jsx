@@ -17,7 +17,7 @@ const CorporateForm = () => {
             <input type="number" placeholder='Contact Number' className='border-2 w-full p-4 rounded-xl my-2' />
             <input type="text" placeholder='Company Name' className='border-2 w-full p-4 rounded-xl my-2' />
             <input type="number" placeholder='Number Of Employees' className='border-2 w-full p-4 rounded-xl my-2' />
-            <input type="date" placeholder='Preferred Sample Collection Date' className='border-2 w-full p-4 rounded-xl my-2' />
+            <input type="text" placeholder='Preferred Sample Collection Date' className='border-2 w-full p-4 rounded-xl my-2' />
 
             <button type='submit' className='w-full bg-[#FCB7AC] text-white p-4 rounded-xl my-4 flex flex-row items-center justify-between'>
                 <p className='font-bold '>Submit Information Now</p>

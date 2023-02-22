@@ -15,8 +15,8 @@ const ContactForm = () => {
           <div className='flex flex-col lg:w-[30vw] mr-4'>
             <input type="text" placeholder='Type of Query' className='border-2 w-full p-4 rounded-xl my-2' />
             <input type="text" placeholder='Name' className='border-2 w-full p-4 rounded-xl my-2' />
-            <input type="text" placeholder='Email Address' className='border-2 w-full p-4 rounded-xl my-2' />
-            <input type="text" placeholder='Phone Number (Optional)' className='border-2 w-full p-4 rounded-xl my-2' />
+            <input type="email" placeholder='Email Address' className='border-2 w-full p-4 rounded-xl my-2' />
+            <input type="number" placeholder='Phone Number (Optional)' className='border-2 w-full p-4 rounded-xl my-2' />
           </div>
           <div className='w-full'>
             <textarea type="text" rows={7} placeholder='Please Enter Details Here' className='border-2 w-full p-4 rounded-xl my-2' />

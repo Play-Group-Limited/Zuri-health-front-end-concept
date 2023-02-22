@@ -1,5 +1,6 @@
 import React from 'react'
 import {BiChevronRight} from 'react-icons/bi'
+import { toast } from 'react-toastify'
 
 const ContactForm = () => {
   const handleSubmit = (e) => {

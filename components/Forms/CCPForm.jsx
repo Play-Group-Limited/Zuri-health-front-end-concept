@@ -13,8 +13,8 @@ const CCPForm = () => {
 
         <form className='my-4' onSubmit={(e) => handleSubmit(e)}>
             <input type="text" placeholder='Name' className='border-2 w-full p-4 rounded-xl my-2' />
-            <input type="text" placeholder='Contract Number' className='border-2 w-full p-4 rounded-xl my-2' />
-            <input type="text" placeholder='Email Address' className='border-2 w-full p-4 rounded-xl my-2' />
+            <input type="number" placeholder='Contract Number' className='border-2 w-full p-4 rounded-xl my-2' />
+            <input type="email" placeholder='Email Address' className='border-2 w-full p-4 rounded-xl my-2' />
             <input type="text" placeholder='Select Condition' className='border-2 w-full p-4 rounded-xl my-2' />
 
             <button type='submit' className='w-full bg-[#58E5E8] p-4 rounded-xl my-4 flex flex-row items-center justify-between'>

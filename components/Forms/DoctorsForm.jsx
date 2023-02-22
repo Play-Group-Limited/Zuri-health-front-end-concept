@@ -13,10 +13,10 @@ const DoctorsForm = () => {
 
         <form className='my-4'>
             <input type="text" placeholder='Name' className='border-2 w-full p-4 rounded-xl my-2' />
-            <input type="number" placeholder='Contract Number' className='border-2 w-full p-4 rounded-xl my-2' />
+            <input type="number" placeholder='Contact Number' className='border-2 w-full p-4 rounded-xl my-2' />
             <input type="email" placeholder='Email Address' className='border-2 w-full p-4 rounded-xl my-2' />
-            <input type="date" placeholder='Choose Consultation Date' className='border-2 w-full p-4 rounded-xl my-2' />
-            <input type="time" placeholder='Choose Consultation Time' className='border-2 w-full p-4 rounded-xl my-2' />
+            <input type="text" placeholder='Choose Consultation Date' className='border-2 w-full p-4 rounded-xl my-2' />
+            <input type="text" placeholder='Choose Consultation Time' className='border-2 w-full p-4 rounded-xl my-2' />
 
             <button onSubmit={(e) => handleSubmit(e)} className='w-full bg-[#FF7F00] p-4 rounded-xl my-4 flex flex-row items-center justify-between'>
                 <p className='font-bold text-white'>Submit Information Now</p>

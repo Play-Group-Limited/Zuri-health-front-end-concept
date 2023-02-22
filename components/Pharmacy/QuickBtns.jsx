@@ -14,7 +14,7 @@ const QuickBtns = () => {
         router.push('/Cart')
     }
     const handleDoctor = () => {
-        router.push('/Doctor')
+        router.push('/Doctors')
     }
     const handleCCP= () => {
         router.push('/ContinuosCare')

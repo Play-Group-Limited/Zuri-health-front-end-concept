@@ -23,15 +23,18 @@ const Categories = ({products}) => {
                 <p>home</p>
             </div>
         </div>
-        <div className='max-w-[1440px] mx-4 md:ml-4 flex flex-col items-center justify-center'>
+        <div className='max-w-[1440px] mx-2 md:ml-4 flex flex-col items-center justify-center'>
 
             {/* <div>
                 <CategoryListMobile />
             </div> */}
+            
             {/* category list */}
-            <div className='flex flex-col md:flex-row my-8 mx-12 md:mx-0 justify-center'>
+            <div className='flex flex-col md:flex-row my-8 mx-4 md:mx-0 justify-center'>
                 <div className='hidden md:flex flex-col border-r'>
                     <h2 className='uppercase font-bold text-2xl pb-8'>Categories</h2>
+
+                    
                     
                     <div className='mr-4'>
                         <hr  className='my-4'/>
@@ -147,8 +150,15 @@ const Categories = ({products}) => {
                 </div>
 
             </div>
-            <div className='flex flex-row'>
-                <TalkToDoc />
+            <div className='flex flex-col md:flex-row '>
+                <div className='w-full  relative mr-2 my-2 '>
+                    <Image src='/assets/stockImgs/categories/bg.png' width="10000" height={20} alt='Wellness Package' className='object-cover min-h-[240px] md:min-h- w-full rounded-xl h-full'/>
+                    <div className='absolute bottom-4 p-4  '>
+                        <h3 className='text-sm  text-white'>
+                            <span className='font-bold'>Download our app |</span>  A world of possibilties awaits
+                        </h3>
+                    </div>
+                </div>
                 <TalkToDoc />
             </div>
         </div>
@@ -157,7 +167,7 @@ const Categories = ({products}) => {
 }
 
 export const getServerSideProps = async () => {
-    const res = await axios.get(`${API_URL}/pharmacy/pharmacy_product_list?page=1`);
+    const res = await axios.get(`${API_URL}/pharmacy/pharmacy_product_list?page=1&latitude=-1.292066&longitude=36.821945`);
 
     // const data = await res.json();
     console.log(res.data)

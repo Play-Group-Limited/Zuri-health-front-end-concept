@@ -26,16 +26,26 @@ const Footer = () => {
             
           </div>  
           <div className='flex flex-col text-center md:text-start pb-8'>
-            <p className='text-sm pb-2'>Find A Doctor</p>
+            <Link href='/Doctors'>
+              <p className='text-sm pb-2'>Find A Doctor</p>
+            </Link>
             <p className='text-sm py-2'>Video Consultation</p>
-            <p className='text-sm py-2'>Book a Lab test</p>
-            <p className='text-sm py-2'>Order medicine</p>
+            <Link href='/Labs'>
+              <p className='text-sm py-2'>Book a Lab test</p>
+            </Link>
+            <Link href='/Pharmacy'>
+              <p className='text-sm py-2'>Order medicine</p>
+            </Link>
             <p className='text-sm py-2'>Ask free health questions</p>
-            <p className='text-sm py-2'>Search for doctors</p>
+            <Link href='/Doctors'>
+              <p className='text-sm py-2'>Search for doctors</p>
+            </Link>
             <p className='text-sm py-2'>Search for clinics</p>
             <p className='text-sm py-2'>Read health articles</p>
             <p className='text-sm py-2'>Read about medicines</p>
-            <p className='text-sm py-2'>Consult a doctor</p>
+            <Link href='/Doctors'>
+              <p className='text-sm py-2'>Consult a doctor</p>
+            </Link>
             <p className='text-sm py-2'>Health app</p>
           </div>
           <div className='flex flex-col text-center md:text-start pb-8'>

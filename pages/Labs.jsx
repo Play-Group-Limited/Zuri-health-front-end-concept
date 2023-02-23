@@ -22,159 +22,167 @@ import axios from 'axios'
 import { API_URL } from '../config/api.config'
 import Link from 'next/link'
 
+import geoip from "geoip-lite"
 
-
-
-const Labs = ({testProduct}) => {
+const Labs = ({ testProduct }) => {
 
     console.log("first", testProduct)
-  return (
-    <div className='w-full h-full'>
-        <div className='bg-[#AFDB26]  w-full flex items center justify-center'>
-            <div className='lg:max-w-[1440px] flex flex-row h-full justify-center items-center'>
-                <div className='h-full w-full relative'>
-                <Swiper navigation={true} modules={[Navigation]} className=' max-w-[100vw]'>
-                    <SwiperSlide>
-                        <div className='w-full h-max flex flex-col my-8 md:flex-row items-center md:mx-12'>
-                            <Image src={bgLg} alt='woman' className='hidden md:block top-0 w-full h-full'/>
-                            <Image src={bg} alt='woman' className='md:hidden mt-4 top-0 z-10 '/>
-                            <div className='md:absolute bg-black/70 rounded-xl my-8 md:mt-0 z-10 px-6 md:w-[50%] md:left-[5%] md:top-[30%] text-left py-8 '>
-                                <h3 className='font-bold text-3xl mb-4 md:text-6xl text-[#AFDB26]'>Labs Tests</h3>
-                                <p className='md:mt-4 text-lg text-white'>
-                                    Get Accurate results with our lab test
-                                    <br />
-                                    at the lab or at home.
-                                </p>
-                            </div>
-                            <div className='absoulte  bottom-0 right-0'>
-                            </div>
-                        {/* <div className='absolute top-0 left-0 right-0 bottom-0 bg-black/0 z-[1]' /> */}
-                        </div>
-                        
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='w-full  '>
-                            <Image src={bg} alt='woman' className=''/>
-                            <div className='absolute bottom-8 bg-blue-400/80 rounded-xl p-4 left-20 right-20 text-center py-12'>
-                                <h3 className='text-3xl font-bold text-white'>Join our Continuous Care Program</h3>
-                            </div>
-                            <div className='absolute top-0 left-0 right-0 bottom-0 bg-black/0 z-[1]' />
-                        </div>
-                        
-                    </SwiperSlide>
-                </Swiper>
-
-
-                </div>
-            </div>
-        </div>
-
-        <div className='my-4 flex flex-col mx-2  w-full items-center justify-center'>
-            <div className='lg:max-w-[1440px] w-full flex flex-col items-center justify-center'>
-                <div className='flex  flex-col md:flex-row items-center h-full w-full max-w-[1440px]'>
-                    <SearchXl />
-                    <TalkToDoc />
-
-                </div>
-
-                {/* tests */}
-                <div className='flex flex-col h-full w-full'>
-                    <div className='my-6 flex flex-col'>
-                        <h3 className='text-xl font-bold'>Popular Items</h3>
-
-                        <div className='flex flex-row w-full h-full'>
-                            {/* test list */}
-                            <div className='my-6 overflow-x-auto'>
-                                <TestList testProducts={testProduct.test_products}/>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                {/* categories */}
-                <div className='flex flex-col h-full w-full'>
-                    <div className='my-6 flex flex-col'>
-                        <h3 className='text-xl font-bold mb-6'>Popular Items</h3>
-
-                        <div className='flex flex-col md:flex-row relative'>
-                            <div className='w-full  relative mr-2 my-2'>
-                                <Link href='/TestCategories'>
-                                    <Image src={wpackage} alt='Wellness Package' className='w-full h-full'/>
-                                    <div className='absolute bottom-8 p-4 left-8 '>
-                                        <h3 className='text-3xl font-bold text-white'>
-                                            Select the perfect
-                                            <br /> 
-                                            Wellness Package
-                                        </h3>
-                                    </div>
-                                </Link>
-                                </div>
-                            <div className='w-full  relative '>
-                                <Link href='/TestCategories'>
-                                    <Image src={thome} alt='Wellness Package' className='w-full h-full'/>
-                                    <div className='absolute bottom-8 p-4 left-8 '>
-                                        <h3 className='text-3xl font-bold text-white'>
-                                            Book a lab
+    return (
+        <div className='w-full h-full'>
+            <div className='bg-[#AFDB26]  w-full flex items center justify-center'>
+                <div className='lg:max-w-[1440px] flex flex-row h-full justify-center items-center'>
+                    <div className='h-full w-full relative'>
+                        <Swiper navigation={true} modules={[Navigation]} className=' max-w-[100vw]'>
+                            <SwiperSlide>
+                                <div className='w-full h-max flex flex-col my-8 md:flex-row items-center md:mx-12'>
+                                    <Image src={bgLg} alt='woman' className='hidden md:block top-0 w-full h-full' />
+                                    <Image src={bg} alt='woman' className='md:hidden mt-4 top-0 z-10 ' />
+                                    <div className='md:absolute bg-black/70 rounded-xl my-8 md:mt-0 z-10 px-6 md:w-[50%] md:left-[5%] md:top-[30%] text-left py-8 '>
+                                        <h3 className='font-bold text-3xl mb-4 md:text-6xl text-[#AFDB26]'>Labs Tests</h3>
+                                        <p className='md:mt-4 text-lg text-white'>
+                                            Get Accurate results with our lab test
                                             <br />
-                                            test at home
-                                        </h3>
+                                            at the lab or at home.
+                                        </p>
                                     </div>
-                                </Link>
-                            </div>
-                        
-                        </div>
+                                    <div className='absoulte  bottom-0 right-0'>
+                                    </div>
+                                    {/* <div className='absolute top-0 left-0 right-0 bottom-0 bg-black/0 z-[1]' /> */}
+                                </div>
+
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <div className='w-full  '>
+                                    <Image src={bg} alt='woman' className='' />
+                                    <div className='absolute bottom-8 bg-blue-400/80 rounded-xl p-4 left-20 right-20 text-center py-12'>
+                                        <h3 className='text-3xl font-bold text-white'>Join our Continuous Care Program</h3>
+                                    </div>
+                                    <div className='absolute top-0 left-0 right-0 bottom-0 bg-black/0 z-[1]' />
+                                </div>
+
+                            </SwiperSlide>
+                        </Swiper>
+
+
                     </div>
                 </div>
+            </div>
 
-                <hr className='my-12'/>
+            <div className='my-4 flex flex-col mx-2  w-full items-center justify-center'>
+                <div className='lg:max-w-[1440px] w-full flex flex-col items-center justify-center'>
+                    <div className='flex  flex-col md:flex-row items-center h-full w-full max-w-[1440px]'>
+                        <SearchXl />
+                        <TalkToDoc />
 
-                <div className='my-4 w-full'>
-                    <Info />
+                    </div>
+
+                    {/* tests */}
+                    <div className='flex flex-col h-full w-full'>
+                        <div className='my-6 flex flex-col'>
+                            <h3 className='text-xl font-bold'>Popular Items</h3>
+
+                            <div className='flex flex-row w-full h-full'>
+                                {/* test list */}
+                                <div className='my-6 overflow-x-auto'>
+                                    <TestList testProducts={testProduct.test_products} />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* categories */}
+                    <div className='flex flex-col h-full w-full'>
+                        <div className='my-6 flex flex-col'>
+                            <h3 className='text-xl font-bold mb-6'>Popular Items</h3>
+
+                            <div className='flex flex-col md:flex-row relative'>
+                                <div className='w-full  relative mr-2 my-2'>
+                                    <Link href='/TestCategories'>
+                                        <Image src={wpackage} alt='Wellness Package' className='w-full h-full' />
+                                        <div className='absolute bottom-8 p-4 left-8 '>
+                                            <h3 className='text-3xl font-bold text-white'>
+                                                Select the perfect
+                                                <br />
+                                                Wellness Package
+                                            </h3>
+                                        </div>
+                                    </Link>
+                                </div>
+                                <div className='w-full  relative '>
+                                    <Link href='/TestCategories'>
+                                        <Image src={thome} alt='Wellness Package' className='w-full h-full' />
+                                        <div className='absolute bottom-8 p-4 left-8 '>
+                                            <h3 className='text-3xl font-bold text-white'>
+                                                Book a lab
+                                                <br />
+                                                test at home
+                                            </h3>
+                                        </div>
+                                    </Link>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr className='my-12' />
+
+                    <div className='my-4 w-full'>
+                        <Info />
+                    </div>
+
+                    <hr className='my-12' />
+
+                    <div className='my-4 w-full'>
+                        <Testimonials />
+                    </div>
+
+
+
+
+
+
                 </div>
-                
-                <hr className='my-12'/>
-
-                <div className='my-4 w-full'>
-                    <Testimonials />
-                </div>
-
-
-            
-            
-
-
             </div>
         </div>
-    </div>
-  )
+    )
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({ req }) => {
+    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+    const location = geoip.lookup(ip);
+    const { data } = await axios.get(`https://ipapi.co/${ip}/json/`)
+    const latitude = location ? location.ll[0] : data.latitude
+    const longitude = location ? location.ll[1] : data.longitude
+
     const testKit = await axios.get(
-      `${API_URL}/labs_and_diagnostic/testkit?page=1`
+        `${API_URL}/labs_and_diagnostic/testkit?latitude=${latitude}&longitude=${longitude}`
     )
+
     const testProfile = await axios.get(
-      `${API_URL}/test_profile/get_test_profiles`
+        `${API_URL}/test_profile/get_test_profiles?latitude=${latitude}&longitude=${longitude}`
     )
+
     const testProduct = await axios.get(
-      `${API_URL}/test_diagnostic/test_product_list`
+        `${API_URL}/test_diagnostic/test_product_list?page=2&latitude=${latitude}&test_center_id=611d34ffe2bd782e2eaa2d5b&search_term=liver&longitude=36.784613a`
     )
+
     const testPackage = await axios.get(
-      `${API_URL}/test_diagnostic/display_wellness_packages`
+        `${API_URL}/test_diagnostic/display_wellness_packages?latitude=${latitude}&longitude=${longitude}`
     )
-  
+
     // const data = await res.json();
     // console.log(res.data)
-  
+
     return {
-      props: {
-        testKit: testKit.data,
-        testProfile: testProfile.data,
-        testProduct: testProduct.data,
-        testPackage: testPackage.data,
-      },
+        props: {
+            testKit: testKit.data,
+            testProfile: testProfile.data,
+            testProduct: testProduct.data,
+            testPackage: testPackage.data,
+        },
     }
-  }
+}
 
 export default Labs

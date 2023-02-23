@@ -20,15 +20,17 @@ import bgDrugs from '../public/assets/stockImgs/Pharmacy/bgDrugs.png'
 import bgDrug from '../public/assets/stockImgs/Pharmacy/bgDrug.svg'
 import doc from '../public/assets/stockImgs/Pharmacy/bigDoc.png'
 
-
 import "swiper/css"
 import "swiper/css/navigation"
 
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper"
+import geoip from 'geoip-lite';
 
 
 const Pharmacy = ({products}) => {
+
+    
 
     console.log(products)
   return (
@@ -122,9 +124,15 @@ const Pharmacy = ({products}) => {
   )
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({req}) => {
+    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+    const location = geoip.lookup(ip)
+    const { data } = await axios.get(`https://ipapi.co/${ip}/json/`);
+    const latitude = location ? location.ll[0] : data.latitude
+    const longitude = location ? location.ll[1] : data.longitude
+
     const res = await axios.get(
-      `${API_URL}/pharmacy/pharmacy_product_list?page=1`
+      `${API_URL}/pharmacy/pharmacy_product_list?latitude=${latitude}&longitude=${longitude}`
     )
   
     // const data = await res.json();

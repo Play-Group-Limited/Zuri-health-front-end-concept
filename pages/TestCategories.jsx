@@ -154,17 +154,23 @@ const TestCategories = ({testProduct}) => {
 }
 
 export const getServerSideProps = async () => {
+    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+    const location = geoip.lookup(ip)
+    const { data } = await axios.get(`https://ipapi.co/${ip}/json/`);
+    const latitude = location ? location.ll[0] : data.latitude;
+    const longitude = location ? location.ll[1] : data.longitude;
+
     const testKit = await axios.get(
-      `${API_URL}/labs_and_diagnostic/testkit?page=1`
+      `${API_URL}/labs_and_diagnostic/testkit?latitude=${latitude}&longitude=${longitude}`
     )
     const testProfile = await axios.get(
-      `${API_URL}/test_profile/get_test_profiles`
+      `${API_URL}/test_profile/get_test_profiles?latitude=${latitude}&longitude=${longitude}`
     )
     const testProduct = await axios.get(
-      `${API_URL}/test_diagnostic/test_product_list`
+      `${API_URL}/test_diagnostic/test_product_list?page=2&latitude=${latitude}&test_center_id=611d34ffe2bd782e2eaa2d5b&search_term=liver&longitude=${longitude}a`
     )
     const testPackage = await axios.get(
-      `${API_URL}/test_diagnostic/display_wellness_packages`
+      `${API_URL}/test_diagnostic/display_wellness_packages?latitude=${latitude}&longitude=${longitude}`
     )
   
     // const data = await res.json();

@@ -1,28 +1,28 @@
 import Image from "next/image"
 import React, { useEffect, useState } from "react"
-import logo from "../public/assets/logo.png"
+import logo from "../public/assets/logo.svg"
 import flag from "../public/assets/flags/england.png"
 import { BsGlobe } from "react-icons/bs"
 import { RiArrowDropDownLine } from "react-icons/ri"
 import { MdOutlineShoppingCart } from "react-icons/md"
 import { RxCrossCircled, RxHamburgerMenu } from "react-icons/rx"
 import Link from "next/link"
-import { useRouter } from "next/router";
-import Badge from '@mui/material/Badge';
-import { useSelector } from 'react-redux'
-import { DownOutlined, SmileOutlined } from '@ant-design/icons';
-import { Dropdown, Space } from 'antd';
+import { useRouter } from "next/router"
+import Badge from "@mui/material/Badge"
+import { useSelector } from "react-redux"
+import { DownOutlined, SmileOutlined } from "@ant-design/icons"
+import { Dropdown, Space } from "antd"
 
 import account from "../public/assets/icons/Navbar/account.png"
 import wish from "../public/assets/icons/Navbar/wish.png"
 import cartPic from "../public/assets/icons/Navbar/cart.png"
 import Links from "./Links"
 
-import kenya from '../public/assets/flags/kenya.svg'
-import nigeria from '../public/assets/flags/nigeria.svg'
-import sa from '../public/assets/flags/sa.svg'
-import ghana from '../public/assets/flags/ghana.svg'
-import eng from '../public/assets/flags/eng.svg'
+import kenya from "../public/assets/flags/kenya.svg"
+import nigeria from "../public/assets/flags/nigeria.svg"
+import sa from "../public/assets/flags/sa.svg"
+import ghana from "../public/assets/flags/ghana.svg"
+import eng from "../public/assets/flags/eng.svg"
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false)
@@ -46,80 +46,95 @@ const Navbar = () => {
       router.events.off("routeChangeComplete", handleRouteChange)
     }
   }, [router.events])
-    useEffect(() => {
-        const handleRouteChange = (url) => {
-          console.log(`Route changed to: ${url}`);
-          // Do something when the route changes
-          setOpenMenu(false)
-        };
-    
-        router.events.on('routeChangeComplete', handleRouteChange);
-    
-        return () => {
-          router.events.off('routeChangeComplete', handleRouteChange);
-        };
-      }, [router.events]);
-    
-      const flags = [
-        {
-          key: '1',
-          label: <a href=""  onClick={() => setLang('ENG')} className='flex items-center '>
-            <Image src={eng} alt='Eng' />
-            <p className='ml-2'>English</p>
-          </a>,
-        },
-        {
-            key: '2',
-            label: <a href="" onClick={() => setLang('EBO')} className='flex items-center '>
-            <Image src={nigeria} alt='Nigeria' />
-            <p className='ml-2'>Ebo</p>
-          </a>,
-        },
-        {
-            key: '3',
-            label: <a href="" onClick={() => setLang('GHA')} className='flex items-center '>
-            <Image src={ghana} alt='Ghana' />
-              <p className='ml-2'>Ghanaian</p>
-          </a>,
-        },
-        {
-            key: '4',
-            label: <a href="" onClick={() => setLang('KIS')} className='flex items-center '>
-            <Image src={kenya} alt='Kenya' />
-              <p className='ml-2'>Swahili</p>
-          </a>,
-        },
-      ];
-      
-      const [lang, setLang] = useState('ENG')
 
-      const items = [
-        {
-          key: '1',
-          label: <a  className='flex items-center justify-center'>
-            <Image src={sa} alt='South Africa' className=''/>
-          </a>,
-        },
-        {
-          key: '2',
-          label: <a href="" className='flex items-center justify-center'>
-            <Image src={nigeria} alt='Ni' />
-          </a>,
-        },
-        {
-          key: '3',
-          label: <a href="" className='flex items-center justify-center'>
-            <Image src={ghana} alt='Gh' />
-          </a>,
-        },
-        {
-          key: '4',
-          label: <a href="" className='flex items-center justify-center'>
-            <Image src={kenya} alt='Ke' />
-          </a>,
-        },
-      ];
-    
+  const flags = [
+    {
+      key: "1",
+      label: (
+        <a
+          href=''
+          onClick={() => setLang("ENG")}
+          className='flex items-center '>
+          <Image src={eng} alt='Eng' />
+          <p className='ml-2'>English</p>
+        </a>
+      ),
+    },
+    {
+      key: "2",
+      label: (
+        <a
+          href=''
+          onClick={() => setLang("EBO")}
+          className='flex items-center '>
+          <Image src={nigeria} alt='Nigeria' />
+          <p className='ml-2'>Ebo</p>
+        </a>
+      ),
+    },
+    {
+      key: "3",
+      label: (
+        <a
+          href=''
+          onClick={() => setLang("GHA")}
+          className='flex items-center '>
+          <Image src={ghana} alt='Ghana' />
+          <p className='ml-2'>Ghanaian</p>
+        </a>
+      ),
+    },
+    {
+      key: "4",
+      label: (
+        <a
+          href=''
+          onClick={() => setLang("KIS")}
+          className='flex items-center '>
+          <Image src={kenya} alt='Kenya' />
+          <p className='ml-2'>Swahili</p>
+        </a>
+      ),
+    },
+  ]
+
+  const [lang, setLang] = useState("ENG")
+
+  const items = [
+    {
+      key: "1",
+      label: (
+        <a className='flex items-center justify-center'>
+          <Image src={sa} alt='South Africa' className='' />
+        </a>
+      ),
+    },
+    {
+      key: "2",
+      label: (
+        <a href='' className='flex items-center justify-center'>
+          <Image src={nigeria} alt='Ni' />
+        </a>
+      ),
+    },
+    {
+      key: "3",
+      label: (
+        <a href='' className='flex items-center justify-center'>
+          <Image src={ghana} alt='Gh' />
+        </a>
+      ),
+    },
+    {
+      key: "4",
+      label: (
+        <a href='' className='flex items-center justify-center'>
+          <Image src={kenya} alt='Ke' />
+        </a>
+      ),
+    },
+  ]
+
   return (
     <div className='w-full h-full'>
       <div className='flex flex-col w-full'>
@@ -135,12 +150,20 @@ const Navbar = () => {
                 Become a Partner
               </p>
             </Link>
-            <span className='flex flex-row items-center'>
-              <p className='text-white mx-2 text-sm hidden lg:block whitespace-nowrap'>
-                Country Selector
-              </p>
-              <BsGlobe className='text-white mr-8 md:mr-0' size={20} />
-            </span>
+            <Dropdown
+              menu={{
+                items,
+              }}
+              className='flex items-center justify-center text-center cursor-pointer'
+              onClick={(e) => e.preventDefault()}>
+              <a onClick={(e) => e.preventDefault()}>
+                <Space className='md:flex flex-row items-center text-white mx-2 text-sm hidden  whitespace-nowrap'>
+                  Country Selector
+                  <BsGlobe />
+                </Space>
+              </a>
+            </Dropdown>
+
             <span className='flex flex-row  items-center mx-8 md:hidden'>
               <Image src={account} alt='account' className='mx-2  ' />
               <Image src={wish} alt='WishList' className='mx-2 ' />
@@ -150,10 +173,18 @@ const Navbar = () => {
                 </Badge>
               </Link>
             </span>
-            <span className='flex flex-row items-center'>
-              <p className='text-white ml-4 mr-2 text-sm'>ENG</p>
-              <Image src={flag} alt='flag' className='hidden md:block' />
-            </span>
+            <Dropdown
+              menu={{
+                items: flags,
+              }}
+              className='flex items-center justify-center text-center cursor-pointer'>
+              <a onClick={(e) => e.preventDefault()}>
+                <Space className='md:flex flex-row text-white mx-2 text-sm hidden  whitespace-nowrap'>
+                  {lang}
+                  <Image src={flag} alt='flag' className='hidden md:flex ' />
+                </Space>
+              </a>
+            </Dropdown>
             <span className='md:flex flex-row items-center ml-8 hidden pr-4'>
               <Image src={account} alt='account' className='mx-2  ' />
               <Image src={wish} alt='WishList' className='mx-2 ' />
@@ -183,7 +214,7 @@ const Navbar = () => {
                     <Image
                       src={logo}
                       alt='logo'
-                      width={80}
+                      width={50}
                       height={40}
                       className='md:hidden'
                     />

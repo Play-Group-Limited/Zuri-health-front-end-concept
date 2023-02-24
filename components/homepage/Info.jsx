@@ -26,7 +26,7 @@ const Info = () => {
   }
   const onReady = (e) => {
     // access to player in all event handlers via event.target
-    e.target.pauseVideo()
+    // e.target.pauseVideo()
   }
   return (
     <div className='w-full h-full'>

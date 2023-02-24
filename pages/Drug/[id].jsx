@@ -39,8 +39,6 @@ const Drug = () => {
     }
   }, [router.isReady, router, cart])
 
-  console.log("INDEX", indx)
-
   useEffect(() => {
     const fetchData = async () => {
       try {

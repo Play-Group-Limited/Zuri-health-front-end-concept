@@ -1,5 +1,5 @@
-.ais-SearchBox-form{
-  padding:8px;
+.ais-SearchBox-form {
+  padding: 8px;
   width: 30vw;
   background: #fff;
   border-radius: 60px;
@@ -7,9 +7,8 @@
   flex-direction: row;
 }
 
-
-.ais-SearchBox-input{
-  background:white;
+.ais-SearchBox-input {
+  background: white;
   width: 100%;
   padding: 12px;
   border-radius: 80px;
@@ -17,7 +16,7 @@
   outline-offset: 2px;
 }
 
-.ais-SearchBox-submitIcon{
+.ais-SearchBox-submitIcon {
   width: 20px;
   height: 20px;
   margin: 0 15px 0 15px;

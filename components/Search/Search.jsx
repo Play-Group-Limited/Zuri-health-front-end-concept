@@ -7,7 +7,7 @@ const Search = () => {
   const searchClient = algoliasearch("M0J8AA6NZ9","804ee1df36055dec9d006a729a82ee2d" )
   const [change, setChange] = useState(false)
   const [searchText, setSearchText] = useState('')
-  console.log('•••••••••••••', searchText)
+  // console.log('•••••••••••••', searchText)
 
   // console.log(change)
 
@@ -31,7 +31,7 @@ const Search = () => {
   }
 
   const hitComponent = ({hit})=>{
-    console.log(hit)
+    // console.log(hit)
     return <p onClick={() => handleClick(hit)} className='py-4 border-b-4'>{hit.name}</p>
   }
 

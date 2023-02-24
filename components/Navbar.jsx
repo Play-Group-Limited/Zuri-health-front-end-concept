@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import logo from '../public/assets/logo.png'
 import flag from '../public/assets/flags/england.png'
-import { BsGlobe } from 'react-icons/bs'
+import { BsCart, BsGlobe } from 'react-icons/bs'
 import { RiArrowDropDownLine } from 'react-icons/ri'
 import { MdOutlineShoppingCart } from 'react-icons/md'
 import { RxCrossCircled, RxHamburgerMenu } from 'react-icons/rx'
@@ -12,6 +12,7 @@ import Badge from '@mui/material/Badge';
 import { useSelector } from 'react-redux'
 import { DownOutlined, SmileOutlined } from '@ant-design/icons';
 import { Dropdown, Space } from 'antd';
+import { Button, Drawer } from 'antd';
 
 import account from "../public/assets/icons/Navbar/account.png"
 import wish from "../public/assets/icons/Navbar/wish.png"
@@ -22,6 +23,8 @@ import nigeria from '../public/assets/flags/nigeria.svg'
 import sa from '../public/assets/flags/sa.svg'
 import ghana from '../public/assets/flags/ghana.svg'
 import eng from '../public/assets/flags/eng.svg'
+
+import WishCard from './wishlist/WishCard'
 
 const Navbar = () => {
 
@@ -106,7 +109,27 @@ const Navbar = () => {
           </a>,
         },
       ];
-    
+
+    const [open, setOpen] = useState(false);
+    const showDrawer = () => {
+        setOpen(true);
+    };
+    const onClose = () => {
+        setOpen(false);
+    };
+
+    let item;
+
+    const [data, setData] = useState(item);
+    console.log("..................", data)
+
+    let products = data;
+
+    useEffect(() => {
+        const savedData = JSON.parse(localStorage.getItem('key'));
+        setData(savedData);
+        console.log("•••••••••••••",savedData)    
+    }, []);
   return (
     <div className='w-full h-full'>
         
@@ -139,13 +162,21 @@ const Navbar = () => {
                     </span>
                     <span className='flex flex-row  items-center mx-8 md:hidden'>
                         <Image src={account} alt="account" className='mx-2  ' />
-                        <Image src={wish} alt="WishList" className='mx-2 ' />
+                        <div onClick={showDrawer} className='cursor-pointer'>
+                            <Image src={wish} alt="WishList"  className='mx-2 ' />
+                        </div>
                         <Link href='/Cart'>
                             <Badge badgeContent={cart.quantity} color="warning">
                                 <Image src={cartPic} alt="Cart" className='mx-2 ' />
                             </Badge>
                         </Link>
                     </span>
+                    <Drawer title="Wish List" placement="right" onClose={onClose} open={open} className='overflow-y-auto'>
+                        {products?.length > 0 && products.map((product) => {
+                           return <WishCard key={product._id} product={product}/>
+                            console.log("product", product)
+                        })}
+                    </Drawer>
                     <span className='flex flex-col justify-end items-end'>
                         
                         <Dropdown
@@ -167,7 +198,7 @@ const Navbar = () => {
                         <Link href='/Login/Login'>
                             <Image src={account} alt="account" className='mx-2  ' />
                         </Link>
-                        <Image src={wish} alt="WishList" className='mx-2 ' />
+                        <Image src={wish} alt="WishList" onClick={showDrawer} className='cursor-pointer mx-2' />
                         <Link href='/Cart'>
                             <Badge badgeContent={cart.quantity} color="warning">
                                 <Image src={cartPic} alt="Cart" className='mx-2 ' />
@@ -404,6 +435,8 @@ const Navbar = () => {
                     <h3 className='text-lg'>Pharmacy</h3>
                 </div>
             ) : null}
+
+            
             
         </div>
     </div>

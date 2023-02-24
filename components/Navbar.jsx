@@ -7,14 +7,22 @@ import { RiArrowDropDownLine } from "react-icons/ri"
 import { MdOutlineShoppingCart } from "react-icons/md"
 import { RxCrossCircled, RxHamburgerMenu } from "react-icons/rx"
 import Link from "next/link"
-import { useRouter } from "next/router"
-import Badge from "@mui/material/Badge"
-import { useSelector } from "react-redux"
+import { useRouter } from "next/router";
+import Badge from '@mui/material/Badge';
+import { useSelector } from 'react-redux'
+import { DownOutlined, SmileOutlined } from '@ant-design/icons';
+import { Dropdown, Space } from 'antd';
 
 import account from "../public/assets/icons/Navbar/account.png"
 import wish from "../public/assets/icons/Navbar/wish.png"
 import cartPic from "../public/assets/icons/Navbar/cart.png"
 import Links from "./Links"
+
+import kenya from '../public/assets/flags/kenya.svg'
+import nigeria from '../public/assets/flags/nigeria.svg'
+import sa from '../public/assets/flags/sa.svg'
+import ghana from '../public/assets/flags/ghana.svg'
+import eng from '../public/assets/flags/eng.svg'
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false)
@@ -38,7 +46,80 @@ const Navbar = () => {
       router.events.off("routeChangeComplete", handleRouteChange)
     }
   }, [router.events])
+    useEffect(() => {
+        const handleRouteChange = (url) => {
+          console.log(`Route changed to: ${url}`);
+          // Do something when the route changes
+          setOpenMenu(false)
+        };
+    
+        router.events.on('routeChangeComplete', handleRouteChange);
+    
+        return () => {
+          router.events.off('routeChangeComplete', handleRouteChange);
+        };
+      }, [router.events]);
+    
+      const flags = [
+        {
+          key: '1',
+          label: <a href=""  onClick={() => setLang('ENG')} className='flex items-center '>
+            <Image src={eng} alt='Eng' />
+            <p className='ml-2'>English</p>
+          </a>,
+        },
+        {
+            key: '2',
+            label: <a href="" onClick={() => setLang('EBO')} className='flex items-center '>
+            <Image src={nigeria} alt='Nigeria' />
+            <p className='ml-2'>Ebo</p>
+          </a>,
+        },
+        {
+            key: '3',
+            label: <a href="" onClick={() => setLang('GHA')} className='flex items-center '>
+            <Image src={ghana} alt='Ghana' />
+              <p className='ml-2'>Ghanaian</p>
+          </a>,
+        },
+        {
+            key: '4',
+            label: <a href="" onClick={() => setLang('KIS')} className='flex items-center '>
+            <Image src={kenya} alt='Kenya' />
+              <p className='ml-2'>Swahili</p>
+          </a>,
+        },
+      ];
+      
+      const [lang, setLang] = useState('ENG')
 
+      const items = [
+        {
+          key: '1',
+          label: <a  className='flex items-center justify-center'>
+            <Image src={sa} alt='South Africa' className=''/>
+          </a>,
+        },
+        {
+          key: '2',
+          label: <a href="" className='flex items-center justify-center'>
+            <Image src={nigeria} alt='Ni' />
+          </a>,
+        },
+        {
+          key: '3',
+          label: <a href="" className='flex items-center justify-center'>
+            <Image src={ghana} alt='Gh' />
+          </a>,
+        },
+        {
+          key: '4',
+          label: <a href="" className='flex items-center justify-center'>
+            <Image src={kenya} alt='Ke' />
+          </a>,
+        },
+      ];
+    
   return (
     <div className='w-full h-full'>
       <div className='flex flex-col w-full'>

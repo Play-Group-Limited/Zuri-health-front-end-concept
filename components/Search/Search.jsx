@@ -21,16 +21,13 @@ const Search = () => {
   }
 
   const handleClick = (hit) => {
-    
-    try {
-      router.push(`/Test/${hit._id}`)
-    } catch (error) {
-      try {
-        router.push(`/Drug/${hit._id}`)
-      } catch (error) {
-        router.push('/Categories')
-      }
+    let page;
+    if(hit.pharmacy_id){
+      page = 'Drug'
+    } else {
+      page = 'Test'
     }
+    router.push(`/${page}/${hit._id}`)
   }
 
   const hitComponent = ({hit})=>{

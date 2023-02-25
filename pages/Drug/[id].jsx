@@ -15,7 +15,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 
 import { useDispatch } from 'react-redux'
-import { addProduct } from '../../redux/cartSlice'
+import { addProduct, modifyAddProductQuantity } from '../../redux/cartSlice'
 
 const Drug = ({product}) => {
     console.log(" id: ", product)
@@ -37,7 +37,7 @@ const Drug = ({product}) => {
     const handleAdd = () => {
         let quant = quantity + 1
         setQuantity(quant) ;
-        dispatch(modifyProductQuantity({id: product._id, index: index, quantity: quant, price: product.price, product}))
+        dispatch(modifyAddProductQuantity({id: product._id, index: index, quantity: quant, price: product.price, product}))
     }
 
     const handleClick = () => {

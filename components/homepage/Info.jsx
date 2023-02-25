@@ -8,7 +8,7 @@ const Info = () => {
   return (
     <div className='w-full h-full'>
         <div className='my-4 md:my-12 '>
-            <div className='flex flex-col md:flex-row items-center justify-evenly mx-4 md:mx-0'>
+            <div className='flex flex-col md:flex-row items-center md:items-start justify-evenly mx-4 md:mx-0 md:mb-8'>
                 <div className='flex flex-col justify-cente items-center text-center my-4'>
                     <h3 className='text-xl text-[#ED3763]'>Why choose Zuri Health</h3>
                     <p className='text-xs text-slate-500'>Still sitting on the fence? Watch our Video</p>

@@ -75,16 +75,16 @@ const Pharmacy = ({products}) => {
                     </div>
                 </div>
          </div>
-         <div className='my-4 flex flex-col mx-2  w-full items-center justify-center'>
+         <div className='my-4 flex flex-col w-full items-center justify-center '>
             <div className='lg:max-w-[1440px] w-full flex flex-col items-center justify-center'>
-                <div className='flex  flex-col md:flex-row items-center h-full w-full'>
+                <div className='flex  flex-col md:flex-row items-center h-full w-full p-2'>
                     <SearchXl />
                     <TalkToDoc />
 
                 </div>
 
                 <div className='my-4 flex flex-col'>
-                    <h3 className='text-xl font-bold'>Popular Items</h3>
+                    <h3 className='text-xl font-bold pl-2'>Popular Items</h3>
 
                     <div className='flex flex-row  h-full overflow-x-auto w-[100vw] lg:max-w-[1440px]'>
                         {/* drug list */}
@@ -93,7 +93,7 @@ const Pharmacy = ({products}) => {
                     </div>
                 </div>
 
-                <div className='my-4 flex flex-col'>
+                <div className='my-4 flex flex-col mx-2'>
                     <h3 className='text-xl font-bold'>Categories</h3>
                     
                     {/* category list */}
@@ -124,7 +124,7 @@ const Pharmacy = ({products}) => {
 
 export const getServerSideProps = async () => {
     const res = await axios.get(
-      `${API_URL}/pharmacy/pharmacy_product_list?page=1`
+      `${API_URL}/pharmacy/pharmacy_product_list?page=1&latitude=-1.292066&longitude=36.821945`
     )
   
     // const data = await res.json();

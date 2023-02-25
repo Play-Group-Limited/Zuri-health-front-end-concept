@@ -13,9 +13,9 @@ function MyApp({ Component, pageProps }) {
   return(
     <Provider store={store}>
       <Layout>
-        <ToastContainer position="top-center" />
-        <Component {...pageProps} />
-        <StickySearch />
+          <ToastContainer position="top-center" />
+          <Component {...pageProps} />
+          <StickySearch />
       </Layout>
     </Provider>
 

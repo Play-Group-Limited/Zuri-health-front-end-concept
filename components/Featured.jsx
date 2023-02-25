@@ -10,7 +10,7 @@ import "swiper/css/navigation"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper"
 import Search from './Search/Search'
-import vera from '../public/assets/vera/vera.png'
+import vera from '../public/assets/vera/vera.svg'
 
 
 
@@ -20,18 +20,18 @@ const Featured = () => {
   return (
     <div className='w-full h-full'>
       <div className='w-full flex items-center justify-center h-full'>
-        <div className=' w-full relative flex flex-col items-center justify-center'>
+        <div className=' w-full relative flex flex-col items-center justify-center md:mb-8'>
           <div className='lg:max-w-[50%] w-full my-4 px-4'>
             <Search />
           </div>
           <Swiper />
-          <div className='w-full bg-[#58E5E8] flex items-center justify-center '>
+          <div className='w-full bg-[#5BDADD] flex items-center justify-center '>
             <div className='w-full relative h-full  max-w-[1440px]'>
               <Swiper navigation={true} modules={[Navigation]} className='z-0 relative  h-[60vh] max-h-[438px] max-w-[100vw]'>
                 <SwiperSlide>
                   <div className='w-full h-max flex flex-col-reverse md:flex-row md:justify-evenly items-center md:mx-12 '>
                     <Image src={vera} alt='woman' className='md:hidden w-full h-full'/>
-                    <div className='mx-2 md:mt-0 z-10 px-6 md:w-[60%] md:left-[5%] md:top-[25%] text-left py-8 items-center '>
+                    <div className='mx-2 md:mt-0 z-10 px-12 md:w-[60%] md:left-[5%] md:top-[25%] text-left py-8 items-center '>
                       <h3 className='font-bold text-3xl mb-4 md:text-6xl max-w-[820px] text-center'>
                         What can i help you with today
                       </h3>

@@ -4,7 +4,7 @@ import ccp from '../../public/assets/stockImgs/Partner/bgsm.png'
 
 const Featuredsm = () => {
   return (
-    <div className='flex w-full h-full rounded-xl'>
+    <div className='w-full max-w-[80vw] lg:max-w-[80vw] rounded-xl md:mx-12 my-4'>
         <div className='relative '>
             <Image src={ccp} alt='ccp' className='w-full h-full object-contain' />
             <div className='absolute w-[80%] rounded-r-xl h-[70%] top-[25%] p-6 bg-[#052749]/60'>

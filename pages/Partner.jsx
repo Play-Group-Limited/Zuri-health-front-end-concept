@@ -7,15 +7,15 @@ import Featuredsm from '../components/Partner/Featuredsm'
 const Partner = () => {
   return (
     <div className='w-full h-full'>
-        <div className='bg-[#052749] w-full h-[40vh] md:h-[50vh]  px-4 py-12'>
-            <div className='w-full flex items-center justify-center'>
+        <div className='bg-[#052749] w-full  mt-8 '>
+            <div className='w-full flex items-center justify-center '>
 
-                <div className=' max-w-[1440px] relative flex flex-col  w-full'>
+                <div className='mx-8 max-w-[1440px] relative flex flex-col  w-full'>
                     <div className=' top-10'>
                         <div className='hidden md:block my-12'>
                             <Featured />
                         </div>
-                        <div className='md:hidden flex items-center justify-center  top-0'>
+                        <div className='md:hidden w-full flex items-center justify-center  top-0'>
                             <Featuredsm />
                         </div>
                     </div>
@@ -26,9 +26,9 @@ const Partner = () => {
                 </div>
             </div>
         </div>
-        <div className='max-w-[1440px] flex flex-col items-center justify-center mx-4'>
-            <div className='md:ml-12 md:w-[40vw]'>
-                <h3 className='my-4 lg:pt-16 text-[#052749] text-xl font-semibold'>Want to become a Partner?</h3>
+        <div className=' flex flex-col items-center md:items-start md:justify-start justify-center mx-4 py-12'>
+            <div className='md:ml-12 md:w-[40vw] lg:max-w-[1440px] my-12 '>
+                <h3 className='lg:pt-16 text-[#052749] text-xl font-semibold'>Want to become a Partner?</h3>
                 <p>
                     Zuri Health, a mobile app that digitally connects patients across sub-saharan Africa with doctors helping them 
                     access affordable healthcare solutions is looking for you!

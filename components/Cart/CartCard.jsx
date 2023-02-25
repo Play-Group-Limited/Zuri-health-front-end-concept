@@ -12,10 +12,11 @@ const CartCard = ({product, index}) => {
     const dispatch = useDispatch()
   
     // console.log('image: ', product.product.imageUrl[0].imgPath)
-    console.log('find yourself', product?.quantity)
+    console.log('find yourself', product)
     
     let [quantity, setQuantity] = useState(product?.quantity)
     // console.log('product: ', product.product?.name)
+    console.log("index", index)
 
     const handleMinus = () => {
         let quant = quantity - 1;

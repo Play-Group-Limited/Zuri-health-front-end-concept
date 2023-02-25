@@ -171,7 +171,7 @@ const Navbar = () => {
                             </Badge>
                         </Link>
                     </span>
-                    <Drawer title="Wish List" placement="right" onClose={onClose} open={open} className='overflow-y-auto'>
+                    <Drawer title="Wish List" placement="right" onClose={onClose} open={open} className='overflow-y-auto w-screen md:w-full' width={globalThis.window?.innerWidth > "6px" ? "400px" : "100%"}>
                         {products?.length > 0 && products.map((product) => {
                            return <WishCard key={product._id} product={product}/>
                             console.log("product", product)

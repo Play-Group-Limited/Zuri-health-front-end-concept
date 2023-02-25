@@ -88,7 +88,7 @@ const Categories = ({products, categories}) => {
                         </div>
                     </div> */}
                     {categories.length > 0 && categories.map((category) => (
-                        <div className='mr-4'>
+                        <div key={category._id} className='mr-4'>
                             <div className='flex flex-row items-center cursor-pointer' onClick={() => setActiveCategory(category.name)}>
                                 <BsArrowRight className='cursor-pointer mr-4'/>
                                 <h3 className='mb-2 font-light whitespace-nowrap'>
@@ -99,7 +99,7 @@ const Categories = ({products, categories}) => {
                             {activeCategory === category.name ? (
                                 <div className='w-full pl-2 my-4'>
                                 {category?.sub_categories?.length > 0 && category?.sub_categories?.map((sub) => (
-                                    <div>
+                                    <div key={sub._id}>
                                         <div className='flex flex-row mb-2'  onClick={() => setActiveSubCategory(sub.name)}>
                                             <RiArrowDropRightLine size={20} className='cursor-pointer'/>
                                             <p className='font-thin'>{sub.name}</p>

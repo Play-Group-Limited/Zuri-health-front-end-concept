@@ -8,7 +8,7 @@ import { Tooltip } from 'antd';
 
 
 const DrugCard = ({product}) => {
-    console.log("********", product)
+    // console.log("********", product)
 
     const [prescription, setPrescription] = useState(false)
 
@@ -16,7 +16,7 @@ const DrugCard = ({product}) => {
     const [data, setData] = useState([]);
     const [newItem, setNewItem] = useState(null);
     
-    console.log("HhHHHHHHHHHHHH", data)
+    // console.log("HhHHHHHHHHHHHH", data)
 
     // useEffect(() => {
     //     const savedData = localStorage.getItem('key');
@@ -34,7 +34,7 @@ const DrugCard = ({product}) => {
         // setNewItem(product)
         const existingItems = JSON.parse(localStorage.getItem('key')) || [];
         const updatedItems = [...existingItems, product];
-        console.log(".............................",updatedItems)
+        // console.log(".............................",updatedItems)
         localStorage.setItem('key', JSON.stringify(updatedItems));
 
     }

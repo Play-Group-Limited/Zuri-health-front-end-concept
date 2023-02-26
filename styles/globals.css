@@ -6,7 +6,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'NunitoSans';
+  font-family: "NunitoSans";
+  scroll-behavior: smooth;
 }
 
 a {
@@ -19,28 +20,28 @@ a {
 }
 
 @font-face {
-  font-family: 'NunitoSans';
-  src: url('../fonts/NunitoSans-Regular.otf');
+  font-family: "NunitoSans";
+  src: url("../fonts/NunitoSans-Regular.otf");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'NunitoSans';
-  src: url('../fonts/NunitoSans-Bold.otf');
+  font-family: "NunitoSans";
+  src: url("../fonts/NunitoSans-Bold.otf");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'NunitoSans';
-  src: url('../fonts/NunitoSans-Italic.otf');
+  font-family: "NunitoSans";
+  src: url("../fonts/NunitoSans-Italic.otf");
   font-weight: normal;
   font-style: italic;
 }
 
-.ais-SearchBox-form{
-  padding:8px;
+.ais-SearchBox-form {
+  padding: 8px;
   width: 100%;
   background: #fff;
   border-radius: 60px;
@@ -50,9 +51,8 @@ a {
   flex-direction: row;
 }
 
-
-.ais-SearchBox-input{
-  background:white;
+.ais-SearchBox-input {
+  background: white;
   width: 100%;
   padding: 12px;
   border-radius: 80px;
@@ -60,24 +60,23 @@ a {
   outline-offset: 2px;
 }
 
-.ais-SearchBox-submitIcon{
+.ais-SearchBox-submitIcon {
   width: 20px;
   height: 20px;
   margin: 0 15px 0 15px;
 }
 
-.swiper-button-next::after{
+.swiper-button-next::after {
   color: black;
 }
 
-.swiper-button-prev::after{
-
+.swiper-button-prev::after {
   color: black;
 }
 
-@media screen and (max-width: 480px){
-    .ais-SearchBox-form{
-    padding:8px;
+@media screen and (max-width: 480px) {
+  .ais-SearchBox-form {
+    padding: 8px;
     width: 100%;
     background: #fff;
     border-radius: 20px;
@@ -86,3 +85,15 @@ a {
   }
 }
 
+@keyframes clipPathAnimation {
+  from {
+    clip-path: circle(100%);
+  }
+  to {
+    clip-path: circle(0%);
+  }
+}
+
+.service-card:hover .overlay {
+  animation: clipPathAnimation 0.5s forwards;
+}

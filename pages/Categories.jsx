@@ -1,5 +1,7 @@
 import axios from 'axios'
 import Image from 'next/image'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { BsArrowRight } from 'react-icons/bs'
 import { HiChevronDown } from 'react-icons/hi'
@@ -10,6 +12,7 @@ import CategoryListMobile from '../components/Pharmacy/CategoryListMobile'
 import TalkToDoc from '../components/Pharmacy/TalkToDoc'
 import Search from '../components/Search/Search'
 import { API_URL } from '../config/api.config'
+import { Breadcrumb } from "antd";
 
 
 const Categories = ({products, categories}) => {
@@ -25,11 +28,29 @@ const Categories = ({products, categories}) => {
 
     console.log(activeCategory)
 
+    const router = useRouter();
+
+    const pathSegments = router.asPath.split("/");
+
+    const breadcrumbItems = pathSegments.map((segment, index) => {
+        const path = `${pathSegments.slice(0, index + 1).join("/")}`;
+        return { name: segment, path };
+    });
+
   return (
     <div className='w-full h-full flex flex-col items-center justify-center'>
         <div className='bg-[#5BDADD] w-full px-4  py-8 flex items-center justify-center'>
             <div className='w-[75%]'>
-                <p>home</p>
+                <Breadcrumb>
+                    {breadcrumbItems.map(({ name, path }, index) => (
+                        <Breadcrumb.Item key={index}>
+                        <Link href={path}>
+                            <p>{name}</p>
+                        </Link>
+                        </Breadcrumb.Item>
+                    ))}
+                <Breadcrumb.Item>{pathSegments[pathSegments.length - 1]}</Breadcrumb.Item>
+                </Breadcrumb>
             </div>
         </div>
         <div className='max-w-[1440px] mx-2 md:ml-4 flex flex-col items-center justify-center'>
@@ -117,52 +138,28 @@ const Categories = ({products, categories}) => {
                         {/* <CategoryListMobile /> */}
 
 
-                    <div onClick={() => setOpen(prev => !prev)} className={`flex flex-row items-center justify-between bg-slate-200 border-2 rounded-lg p-4 mb-4 ${open ? "mb-0 rounded-b-none" : null}`}>
+                    <div onClick={() => setOpen(prev => !prev)} className={`flex flex-row items-center justify-between bg-slate-200 border-2 rounded-lg p-4 ${open ? "mb-0 rounded-b-none" : null}`}>
                         <p className='uppercase font-semibold'> View All Categories</p>
                         <HiChevronDown />
                     </div>
                     
                     {open ? (
-                        <div className='bg-slate-200 border-2 rounded-b-lg p-4 mb-4'>
-                            <div className='flex flex-row items-center'>
-                                <BsArrowRight className='mr-4'/>
-                                <p className='whitespace-nowrap pr-4'>Family Care</p>
-                            </div>
+                        <div className='bg-slate-200 border-2 rounded-b-lg px-4 mb-4'>
+                            
                             <hr  className='my-4'/>
-                            <div className='flex flex-row items-center'>
-                                <BsArrowRight className='mr-4'/>
-                                <p className='whitespace-nowrap pr-4'>Fitness &amp; Wellness</p>
-                            </div>
-                            <hr  className='my-4'/>
-                            <div className='flex flex-row items-center'>
-                                <BsArrowRight className='mr-4'/>
-                                <p className='whitespace-nowrap pr-4'>Skin Care</p>
-                            </div>
-                            <hr  className='my-4'/>
-                            <div className='flex flex-row items-center'>
-                                <BsArrowRight className='mr-4'/>
-                                <p className='whitespace-nowrap pr-4'>Hair Care</p>
-                            </div>
-                            <hr  className='my-4'/>
-                            <div className='flex flex-row items-center'>
-                                <BsArrowRight className='mr-4'/>
-                                <p className='whitespace-nowrap pr-4'>Lip Care</p>
-                            </div>
-                            <hr  className='my-4'/>
-                            <div className='flex flex-row items-center'>
-                                <BsArrowRight className='mr-4'/>
-                                <p className='whitespace-nowrap pr-4'>Sexual wellness</p>
-                            </div>
-                            <hr  className='my-4'/>
-                            <div className='flex flex-row items-center'>
-                                <BsArrowRight className='mr-4'/>
-                                <p className=''>Women&apos;s Care</p>
-                            </div>
-                            <hr  className='my-4'/>
-                            <div className='flex flex-row items-center'>
-                                <BsArrowRight className='mr-4'/>
-                                <p className='whitespace-nowrap pr-4'>Baby Care</p>
-                            </div>
+                            {categories.length > 0 && categories.map((category) => (
+                                <div key={category._id} className='mr-4'>
+                                    <div className='flex flex-row items-center cursor-pointer' onClick={() => setActiveCategory(category.name)}>
+                                        <BsArrowRight className='cursor-pointer mr-2'/>
+                                        <h3 className=' font-light whitespace-nowrap'>
+                                        {category.name}
+                                        </h3>
+                                    </div>
+                                    <hr  className='my-4'/>
+                                    
+                                </div>
+                            ))}
+                            
                         </div>
                     ) : null}
 

@@ -67,7 +67,7 @@ const Test = () => {
     <div className='w-full h-full flex flex-col items-center justify-center'>
       <div className='bg-[#5BDADD] w-full px-4  py-8 flex items-center justify-center'>
         <div className='w-[75%]'>
-          <p>home</p>
+          <p>home</p> 
         </div>
       </div>
       <div className='w-full mx-4 flex items-center justify-center'>
@@ -75,18 +75,6 @@ const Test = () => {
           <div className='flex flex-col md:flex-row'>
             {/* left */}
             <div className='flex flex-row'>
-              <div className='hidden md:flex flex-col'>
-                <div className='border p-2 mb-2 rounded-lg'>
-                  <Image src={drugsm} alt='drug sm' />
-                </div>
-                <div className='border p-2 mb-2 rounded-lg'>
-                  <Image src={drugsm} alt='drug sm' />
-                </div>
-                <div className='border p-2 mb-2 rounded-lg'>
-                  <Image src={drugsm} alt='drug sm' />
-                </div>
-              </div>
-
               <div className='flex flex-col md:ml-4 w-full'>
                 <div className='md:hidden md:w-full flex flex-col items-center'>
                   {/* <Swiper navigation={true} modules={[Navigation]} className='z-0 max-w-[100vh] md:w-full'>
@@ -121,7 +109,7 @@ const Test = () => {
             </div>
 
             {/* right */}
-            <div className='flex flex-col md:ml-6 '>
+            <div className='flex flex-col md:ml-6 lg:max-w-[60%]'>
               <div className='lg:max-w-[60%] text-center md:text-start'>
                 <h3 className='font-semibold text-3xl mb-2'>
                   {testProduct?.name}

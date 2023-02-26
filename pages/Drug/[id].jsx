@@ -119,7 +119,7 @@ const Drug = () => {
                     }
                     width={300}
                     height={300}
-                    alt='drug'
+                    alt='drug' 
                   />
                 </div>
 
@@ -131,7 +131,7 @@ const Drug = () => {
             </div>
 
             {/* right */}
-            <div className='flex flex-col md:ml-6 w-full'>
+            <div className='flex flex-col lg:max-w-[60%] md:ml-6 w-full'>
               <div className='md:max-w-[60%] text-center md:text-start'>
                 <h3 className='font-semibold text-3xl mb-2'>{product?.name}</h3>
                 <p className='mb-6'>

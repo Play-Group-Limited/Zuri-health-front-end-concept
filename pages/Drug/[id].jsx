@@ -16,7 +16,11 @@ import axios from "axios"
 import { toast } from "react-toastify"
 
 import { useDispatch, useSelector } from "react-redux"
-import { addProduct, modifyAddProductQuantity } from "../../redux/cartSlice"
+import {
+  addProduct,
+  addProductToCart,
+  modifyAddProductQuantity,
+} from "../../redux/cartSlice"
 
 const Drug = () => {
   const [open, setOpen] = useState(false)
@@ -24,11 +28,10 @@ const Drug = () => {
   const [product, setProduct] = useState({})
   const [indx, setIndx] = useState()
 
-  console.log("PRODUCT", product)
+  console.log("DRUG", product)
 
   const router = useRouter()
   const cart = useSelector((state) => state.cart)
-  console.log(cart)
 
   useEffect(() => {
     if (router.isReady) {
@@ -60,10 +63,6 @@ const Drug = () => {
 
   const dispatch = useDispatch()
 
-  console.log("id: ", product.pharmacy_product)
-
-  console.log(quantity)
-
   const handleMinus = () => {
     let quant = quantity - 1
     setQuantity(quant)
@@ -72,21 +71,10 @@ const Drug = () => {
   const handleAdd = () => {
     let quant = quantity + 1
     setQuantity(quant)
-    dispatch(
-      modifyAddProductQuantity({
-        id: product._id,
-        index: indx,
-        quantity: quant,
-        price: product.price,
-        product,
-      })
-    )
   }
 
   const handleClick = () => {
-    dispatch(
-      addProduct({ product: product, price: product.price, quantity: quantity })
-    )
+    dispatch(addProductToCart({ product, quantity }))
     toast.success("items added to cart")
     setOpen(true)
   }
@@ -123,7 +111,16 @@ const Drug = () => {
                       <p>Prescription Required</p>
                     </div>
                   ) : null}
-                  <Image src={drug} alt='drug' />
+                  <Image
+                    src={
+                      (product?.imageUrl?.length > 0 &&
+                        product?.imageUrl[0].imgPath) ||
+                      drug
+                    }
+                    width={300}
+                    height={300}
+                    alt='drug'
+                  />
                 </div>
 
                 <div className='hidden md:flex flex-col border p-4 w-[60%] rounded-lg md:text-start text-center'>

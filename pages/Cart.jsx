@@ -11,7 +11,7 @@ import { useRouter } from "next/router"
 import { API_URL } from "../config/api.config"
 import Link from "next/link"
 import { toast } from "react-toastify"
-import { reset } from "../redux/cartSlice"
+import { clearCart, reset } from "../redux/cartSlice"
 
 const Cart = () => {
   const [openBasic, setOpenBasic] = useState(false)
@@ -186,7 +186,7 @@ const Cart = () => {
                   <div className='flex flex-row items-center'>
                     <button
                       className='text-lg font-semibold ml-2 flex items-center hover:text-red-500 transition-all duration-150 ease-linear'
-                      onClick={() => dispatch(reset())}>
+                      onClick={() => dispatch(clearCart())}>
                       <BiTrash size={20} className='mr-4' />
                       Clear Cart
                     </button>

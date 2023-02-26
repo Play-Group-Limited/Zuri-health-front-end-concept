@@ -13,25 +13,24 @@ import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper"
 import axios from "axios"
 import { API_URL } from "../../config/api.config"
 import { useDispatch } from "react-redux"
-import { addProduct } from "../../redux/cartSlice"
+import { addProduct, addProductToCart } from "../../redux/cartSlice"
 import { useRouter } from "next/router"
+import { toast } from "react-toastify"
 
 const Test = () => {
   const [testProduct, setTestProduct] = useState({})
-  const router = useRouter()
+  let [quantity, setQuantity] = useState(1)
 
-  console.log(testProduct)
-  console.log(router.query.id)
+  const router = useRouter()
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `${API_URL}/test_diagnostic//test_product_profile/${router.query.id}`
+          `${API_URL}/test_diagnostic/test_product_profile/${router.query.id}`
         )
-        setTestProduct(res.data)
+        setTestProduct(res.data.test_product)
       } catch (error) {
-        console.log()
         if (error.response.status === 404) {
           router.push("/404")
         }
@@ -43,7 +42,6 @@ const Test = () => {
   }, [router.isReady, router.query.id, router])
 
   const [open, setOpen] = useState(false)
-  let [quantity, setQuantity] = useState(1)
 
   const dispatch = useDispatch()
 
@@ -60,14 +58,8 @@ const Test = () => {
   }
 
   const handleClick = () => {
-    dispatch(
-      addProduct({
-        product: testProduct.test_product,
-        price: testProduct.test_product.price,
-        quantity: quantity,
-      })
-    )
-
+    dispatch(addProductToCart({ product: testProduct, quantity }))
+    toast.success("items added to cart")
     setOpen(true)
   }
 
@@ -132,15 +124,15 @@ const Test = () => {
             <div className='flex flex-col md:ml-6 '>
               <div className='lg:max-w-[60%] text-center md:text-start'>
                 <h3 className='font-semibold text-3xl mb-2'>
-                  {testProduct?.test_product?.name}
+                  {testProduct?.name}
                 </h3>
-                <p className='mb-6'>{testProduct?.test_product?.description}</p>
+                <p className='mb-6'>{testProduct?.description}</p>
 
                 <div className='flex flex-row items-start justify-center md:justify-start mb-6'>
                   <p className='text-xs line-through'>KES 505</p>
                   <h2 className='text-xl text-[#5BDADD] ml-4'>
                     {" "}
-                    KES {testProduct?.test_product?.price}{" "}
+                    KES {testProduct?.price}{" "}
                   </h2>
                 </div>
 

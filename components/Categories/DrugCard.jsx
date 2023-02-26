@@ -35,9 +35,9 @@ const DrugCard = ({ product }) => {
   }
 
   return (
-    <div className='flex flex-col m-2 mb-8'>
+    <div className='flex flex-col  m-2 mb-8'>
       <Link href={`/Drug/${product._id}`}>
-        <div className='border border-black rounded-lg flex flex-col items-center justify-center relative'>
+        <div className='border border-black rounded-lg flex  md:min-h-[370px] md:min-w-[250px] max-h-[450px]  flex-col items-center justify-center relative'>
           {product.prescription == true ? (
             <div className='bg-[#5BDADD] absolute top-0 left-0 w-full py-2 px-4 rounded-t-lg'>
               Requires Prescription

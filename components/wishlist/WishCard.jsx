@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsCart } from 'react-icons/bs'
 import { RxCrossCircled } from 'react-icons/rx'
 import drug from "../../public/assets/stockImgs/categories/drug.png"
@@ -8,11 +8,32 @@ const WishCard = ({product}) => {
     console.log("??????????????????", product)
 
     // const [updated, setUpdated] = useState([])
-    const handleClick = (e, id) => {
+    // const handleClick = (e, id) => {
+    //     e.preventDefault()
+    //     const existingProducts = JSON.parse(localStorage.getItem('key')) || [];
+    //     const updatedProducts = existingProducts.filter((product) => product._id !== id);
+    //     localStorage.setItem('key', JSON.stringify(updatedProducts));
+    // }
+
+    useEffect(() => {
+        const savedData = localStorage.getItem('key');
+        const parsedData = savedData ? JSON.parse(savedData) : [];
+        setProducts(parsedData);
+    }, []);
+
+    const handleClick = (e) => {
         e.preventDefault()
-        const existingProducts = JSON.parse(localStorage.getItem('key')) || [];
-        const updatedProducts = existingProducts.filter((product) => product._id !== id);
-        localStorage.setItem('key', JSON.stringify(updatedProducts));
+        const existingItems = JSON.parse(localStorage.getItem('key')) || [];
+        const updatedItems = [...existingItems, product];
+        localStorage.setItem('key', JSON.stringify(updatedItems));
+        setProducts(updatedItems);
+    }
+
+    const handleRemove = (id) => {
+        const existingItems = JSON.parse(localStorage.getItem('key')) || [];
+        const updatedItems = existingItems.filter(item => item._id !== id);
+        localStorage.setItem('key', JSON.stringify(updatedItems));
+        setProducts(updatedItems);
     }
 
     let id = product._id

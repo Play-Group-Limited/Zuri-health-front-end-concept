@@ -11,7 +11,7 @@ import { useRouter } from "next/router"
 import Badge from "@mui/material/Badge"
 import { useSelector } from "react-redux"
 import { DownOutlined, SmileOutlined } from "@ant-design/icons"
-import { Dropdown, Space } from "antd"
+import { Drawer, Dropdown, Space } from "antd"
 
 import account from "../public/assets/icons/Navbar/account.png"
 import wish from "../public/assets/icons/Navbar/wish.png"
@@ -137,10 +137,25 @@ const Navbar = () => {
     },
   ]
 
+  const [open, setOpen] = useState(false);
+    const showDrawer = () => {
+        setOpen(true);
+    };
+    const onClose = () => {
+        setOpen(false);
+    };
+
+    let item;
+
+    const [data, setData] = useState(item);
+    console.log("..................", data)
+
+    let products = data;
+
   return (
     <div className='w-full h-full'>
       <div className='flex flex-col w-full'>
-        <div className='bg-black py-4 w-full h-full flex justify-center items-center pr-4 md:pr-0'>
+        <div className='bg-black py-4 w-full h-full flex justify-center items-center  md:pr-0'>
           <div className=' flex flex-row justify-center md:justify-end md:items-end w-full max-w-[1440px] lg:pr-4'>
             <Link href='/Coparate'>
               <p className='text-white mx-2 text-sm hidden md:block whitespace-nowrap'>
@@ -165,15 +180,25 @@ const Navbar = () => {
                 </Space>
               </a>
             </Dropdown>
-
+              {/* sm screen */}
             <span className='flex flex-row  items-center mx-8 md:hidden'>
-              <Image src={account} alt='account' className='mx-2  ' />
-              <Image src={wish} alt='WishList' className='mx-2 ' />
+                <Space className='flex-row text-white mx-2 text-sm   whitespace-nowrap'>
+                  <p className="text-white">{lang}</p>
+                </Space>
+                <Link href='/Login/Login'>
+                    <Image src={account} alt='account' className='mx-2  ' />
+                </Link>
+                <div onClick={showDrawer} className='cursor-pointer'>
+                    <Image src={wish} alt="WishList"  className='mx-2 ' />
+                </div>
               <Link href='/Cart'>
                 <Badge badgeContent={cart.quantity} color='warning'>
                   <Image src={cartPic} alt='Cart' className='mx-2 ' />
                 </Badge>
               </Link>
+              <Space className=' ml-6 flex-row items-center text-white text-sm   whitespace-nowrap'>
+                  <BsGlobe size={20}/>
+                </Space>
             </span>
             <Dropdown
               menu={{
@@ -187,9 +212,15 @@ const Navbar = () => {
                 </Space>
               </a>
             </Dropdown>
+            {/* lg screen */}
             <span className='md:flex flex-row items-center ml-8 hidden pr-4'>
-              <Image src={account} alt='account' className='mx-2  ' />
-              <Image src={wish} alt='WishList' className='mx-2 ' />
+                
+                <Link href='/Login/Login'>
+                    <Image src={account} alt='account' className='mx-2  ' />
+                </Link>
+                <div onClick={showDrawer} className='cursor-pointer'>
+                    <Image src={wish} alt="WishList"  className='mx-2 ' />
+                </div>
               <Link href='/Cart'>
                 <Badge
                   badgeContent={cart.quantity}
@@ -203,6 +234,11 @@ const Navbar = () => {
                 </Badge>
               </Link>
             </span>
+            <Drawer width={globalThis.window?.innerWidth > "600px" ? "100%" : "300px"} title="Wish List" placement="right" onClose={onClose} open={open} className='overflow-y-auto'>
+                {products?.length > 0 && products.map((product) => {
+                    return <WishCard key={product._id} product={product}/>
+                })}
+            </Drawer>
           </div>
         </div>
         {openMenu ? (

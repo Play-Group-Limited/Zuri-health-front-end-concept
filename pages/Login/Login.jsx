@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router';
 import React, { useContext, useEffect, useState } from 'react'
+import { toast } from 'react-toastify';
 // import { Context } from '../../context';
 // import { loginUser } from '../../services/users'; 
 // import { toast } from 'react-toastify'
@@ -17,7 +18,7 @@ const Login = () => {
     // ask
     // const {state: {user}, dispatch} = useContext(Context) 
 
-    // const router = useRouter()
+    const router = useRouter()
 
     // console.log(user)
 
@@ -26,36 +27,8 @@ const Login = () => {
     
     const handleSubmit = async (e) => {
         e.preventDefault()
-    //     try{
-    //         const credentials = {
-    //             email,
-    //             password,
-    //         }
-    //         const results = await loginUser(credentials);
-            
-    //         // if(results){
-    //         //     router.push('/Verification')
-    //         // }
-
-    //         if (results?.user) {
-    //             dispatch({
-    //               type: 'LOGIN',
-    //               payload: results.user,
-    //             })
-    //             window.localStorage.setItem('user', JSON.stringify(results.user))
-    //             router.push('/Verification')
-    //           }
-
-    //         // if (results?.user){
-    //         //     dispatch({
-    //         //         type: 'LOGIN',
-    //         //         payload: results.user
-    //         //     })
-    //         // }
-    //         console.log(results)
-    //     } catch(error){
-    //         // toast.error(error.data)
-    //     }
+        toast.success(`Welcome back ${email}`)
+        router.push('/')
     } 
 
   return (

@@ -7,9 +7,32 @@ import { TbHeartPlus } from "react-icons/tb"
 import { Tooltip } from "antd"
 
 const DrugCard = ({ product }) => {
-  console.log("********", product)
+  // console.log("********", product)
 
   const [prescription, setPrescription] = useState(false)
+
+  const [data, setData] = useState([])
+  const [newItem, setNewItem] = useState(null)
+
+  // console.log("HhHHHHHHHHHHHH", data)
+
+  // useEffect(() => {
+  //     const savedData = localStorage.getItem('key');
+  //     console.log("savedData", savedData);
+  //     const parsedData = savedData ? JSON.parse(savedData) : [];
+  //     setData(parsedData);
+  // }, []);
+
+  const handleAdd = () => {}
+
+  const handleClick = (e) => {
+    e.preventDefault()
+    // setNewItem(product)
+    const existingItems = JSON.parse(localStorage.getItem("key")) || []
+    const updatedItems = [...existingItems, product]
+    // console.log(".............................",updatedItems)
+    localStorage.setItem("key", JSON.stringify(updatedItems))
+  }
 
   return (
     <div className='flex flex-col m-2 mb-8'>
@@ -41,7 +64,9 @@ const DrugCard = ({ product }) => {
       <div className='flex flex-row justify-evenly items-center'>
         <p className='whitespace-nowrap px-2'>KSH 2,503</p>
         <Tooltip title='Wish List'>
-          <div className='  z-50  rounded-full w-8 h-8 flex items-center justify-center bg-[#E9526F]'>
+          <div
+            onClick={(e) => handleClick(e)}
+            className='rounded-full w-8 h-8 flex items-center cursor-pointer justify-center bg-[#E9526F]'>
             <TbHeartPlus className='text-white' />
           </div>
         </Tooltip>

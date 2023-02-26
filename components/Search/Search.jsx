@@ -10,7 +10,7 @@ const Search = () => {
   )
   const [change, setChange] = useState(false)
   const [searchText, setSearchText] = useState("")
-  console.log("•••••••••••••", searchText)
+  // console.log('•••••••••••••', searchText)
 
   // console.log(change)
 

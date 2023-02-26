@@ -24,6 +24,8 @@ import sa from "../public/assets/flags/sa.svg"
 import ghana from "../public/assets/flags/ghana.svg"
 import eng from "../public/assets/flags/eng.svg"
 
+import WishCard from "./wishlist/WishCard"
+
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false)
   const [openDrop, setOpenDrop] = useState(false)

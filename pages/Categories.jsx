@@ -15,7 +15,7 @@ import { API_URL } from '../config/api.config'
 const Categories = ({products, categories}) => {
     
     const [open, setOpen] = useState(false)
-    console.log("first***", categories)
+    console.log("first***", products)
 
 
     const [drop, openDrop] = useState(false)
@@ -178,12 +178,12 @@ const Categories = ({products, categories}) => {
                         <Search />
                     </div>
 
-                    <DrugList products={products}
+                    <DrugList
                     // No Category in product list
-                    // products={activeCategory === "all" ? prod : prod.filter((product) =>
-                    //           product.activeCategory === product.category._id
-                    // )
-                    // }
+                    products={activeCategory === "all" ? prod : prod.filter((product) =>
+                        activeCategory === product.category.name
+                    )
+                    }
                     />
                 </div>
 

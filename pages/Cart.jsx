@@ -50,7 +50,7 @@ const Cart = () => {
     const [address, setAddress] = useState('')
     const [hseNumber, setHseNumber] = useState('')
     const [city, setCity] = useState('')
-    const [country, setCountry] = useState('')
+    const [country, setCountry] = useState('Kenya')
 
     let amount = cart.total
     console.log("cart",cart)
@@ -105,7 +105,7 @@ const Cart = () => {
         console.log('serial', item_serialized)
     }
 
-    
+    console.log("••••••••••••••••••••", country)
 
   return (
     <div className='w-full h-full flex item-center justify-center'>
@@ -214,7 +214,12 @@ const Cart = () => {
                                             <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Address" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
                                             <input type="text" value={hseNumber} onChange={(e) => setHseNumber(e.target.value)} placeholder="House no / Flat no" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
                                             <input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="City / Town" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
-                                            <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} placeholder="State / County" className='bg-white p-4 my-4  w-full rounded-lg border border-black'/>
+                                            <select value={country} onChange={(e) => setCountry(e.target.value)} placeholder="State / County" className='bg-white p-4 my-4  w-full rounded-lg border border-black'>
+                                                <option onClick={() => setCountry('Kenya')} value="Kenya">Kenya</option>
+                                                <option onClick={() => setCountry('Ghana')} value="Ghana">Ghana</option>
+                                                <option onClick={() => setCountry('Nigeria')} value="Nigeria">Nigeria</option>
+                                                <option onClick={() => setCountry('Zambia')} value="Zambia">Zambia</option>
+                                            </select>
                                         </div>
                                     ) : null}
                                 </div>

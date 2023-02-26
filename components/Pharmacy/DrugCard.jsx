@@ -9,7 +9,10 @@ const DrugCard = ({ product }) => {
       <Link href={`/Drug/${product._id}`}>
         <div className='mb-4'>
           <Image
-            src={product.imageUrl[0].imgPath || drug}
+            src={
+              (product?.imageUrl.length > 0 && product?.imageUrl[0]?.imgPath) ||
+              drug
+            }
             width={250}
             height={250}
             alt='med'

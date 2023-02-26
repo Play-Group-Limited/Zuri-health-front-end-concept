@@ -45,7 +45,11 @@ const CartCard = ({ product, index }) => {
       <div className='flex flex-col md:flex-row text-center md:text-left'>
         <div className='mx-2 md:max-w-[200px] my-4 md:my-0 rounded-lg flex justify-center items-center'>
           <Image
-            src={product.product.imageUrl[0].imgPath || drug}
+            src={
+              (product?.product?.imageUrl.length > 0 &&
+                product?.product?.imageUrl[0]?.imgPath) ||
+              drug
+            }
             alt='medd'
             width={200}
             height={200}

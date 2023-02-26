@@ -21,7 +21,10 @@ const DrugCard = ({ product }) => {
             </div>
           ) : null}
           <Image
-            src={product.imageUrl[0].imgPath || drug}
+            src={
+              (product?.imageUrl.length > 0 && product?.imageUrl[0]?.imgPath) ||
+              drug
+            }
             width={300}
             height={300}
             alt='drug'

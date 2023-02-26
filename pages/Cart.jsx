@@ -1,5 +1,5 @@
 import Image from "next/image"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { BiTrash } from "react-icons/bi"
 import { BsArrowRightShort } from "react-icons/bs"
 import { FiChevronDown } from "react-icons/fi"
@@ -17,6 +17,9 @@ const Cart = () => {
   const [openBasic, setOpenBasic] = useState(false)
   const [openDelivery, setOpenDelivery] = useState(false)
   const [openPrescription, setOpenPrescription] = useState(false)
+  const [prescriptionRequired, setPrescriptionRequired] = useState(false)
+  const [prescription, setPrescription] = useState("")
+  const [loading, setLoading] = useState(false)
 
   // const handleChange = (e) => {
   //     const { name, value } = e.target
@@ -42,6 +45,38 @@ const Cart = () => {
 
   const dispatch = useDispatch()
   const cart = useSelector((state) => state.cart)
+  useEffect(() => {
+    console.log("CART", cart.products)
+    if (cart.products.length > 0) {
+      cart.products.forEach((item) => {
+        console.log("MAAAHN", item)
+        if (item.product.prescription) {
+          setPrescriptionRequired(true)
+        }
+      })
+    }
+  }, [cart, cart.length])
+
+  const uploadPrescription = async (e) => {
+    e.preventDefault()
+    setLoading(true)
+    const formData = new FormData()
+    formData.append("prescription", e.target.files[0])
+    try {
+      const { data } = await axios.post(
+        `${API_URL}/pharmacy/direct_order/prescription_upload`,
+        formData
+      )
+      setPrescription(data._id)
+      setLoading(false)
+    } catch (error) {
+      setLoading(false)
+      toast.error("An error occured uploading your prescription")
+      console.log(error)
+    }
+  }
+
+  console.log("PRESCRIPTION", prescription)
 
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
@@ -76,53 +111,45 @@ const Cart = () => {
     }
     if (!city) {
       toast.error("Include your city")
-      throw Error("")
+      throw ""
     }
     if (!country) {
       toast.error("Include your country")
       throw ""
     }
-  }
-
-  function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1)
+    if (prescriptionRequired && !prescription) {
+      toast.error("A product in your cart requires prescription")
+      throw ""
+    }
   }
 
   const makeOrder = async () => {
     const details = cart.products.map((item) => {
       return {
         product_id: item.product._id,
-        qty: item.quantity,
-        unit_price: item.product.price,
+        quantity: item.quantity,
       }
     })
+    console.log(details)
     checkForInputs()
     try {
-      const paylaod = {
+      const payload = {
         name: name,
         email: email,
-        country: capitalizeFirstLetter(country),
         phone: phone,
-        pharmacy_id: "60a8d5fe626f28e1cbe94ef4",
+        country,
         details,
         delivery_address: {
-          coordinates: {
-            latitude: 34.8999,
-            longitude: 2.93334,
-          },
-          address: "Sangotedo",
+          address,
+          hseNumber,
+          city,
         },
-        prescription: "60ab1e9f3e92e101ab0c6335",
-        e_prescription_code: "AFFDD545G6",
+        prescription,
         payment_type: "online",
-        fromCurrency: "KES",
-        amount,
-        delivery_fee: 300,
-        final_amount: 50,
       }
       const { data } = await axios.post(
-        `${API_URL}/pharmacy/add_zurihealth_direct_pharmacy_order`,
-        paylaod
+        `${API_URL}/pharmacy/add_zurihealth_direct_order`,
+        payload
       )
       if (data) {
         router.push(data.link)
@@ -324,37 +351,41 @@ const Cart = () => {
                     ) : null}
                   </div>
 
-                  <div className='px-8 py-4 md:w-[80%] border border-black bg-gray-200 flex flex-col rounded-lg  w-full '>
-                    <div
-                      onClick={() => setOpenPrescription((prev) => !prev)}
-                      className='flex flex-row justify-between'>
-                      <div className='flex flex-col mr-16'>
-                        <h3 className='font-bold text-xl'>
-                          Upload Prescription
-                        </h3>
-                        <p className='text-xs'>
-                          Some items on this order require a Doctor&apos;s
-                          prescription
-                        </p>
+                  {prescriptionRequired && (
+                    <div className='px-8 py-4 md:w-[80%] border border-black bg-gray-200 flex flex-col rounded-lg  w-full '>
+                      <div
+                        onClick={() => setOpenPrescription((prev) => !prev)}
+                        className='flex flex-row justify-between'>
+                        <div className='flex flex-col mr-16'>
+                          <h3 className='font-bold text-xl'>
+                            Upload Prescription
+                          </h3>
+                          <p className='text-xs'>
+                            Some items on this order require a Doctor&apos;s
+                            prescription
+                          </p>
+                        </div>
+
+                        <FiChevronDown size={40} />
                       </div>
 
-                      <FiChevronDown size={40} />
+                      {openPrescription ? (
+                        <div className='mt-6'>
+                          <input
+                            type='file'
+                            onChange={uploadPrescription}
+                            className='bg-white p-4 my-4  w-full rounded-lg border border-black'
+                          />
+                        </div>
+                      ) : null}
                     </div>
-
-                    {openPrescription ? (
-                      <div className='mt-6'>
-                        <input
-                          type='file'
-                          className='bg-white p-4 my-4  w-full rounded-lg border border-black'
-                        />
-                      </div>
-                    ) : null}
-                  </div>
+                  )}
                 </div>
 
                 <button
                   onClick={() => makeOrder()}
-                  className='px-8 py-2 flex flex-row rounded-lg justify-between items-center bg-red-400 my-8 md:mx-16'>
+                  disabled={loading}
+                  className='px-8 py-2 flex flex-row rounded-lg justify-between items-center bg-red-400 my-8 md:mx-16 disabled:bg-gray-400'>
                   <p className='uppercase text-white'>Place order now</p>
                   <BsArrowRightShort size={30} className='ml-8 text-white' />
                 </button>

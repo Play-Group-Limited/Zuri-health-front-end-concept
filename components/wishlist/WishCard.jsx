@@ -3,7 +3,9 @@ import React, { useEffect, useState } from 'react'
 import { BsCart } from 'react-icons/bs'
 import { RxCrossCircled } from 'react-icons/rx'
 import { useDispatch } from 'react-redux'
+import { toast } from 'react-toastify'
 import drug from "../../public/assets/stockImgs/categories/drug.png"
+import { addProductToCart } from '../../redux/cartSlice'
 
 const WishCard = ({product}) => {
     console.log("??????????????????", product)
@@ -58,7 +60,7 @@ const WishCard = ({product}) => {
                 <h3 className='text-xl font-bold'>{product.name}</h3>
                 <h3 className='text-sm text-slate-300'>{product.description}</h3>
             </div>
-            <button  className='flex items-center justify-center p-2 mt-6 rounded-lg bg-[#E9526F] '>
+            <button onClick={() => handleAdd(1)} className='flex items-center justify-center p-2 mt-6 rounded-lg bg-[#E9526F] '>
                 <p className='text-white text-sm mr-2'>Add to cart</p>
                 <BsCart className='text-white'/>
             </button>

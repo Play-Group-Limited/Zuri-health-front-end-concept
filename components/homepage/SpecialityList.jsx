@@ -32,7 +32,7 @@ const SpecialityList = () => {
             text: 'Physiology'
         },
         {
-            id: 1,
+            id: 6,
             img: '/assets/icons/tooth.png',
             text: 'Dentistry'
         },

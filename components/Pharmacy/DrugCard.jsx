@@ -14,6 +14,13 @@ const DrugCard = ({ product }) => {
   //   useDispatch(addProductToCart({ product, quantity }))
   //   toast.success("items added to cart")
   // }
+  const dispatch = useDispatch()
+
+  const handleAdd = (num) => {
+    let quantity = num
+    dispatch(addProductToCart({ product, quantity }))
+    toast.success("Items added to cart")
+  }
 
   return (
     <div className='flex flex-col mx-4 w-fit'>
@@ -29,7 +36,7 @@ const DrugCard = ({ product }) => {
             <p className='font-bold border-2 border-black text-center  w-[50%] rounded-lg '>
                 KSH. {product?.price}.00
             </p>
-            <button className='p-2 flex rounded-full justify-center items-center bg-red-400 ml-2'>
+            <button onClick={() => handleAdd(1)} className='p-2 flex rounded-full justify-center items-center bg-red-400 ml-2'>
                 <BsCart3 size={20} className='text-white'/>
             </button>
         </div>

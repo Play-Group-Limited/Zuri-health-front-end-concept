@@ -148,9 +148,16 @@ const Navbar = () => {
     let item;
 
     const [data, setData] = useState(item);
-    console.log("..................", data)
+    // console.log("..................", data)
 
-    let products = data;
+    // let products = data;
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        const savedData = JSON.parse(localStorage.getItem('key'));
+        setProducts(savedData);
+        console.log("•••••••••••••",savedData)    
+    }, []);
 
   return (
     <div className='w-full h-full'>
@@ -234,9 +241,10 @@ const Navbar = () => {
                 </Badge>
               </Link>
             </span>
-            <Drawer width={globalThis.window?.innerWidth > "600px" ? "100%" : "300px"} title="Wish List" placement="right" onClose={onClose} open={open} className='overflow-y-auto'>
+            <Drawer title="Wish List" placement="right" onClose={onClose} open={open} className='overflow-y-auto'>
                 {products?.length > 0 && products.map((product) => {
                     return <WishCard key={product._id} product={product}/>
+                    console.log("product", product)
                 })}
             </Drawer>
           </div>
@@ -280,28 +288,33 @@ const Navbar = () => {
                     </Link>
                     {/* list */}
                     <div className='my-4 mx-2'>
-                      <Links>Find a doctor</Links>
-                      <Links>Video Consultation</Links>
-                      <Links>Book a home vist</Links>
-                      <Links>Ask free health</Links>
-                      <Links>Read health articles</Links>
-                      <Links>Chat with a doctor</Links>
+                        <Link href='/Doctors'>
+                            <Links>Find a doctor</Links>
+                            <Links>Video Consultation</Links>
+                            <Links>Book a home vist</Links>
+                            <Links>Ask free health</Links>
+                            <Links>Read health articles</Links>
+                            <Links>Chat with a doctor</Links>
+                        </Link>
                     </div>
                   </div>
 
                   {/* item */}
                   <div className='flex flex-col'>
                     {/* category */}
-                    <div className='flex flex-row items-center border-b-4  border-[#00F9ED]'>
-                      <p className='mx-2'>Countries and settings</p>
-                      <RiArrowDropDownLine />
-                      <span className='py-4 border-b border-[#00F9ED]' />
-                    </div>
-                    {/* list */}
-                    <div className='my-4 mx-2'>
-                      <Links>Choose a Country</Links>
-                      <Links>Choose a Language</Links>
-                    </div>
+                    
+                    <Link href='/'>
+                        <div className='flex flex-row items-center border-b-4  border-[#00F9ED]'>
+                        <p className='mx-2'>Countries and settings</p>
+                        <RiArrowDropDownLine />
+                        <span className='py-4 border-b border-[#00F9ED]' />
+                        </div>
+                        {/* list */}
+                        <div className='my-4 mx-2'>
+                            <Links>Choose a Country</Links>
+                            <Links>Choose a Language</Links>
+                        </div>
+                    </Link>
                   </div>
                   {/* item */}
                   <div className='flex flex-col'>
@@ -354,9 +367,13 @@ const Navbar = () => {
                     </div>
                     {/* list */}
                     <div className='my-4 mx-2'>
-                      <Links>Chat With Vera</Links>
-                      <Links>Talk to a CX Champion</Links>
-                      <Links>Blog</Links>
+                        <Link href='https://api.whatsapp.com/send/?phone=2349130006888&text=Hi&type=phone_number&app_absent=0'>
+                            <Links>Chat With Vera</Links>
+                            <Links>Talk to a CX Champion</Links>
+                        </Link>
+                        <Link href='/Blog'>
+                            <Links>Blog</Links>
+                        </Link>
                     </div>
                   </div>
                 </div>
@@ -384,6 +401,8 @@ const Navbar = () => {
                         <Links>Mum &amp; Baby</Links>
                         <Links>Perfumes And Sprays</Links>
                         <Links>Medical Devices - Diagnostics</Links>
+                      </Link>
+                      <Link href='/Blog'>
                         <Links>Read about medicines</Links>
                       </Link>
                     </div>
@@ -406,9 +425,11 @@ const Navbar = () => {
                           Continuous Care Programme
                         </Links>
                       </Link>
-                      <Links className='text-slate-600 my-2'>
-                        Download our App
-                      </Links>
+                      <Link href='https://apps.apple.com/us/app/zuri-health/id1554395747'>
+                        <Links className='text-slate-600 my-2'>
+                            Download our App
+                        </Links>
+                      </Link>
                       <Link href='/Partner'>
                         <Links className='text-slate-600 my-2'>
                           Become a Partner

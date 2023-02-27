@@ -33,9 +33,10 @@ const Categories = ({products, categories}) => {
     const pathSegments = router.asPath.split("/");
 
     const breadcrumbItems = pathSegments.map((segment, index) => {
-        const path = `${pathSegments.slice(0, index + 1).join("/")}`;
+        const path = `${pathSegments.slice(0, index + 1)}`;
         return { name: segment, path };
     });
+
 
   return (
     <div className='w-full h-full flex flex-col items-center justify-center'>
@@ -174,14 +175,28 @@ const Categories = ({products, categories}) => {
                     <div className='mx-4 mb-8 hidden md:block'>
                         <Search />
                     </div>
+                    { prod.filter((product) =>  activeCategory === product.category.name).length > 0 ? (
+                        <DrugList
+                        // No Category in product list
+                        products={activeCategory === "all" ? prod : prod.filter((product) =>
+                            activeCategory === product.category.name
+                        )
+                        }
+                        />
+                    ) : (
+                        
+                        <div className='w-full h-full'>
+                            <div className='flex flex-col text-center items-center justify-center'>
+                                <h3 className='text-3xl font-bold underline my-4'>Oh No ...</h3>
+                                <p>
+                                    Sorry, we currently dont not have the products you are looking 
+                                    <br />
+                                    for here but please reach out to us on whatsapp so that we can sort you out
+                                </p>
+                            </div>
+                        </div>
 
-                    <DrugList
-                    // No Category in product list
-                    products={activeCategory === "all" ? prod : prod.filter((product) =>
-                        activeCategory === product.category.name
-                    )
-                    }
-                    />
+                    )}
                 </div>
 
             </div>
@@ -211,7 +226,7 @@ export const getServerSideProps = async () => {
         await axios.get(`${API_URL}/pharmacy_sub_category/sub_category_list`)
       ).data.pharmacy_sub_categories
     
-      console.log("SUB CATEGORIES", categories)
+    //   console.log("SUB CATEGORIES", categories)
     
       if (categories.length > 0 && subcategories.length > 0) {
         const data = categories?.map((category) => {
@@ -227,7 +242,7 @@ export const getServerSideProps = async () => {
       ;[]
 
     // const data = await res.json();
-    console.log(res.data)
+    // console.log(res.data)
   
     return{
       props:{

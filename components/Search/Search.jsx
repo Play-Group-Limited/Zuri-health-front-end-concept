@@ -35,7 +35,7 @@ const Search = () => {
   }
 
   const hitComponent = ({ hit }) => {
-    console.log(hit)
+    // console.log(hit)
     return (
       <p
         onClick={() => handleClick(hit)}

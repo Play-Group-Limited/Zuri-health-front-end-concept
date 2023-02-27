@@ -28,9 +28,10 @@ const DrugCard = ({ product }) => {
   const handleClick = (e) => {
     e.preventDefault()
     // setNewItem(product)
+
     const existingItems = JSON.parse(localStorage.getItem("key")) || []
     const updatedItems = [...existingItems, product]
-    // console.log(".............................",updatedItems)
+    console.log(".............................",updatedItems)
     localStorage.setItem("key", JSON.stringify(updatedItems))
   }
 

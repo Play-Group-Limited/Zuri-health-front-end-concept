@@ -7,7 +7,7 @@ import drug from "../../public/assets/stockImgs/categories/drug.png"
 const WishCard = ({product}) => {
     console.log("??????????????????", product)
 
-    // const [updated, setUpdated] = useState([])
+    const [updated, setUpdated] = useState([])
     // const handleClick = (e, id) => {
     //     e.preventDefault()
     //     const existingProducts = JSON.parse(localStorage.getItem('key')) || [];
@@ -15,18 +15,12 @@ const WishCard = ({product}) => {
     //     localStorage.setItem('key', JSON.stringify(updatedProducts));
     // }
 
-    useEffect(() => {
-        const savedData = localStorage.getItem('key');
-        const parsedData = savedData ? JSON.parse(savedData) : [];
-        setProducts(parsedData);
-    }, []);
-
     const handleClick = (e) => {
         e.preventDefault()
         const existingItems = JSON.parse(localStorage.getItem('key')) || [];
         const updatedItems = [...existingItems, product];
         localStorage.setItem('key', JSON.stringify(updatedItems));
-        setProducts(updatedItems);
+        setUpdated(updatedItems);
     }
 
     const handleRemove = (id) => {

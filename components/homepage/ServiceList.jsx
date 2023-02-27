@@ -14,31 +14,46 @@ const ServiceList = ({}) => {
     {
       id: 1,
       img: "/assets/product/man.png",
-      text: "Engage with a doctor",
+      text: (<span>
+        <p className="whitespace-nowrap">Engage with</p>
+        a doctor
+      </span>),
       link: "/Doctors",
     },
     {
       id: 2,
       img: "/assets/product/1.png",
-      text: "Order Medicine",
+      text: (<span>
+        <p className="whitespace-nowrap">Order</p>
+        medicine
+      </span>),
       link: "/Pharmacy",
     },
     {
       id: 3,
       img: "/assets/product/2.png",
-      text: "Lab Tests & diagnostics",
+      text: (<span>
+        <p className="whitespace-nowrap">Lab Tests &</p>
+        diagnostics
+      </span>),
       link: "/Labs",
     },
     {
       id: 4,
       img: "/assets/product/3.png",
-      text: "Wellness and more",
+      text: (<span>
+        <p className="whitespace-nowrap">Wellness</p>
+        and more
+      </span>),
       link: "/ContinousCare",
     },
     {
       id: 5,
       img: "/assets/product/4.png",
-      text: "Continuos Care Program",
+      text: (<span>
+        <p className="whitespace-nowrap">Continuos</p>
+        <p className="whitespace-nowrap">care program</p>
+      </span>),
       link: "/ContinuosCare",
     },
   ]

@@ -21,13 +21,13 @@ const ServiceList = ({}) => {
       id: 2,
       img: "/assets/product/1.png",
       text: "Order Medicine",
-      link: "/ContinousCare",
+      link: "/Pharmacy",
     },
     {
       id: 3,
       img: "/assets/product/2.png",
       text: "Lab Tests & diagnostics",
-      link: "/ContinousCare",
+      link: "/Labs",
     },
     {
       id: 4,

@@ -49,6 +49,8 @@ const Navbar = () => {
     }
   }, [router.events])
 
+
+
   const flags = [
     {
       key: "1",
@@ -242,6 +244,12 @@ const Navbar = () => {
               </Link>
             </span>
             <Drawer title="Wish List" placement="right" onClose={onClose} open={open} className='overflow-y-auto'>
+              {products?.length == 0 ? (
+                <div className="flex h-full items-center justify-center">
+                  <h2>You dont have anything in your wishlist</h2>
+
+                </div>
+              ) : null}
                 {products?.length > 0 && products.map((product) => {
                     return <WishCard key={product._id} product={product}/>
                     console.log("product", product)

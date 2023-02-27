@@ -23,17 +23,17 @@ const WishCard = ({product}) => {
         setUpdated(updatedItems);
     }
 
-    const handleRemove = (id) => {
+    const handleRemove = (e, id) => {
         const existingItems = JSON.parse(localStorage.getItem('key')) || [];
         const updatedItems = existingItems.filter(item => item._id !== id);
         localStorage.setItem('key', JSON.stringify(updatedItems));
-        setProducts(updatedItems);
+        setUpdated(updatedItems);
     }
 
     let id = product._id
   return (
     <div className='flex flex-row w-full items-center justify-center p-4 border-b'>
-        <button onClick={(e) => handleClick(e, id)} className='flex items-center justify-center p-2  mr-4 rounded-full bg-[#E9526F] '>
+        <button onClick={(e) => handleRemove(e, id)} className='flex items-center justify-center p-2  mr-4 rounded-full bg-[#E9526F] '>
             <RxCrossCircled className='text-white'/>
         </button>
         <Image src={drug} alt='wish item' className='w-[100px]'/>

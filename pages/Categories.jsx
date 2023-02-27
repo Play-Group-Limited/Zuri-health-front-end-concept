@@ -34,7 +34,7 @@ const Categories = ({products, categories}) => {
 
     const breadcrumbItems = pathSegments.map((segment, index) => {
         const path = `${pathSegments.slice(0, index + 1)}`;
-        return { name: segment, path };
+        return { name: "home", path };
     });
 
 
@@ -175,7 +175,7 @@ const Categories = ({products, categories}) => {
                     <div className='mx-4 mb-8 hidden md:block'>
                         <Search />
                     </div>
-                    { prod.filter((product) =>  activeCategory === product.category.name).length > 0 ? (
+                    {/* { prod.filter((product) =>  activeCategory === product.category.name).length > 0 ? (
                         <DrugList
                         // No Category in product list
                         products={activeCategory === "all" ? prod : prod.filter((product) =>
@@ -185,7 +185,23 @@ const Categories = ({products, categories}) => {
                         />
                     ) : (
                         
-                        <div className='w-full h-full'>
+                        <div className='w-full h-full min-w-full'>
+                            <div className='flex flex-col text-center items-center justify-center'>
+                                <h3 className='text-3xl font-bold underline my-4'>Oh No ...</h3>
+                                <p>
+                                    Sorry, we currently dont not have the products you are looking 
+                                    <br />
+                                    for here but please reach out to us on whatsapp so that we can sort you out
+                                </p>
+                            </div>
+                        </div>
+
+                    )} */}
+                    { products.length > 0 ? (
+                        <DrugList products={products} />
+                    ) : (
+                        
+                        <div className='w-full h-full min-w-full'>
                             <div className='flex flex-col text-center items-center justify-center'>
                                 <h3 className='text-3xl font-bold underline my-4'>Oh No ...</h3>
                                 <p>
@@ -197,6 +213,7 @@ const Categories = ({products, categories}) => {
                         </div>
 
                     )}
+
                 </div>
 
             </div>

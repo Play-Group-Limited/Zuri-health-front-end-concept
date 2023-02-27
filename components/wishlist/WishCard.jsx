@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { BsCart } from 'react-icons/bs'
 import { RxCrossCircled } from 'react-icons/rx'
+import { useDispatch } from 'react-redux'
 import drug from "../../public/assets/stockImgs/categories/drug.png"
 
 const WishCard = ({product}) => {
@@ -35,6 +36,15 @@ const WishCard = ({product}) => {
         localStorage.setItem('key', JSON.stringify(updatedItems));
         setUpdated(updatedItems);
     }
+
+    const dispatch = useDispatch()
+
+    const handleAdd = (num) => {
+      let quantity = num
+      dispatch(addProductToCart({ product, quantity }))
+      toast.success("Items added to cart")
+    }
+  
 
     let id = product._id
   return (

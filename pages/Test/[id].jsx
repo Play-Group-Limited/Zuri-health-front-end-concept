@@ -63,6 +63,8 @@ const Test = () => {
     setOpen(true)
   }
 
+  console.log(testProduct)
+
   return (
     <div className='w-full h-full flex flex-col items-center justify-center'>
       <div className='bg-[#5BDADD] w-full px-4  py-8 flex items-center justify-center'>
@@ -102,8 +104,8 @@ const Test = () => {
                 </div>
 
                 <div className='hidden md:flex flex-col border p-4 w-[60%] rounded-lg md:text-start text-center'>
-                  <h3 className='uppercase '>Unit Count</h3>
-                  <p className='uppercase'> 15 Tablet (15 / Strip)</p>
+                  <h3 className='uppercase '>{testProduct.available ? <p>This Product is available</p> : <p>This product is unavailable</p>}</h3>
+                  {/* <p className='uppercase'> 15 Tablet (15 / Strip)</p> */}
                 </div>
               </div>
             </div>

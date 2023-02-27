@@ -47,28 +47,30 @@ const StickySearch = () => {
           </button>
         </div>
       </Link>
-      <div
-        onMouseOver={() => setWhatsapp(true)}
-        onMouseLeave={() => setWhatsapp(false)}
-        className={`cursor-pointer bg-[#32BA46] flex items-center justify-center    rounded-br-lg p-2 transition-all duration-300 hover:w-full${
-          whatsapp == true
-            ? "w-fit rounded-tr-none transition-all duration-300 hover:w-full"
-            : " xl:w-[4vw] lg:w-[5vw] md:w-[5vw]"
-        }`}>
-        <button className=''>
-          <div className='p-2 rounded-full'>
-            <BsWhatsapp size={20} className='text-white' />
-          </div>
-        </button>
+      <Link href='https://api.whatsapp.com/send/?phone=2349130006888&text=Hi&type=phone_number&app_absent=0'>
+        <div
+          onMouseOver={() => setWhatsapp(true)}
+          onMouseLeave={() => setWhatsapp(false)}
+          className={`cursor-pointer bg-[#32BA46] flex items-center justify-center    rounded-br-lg p-2 transition-all duration-300 hover:w-full${
+            whatsapp == true
+              ? "w-fit rounded-tr-none transition-all duration-300 hover:w-full"
+              : " xl:w-[4vw] lg:w-[5vw] md:w-[5vw]"
+          }`}>
+          <button className=''>
+            <div className='p-2 rounded-full'>
+              <BsWhatsapp size={20} className='text-white' />
+            </div>
+          </button>
 
-        {whatsapp ? (
-          <div className='ml-4 transition-all duration-300 hover:w-full'>
-            <p className='font-bold text-white transition-all duration-300 hover:w-full'>
-              WhatsApp
-            </p>
-          </div>
-        ) : null}
-      </div>
+          {whatsapp ? (
+            <div className='ml-4 transition-all duration-300 hover:w-full'>
+              <p className='font-bold text-white transition-all duration-300 hover:w-full'>
+                WhatsApp
+              </p>
+            </div>
+          ) : null}
+        </div>
+      </Link>
     </div>
   )
 }

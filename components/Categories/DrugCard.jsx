@@ -6,13 +6,13 @@ import drug from "../../public/assets/stockImgs/categories/drug.png"
 import { TbHeartPlus } from "react-icons/tb"
 import { Tooltip } from "antd"
 import { useDispatch } from "react-redux"
-import { addProductToCart } from "../../redux/cartSlice"
-import { toast } from "react-toastify"
+import { addToWishlist } from "../../redux/wishlistSlice"
 
 const DrugCard = ({ product }) => {
   // console.log("********", product)
 
   const [prescription, setPrescription] = useState(false)
+  const dispatch = useDispatch()
 
   const [data, setData] = useState([])
   const [newItem, setNewItem] = useState(null)
@@ -26,18 +26,17 @@ const DrugCard = ({ product }) => {
   //     setData(parsedData);
   // }, []);
 
-
   const handleClick = (e) => {
     e.preventDefault()
     // setNewItem(product)
 
-    const existingItems = JSON.parse(localStorage.getItem("key")) || []
-    const updatedItems = [...existingItems, product]
-    console.log(".............................",updatedItems)
-    localStorage.setItem("key", JSON.stringify(updatedItems))
-  }
+    dispatch(addToWishlist({ item: product }))
 
-  const dispatch = useDispatch()
+    // const existingItems = JSON.parse(localStorage.getItem("key")) || []
+    // const updatedItems = [...existingItems, product]
+    // console.log(".............................",updatedItems)
+    // localStorage.setItem("key", JSON.stringify(updatedItems))
+  }
 
   const handleAdd = (num) => {
     let quantity = num
@@ -74,7 +73,7 @@ const DrugCard = ({ product }) => {
       </div>
       <div className='flex flex-row justify-between mx-2 items-center'>
         <p className='whitespace-nowrap px-2'>KSH 2,503</p>
-        <div className="flex flex-row items-center">
+        <div className='flex flex-row items-center'>
           <Tooltip title='Wish List'>
             <div
               onClick={(e) => handleClick(e)}
@@ -82,7 +81,9 @@ const DrugCard = ({ product }) => {
               <TbHeartPlus className='text-white' />
             </div>
           </Tooltip>
-          <button onClick={() => handleAdd(1)} className='p-2  bg-[#E9526F] rounded-lg'>
+          <button
+            onClick={() => handleAdd(1)}
+            className='p-2  bg-[#E9526F] rounded-lg'>
             <p className='text-white uppercase px-1'>Add to Cart</p>
           </button>
         </div>

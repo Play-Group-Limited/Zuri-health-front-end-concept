@@ -8,20 +8,24 @@ import { PersistGate } from "redux-persist/integration/react"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { Dna } from "react-loader-spinner"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Router } from "next/router"
+import LoadingBar from "react-top-loading-bar"
 
 function MyApp({ Component, pageProps }) {
   const persistor = persistStore(store)
   const [loading, setLoading] = useState(false)
+  const [progress, setProgress] = useState(0)
 
   useEffect(() => {
     const start = () => {
       console.log("start")
+      setProgress(90)
       setLoading(true)
     }
     const end = () => {
       console.log("finished")
+      setProgress(100)
       setLoading(false)
     }
     Router.events.on("routeChangeStart", start)
@@ -34,27 +38,21 @@ function MyApp({ Component, pageProps }) {
     }
   }, [])
 
-  if (loading) {
-    return (
-      <Provider store={store}>
-        <Layout>
-          <div className='flex min-h-[90vh] items-center justify-center'>
-            <Dna visible={true} height='80' width='80' />
-          </div>
-        </Layout>
-      </Provider>
-    )
-  } else {
-    return (
-      <Provider store={store}>
-        <Layout>
-          <ToastContainer position='top-center' />
-          <Component {...pageProps} />
-          <StickySearch />
-        </Layout>
-      </Provider>
-    )
-  }
+  return (
+    <Provider store={store}>
+      <Layout>
+        <LoadingBar
+          color='#DC246F'
+          progress={progress}
+          shadow={true}
+          onLoaderFinished={() => setProgress(0)}
+        />
+        <ToastContainer position='top-center' />
+        <Component {...pageProps} />
+        <StickySearch />
+      </Layout>
+    </Provider>
+  )
 }
 
 export default MyApp

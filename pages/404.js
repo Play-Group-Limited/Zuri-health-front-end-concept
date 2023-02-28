@@ -38,7 +38,7 @@ const NotFound = () => {
   return (
     <div className='h-[50vh] flex items-center justify-center w-full flex-col'>
       {View}
-      <h4 className='font-bold text-xl'>OOPs! Product/Service not found</h4>
+      <h4 className='font-bold text-xl'>OOPs! resource not found</h4>
     </div>
   )
 }

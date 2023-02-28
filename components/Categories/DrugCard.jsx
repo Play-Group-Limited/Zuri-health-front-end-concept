@@ -26,8 +26,6 @@ const DrugCard = ({ product }) => {
   //     setData(parsedData);
   // }, []);
 
-  const handleAdd = () => {}
-
   const handleClick = (e) => {
     e.preventDefault()
     // setNewItem(product)
@@ -38,6 +36,12 @@ const DrugCard = ({ product }) => {
     // const updatedItems = [...existingItems, product]
     // console.log(".............................",updatedItems)
     // localStorage.setItem("key", JSON.stringify(updatedItems))
+  }
+
+  const handleAdd = (num) => {
+    let quantity = num
+    dispatch(addProductToCart({ product, quantity }))
+    toast.success("Items added to cart")
   }
 
   return (
@@ -67,18 +71,22 @@ const DrugCard = ({ product }) => {
           Also known as Thyroid Profile Total Blood
         </p>
       </div>
-      <div className='flex flex-row justify-evenly items-center'>
+      <div className='flex flex-row justify-between mx-2 items-center'>
         <p className='whitespace-nowrap px-2'>KSH 2,503</p>
-        <Tooltip title='Wish List'>
-          <div
-            onClick={(e) => handleClick(e)}
-            className='rounded-full w-8 h-8 flex items-center cursor-pointer justify-center bg-[#E9526F]'>
-            <TbHeartPlus className='text-white' />
-          </div>
-        </Tooltip>
-        <button className='p-2 bg-[#E9526F] rounded-lg w-[50%]'>
-          <p className='text-white uppercase'>Add to Cart</p>
-        </button>
+        <div className='flex flex-row items-center'>
+          <Tooltip title='Wish List'>
+            <div
+              onClick={(e) => handleClick(e)}
+              className='rounded-full w-8 h-8 mr-2 flex items-center cursor-pointer justify-center bg-[#E9526F]'>
+              <TbHeartPlus className='text-white' />
+            </div>
+          </Tooltip>
+          <button
+            onClick={() => handleAdd(1)}
+            className='p-2  bg-[#E9526F] rounded-lg'>
+            <p className='text-white uppercase px-1'>Add to Cart</p>
+          </button>
+        </div>
       </div>
     </div>
   )

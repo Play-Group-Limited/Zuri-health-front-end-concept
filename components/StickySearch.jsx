@@ -40,14 +40,14 @@ const StickySearch = () => {
           </div>
         ) : null}
       </div>
-      <Link href='/Pharmacy'>
+      <Link href='/Prescription'>
         <div className='bg-black flex items-center justify-center md:w-[5vw] xl:w-[4vw]  lg:w-[5vw] p-2'>
           <button className='p-2 rounded-full'>
             <BsUpload size={20} className=' text-white' />
           </button>
         </div>
       </Link>
-      <Link href='https://api.whatsapp.com/send/?phone=2349130006888&text=Hi&type=phone_number&app_absent=0'>
+      <Link href='https://api.whatsapp.com/send/?phone=254756551551&text=Hi&type=phone_number&app_absent=0'>
         <div
           onMouseOver={() => setWhatsapp(true)}
           onMouseLeave={() => setWhatsapp(false)}

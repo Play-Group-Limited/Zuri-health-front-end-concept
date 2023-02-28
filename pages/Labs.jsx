@@ -127,13 +127,13 @@ const Labs = ({testProduct}) => {
                     </div>
                 </div>
 
-                <hr className='my-6 md:my-12'/>
+                <hr className='my-6 md:my-12 mx-2 max-w-[1440px] w-full'/>
 
                 <div className='my-4 w-full'>
                     <Info />
                 </div>
                 
-                <hr className='my-6 md:my-12'/>
+                <hr className='my-6 md:my-12 mx-2 max-w-[1440px] w-full'/>
 
                 <div className='my-4 w-full'>
                     <Testimonials />

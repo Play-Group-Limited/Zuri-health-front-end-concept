@@ -7,6 +7,8 @@ import { TbHeartPlus } from "react-icons/tb"
 import { Tooltip } from "antd"
 import { useDispatch } from "react-redux"
 import { addToWishlist } from "../../redux/wishlistSlice"
+import { addProductToCart } from "../../redux/cartSlice"
+import { toast } from "react-toastify"
 
 const DrugCard = ({ product }) => {
   // console.log("********", product)

@@ -35,8 +35,6 @@ const cartSlice = createSlice({
       const { id } = action.payload
       const productIndex = state.products.findIndex((p) => p.product._id === id)
 
-      console.log(id)
-
       if (productIndex !== -1) {
         // If the product is found in the cart, remove it
         const productToRemove = state.products[productIndex]

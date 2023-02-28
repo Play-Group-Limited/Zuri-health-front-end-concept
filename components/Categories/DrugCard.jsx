@@ -5,11 +5,14 @@ import React, { useState } from "react"
 import drug from "../../public/assets/stockImgs/categories/drug.png"
 import { TbHeartPlus } from "react-icons/tb"
 import { Tooltip } from "antd"
+import { useDispatch } from "react-redux"
+import { addToWishlist } from "../../redux/wishlistSlice"
 
 const DrugCard = ({ product }) => {
   // console.log("********", product)
 
   const [prescription, setPrescription] = useState(false)
+  const dispatch = useDispatch()
 
   const [data, setData] = useState([])
   const [newItem, setNewItem] = useState(null)
@@ -29,10 +32,12 @@ const DrugCard = ({ product }) => {
     e.preventDefault()
     // setNewItem(product)
 
-    const existingItems = JSON.parse(localStorage.getItem("key")) || []
-    const updatedItems = [...existingItems, product]
-    console.log(".............................",updatedItems)
-    localStorage.setItem("key", JSON.stringify(updatedItems))
+    dispatch(addToWishlist({ item: product }))
+
+    // const existingItems = JSON.parse(localStorage.getItem("key")) || []
+    // const updatedItems = [...existingItems, product]
+    // console.log(".............................",updatedItems)
+    // localStorage.setItem("key", JSON.stringify(updatedItems))
   }
 
   return (

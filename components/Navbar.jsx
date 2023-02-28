@@ -25,6 +25,7 @@ import ghana from "../public/assets/flags/ghana.svg"
 import eng from "../public/assets/flags/eng.svg"
 
 import WishCard from "./wishlist/WishCard"
+import { toast } from "react-toastify"
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false)
@@ -34,6 +35,7 @@ const Navbar = () => {
   // console.log(router.route === item.name ? "page" : undefined)
 
   const cart = useSelector((state) => state.cart)
+  const wishlist = useSelector((state) => state.wishlist)
 
   useEffect(() => {
     const handleRouteChange = (url) => {
@@ -137,27 +139,18 @@ const Navbar = () => {
     },
   ]
 
-  const [open, setOpen] = useState(false);
-    const showDrawer = () => {
-        setOpen(true);
-    };
-    const onClose = () => {
-        setOpen(false);
-    };
+  const [open, setOpen] = useState(false)
+  const showDrawer = () => {
+    setOpen(true)
+  }
+  const onClose = () => {
+    setOpen(false)
+  }
 
-    let item;
+  let item
 
-    const [data, setData] = useState(item);
-    // console.log("..................", data)
-
-    // let products = data;
-    const [products, setProducts] = useState([])
-
-    useEffect(() => {
-        const savedData = JSON.parse(localStorage.getItem('key'));
-        setProducts(savedData);
-        console.log("•••••••••••••",savedData)    
-    }, []);
+  const [data, setData] = useState(item)
+  // console.log("..................", data)
 
   return (
     <div className='w-full h-full'>
@@ -187,25 +180,25 @@ const Navbar = () => {
                 </Space>
               </a>
             </Dropdown>
-              {/* sm screen */}
+            {/* sm screen */}
             <span className='flex flex-row  items-center mx-8 md:hidden'>
-                <Space className='flex-row text-white mx-2 text-sm   whitespace-nowrap'>
-                  <p className="text-white">{lang}</p>
-                </Space>
-                <Link href='/Login/Login'>
-                    <Image src={account} alt='account' className='mx-2  ' />
-                </Link>
-                <div onClick={showDrawer} className='cursor-pointer'>
-                    <Image src={wish} alt="WishList"  className='mx-2 ' />
-                </div>
+              <Space className='flex-row text-white mx-2 text-sm   whitespace-nowrap'>
+                <p className='text-white'>{lang}</p>
+              </Space>
+              <Link href='/Login/Login'>
+                <Image src={account} alt='account' className='mx-2  ' />
+              </Link>
+              <div onClick={showDrawer} className='cursor-pointer'>
+                <Image src={wish} alt='WishList' className='mx-2 ' />
+              </div>
               <Link href='/Cart'>
                 <Badge badgeContent={cart.quantity} color='warning'>
                   <Image src={cartPic} alt='Cart' className='mx-2 ' />
                 </Badge>
               </Link>
               <Space className=' ml-6 flex-row items-center text-white text-sm   whitespace-nowrap'>
-                  <BsGlobe size={20}/>
-                </Space>
+                <BsGlobe size={20} />
+              </Space>
             </span>
             <Dropdown
               menu={{
@@ -221,13 +214,12 @@ const Navbar = () => {
             </Dropdown>
             {/* lg screen */}
             <span className='md:flex flex-row items-center ml-8 hidden pr-4'>
-                
-                <Link href='/Login/Login'>
-                    <Image src={account} alt='account' className='mx-2  ' />
-                </Link>
-                <div onClick={showDrawer} className='cursor-pointer'>
-                    <Image src={wish} alt="WishList"  className='mx-2 ' />
-                </div>
+              <Link href='/Login/Login'>
+                <Image src={account} alt='account' className='mx-2  ' />
+              </Link>
+              <div onClick={showDrawer} className='cursor-pointer'>
+                <Image src={wish} alt='WishList' className='mx-2 ' />
+              </div>
               <Link href='/Cart'>
                 <Badge
                   badgeContent={cart.quantity}
@@ -241,10 +233,15 @@ const Navbar = () => {
                 </Badge>
               </Link>
             </span>
-            <Drawer title="Wish List" placement="right" onClose={onClose} open={open} className='overflow-y-auto'>
-                {products?.length > 0 && products.map((product) => {
-                    return <WishCard key={product._id} product={product}/>
-                    console.log("product", product)
+            <Drawer
+              title='Wish List'
+              placement='right'
+              onClose={onClose}
+              open={open}
+              className='overflow-y-auto'>
+              {wishlist?.wishlistItems?.length > 0 &&
+                wishlist?.wishlistItems.map((product) => {
+                  return <WishCard key={product._id} product={product} />
                 })}
             </Drawer>
           </div>
@@ -288,32 +285,32 @@ const Navbar = () => {
                     </Link>
                     {/* list */}
                     <div className='my-4 mx-2'>
-                        <Link href='/Doctors'>
-                            <Links>Find a doctor</Links>
-                            <Links>Video Consultation</Links>
-                            <Links>Book a home vist</Links>
-                            <Links>Ask free health</Links>
-                            <Links>Read health articles</Links>
-                            <Links>Chat with a doctor</Links>
-                        </Link>
+                      <Link href='/Doctors'>
+                        <Links>Find a doctor</Links>
+                        <Links>Video Consultation</Links>
+                        <Links>Book a home vist</Links>
+                        <Links>Ask free health</Links>
+                        <Links>Read health articles</Links>
+                        <Links>Chat with a doctor</Links>
+                      </Link>
                     </div>
                   </div>
 
                   {/* item */}
                   <div className='flex flex-col'>
                     {/* category */}
-                    
+
                     <Link href='/'>
-                        <div className='flex flex-row items-center border-b-4  border-[#00F9ED]'>
+                      <div className='flex flex-row items-center border-b-4  border-[#00F9ED]'>
                         <p className='mx-2'>Countries and settings</p>
                         <RiArrowDropDownLine />
                         <span className='py-4 border-b border-[#00F9ED]' />
-                        </div>
-                        {/* list */}
-                        <div className='my-4 mx-2'>
-                            <Links>Choose a Country</Links>
-                            <Links>Choose a Language</Links>
-                        </div>
+                      </div>
+                      {/* list */}
+                      <div className='my-4 mx-2'>
+                        <Links>Choose a Country</Links>
+                        <Links>Choose a Language</Links>
+                      </div>
                     </Link>
                   </div>
                   {/* item */}
@@ -367,13 +364,13 @@ const Navbar = () => {
                     </div>
                     {/* list */}
                     <div className='my-4 mx-2'>
-                        <Link href='https://api.whatsapp.com/send/?phone=2349130006888&text=Hi&type=phone_number&app_absent=0'>
-                            <Links>Chat With Vera</Links>
-                            <Links>Talk to a CX Champion</Links>
-                        </Link>
-                        <Link href='/Blog'>
-                            <Links>Blog</Links>
-                        </Link>
+                      <Link href='https://api.whatsapp.com/send/?phone=2349130006888&text=Hi&type=phone_number&app_absent=0'>
+                        <Links>Chat With Vera</Links>
+                        <Links>Talk to a CX Champion</Links>
+                      </Link>
+                      <Link href='/Blog'>
+                        <Links>Blog</Links>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -427,7 +424,7 @@ const Navbar = () => {
                       </Link>
                       <Link href='https://apps.apple.com/us/app/zuri-health/id1554395747'>
                         <Links className='text-slate-600 my-2'>
-                            Download our App
+                          Download our App
                         </Links>
                       </Link>
                       <Link href='/Partner'>

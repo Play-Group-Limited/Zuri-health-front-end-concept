@@ -3,7 +3,7 @@ import CountUp from "react-countup"
 
 const Cta = () => {
   return (
-    <div className='w-full h-full'>
+    <div className='w-full h-full my-12'>
       <div className='bg-black flex items-center justify-center py-8 '>
         <div className='flex flex-col md:flex-row items-center justify-between w-full max-w-[1440px]'>
           <h3 className='text-[#5BDADD] text-xl text-center my-4 md:my-0 font-bold'>

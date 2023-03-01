@@ -11,7 +11,7 @@ const QuickBtns = () => {
     const router = useRouter();
 
     const handleUpload = () => {
-        router.push('/Cart')
+        router.push('/Prescription')
     }
     const handleDoctor = () => {
         router.push('/Doctors')

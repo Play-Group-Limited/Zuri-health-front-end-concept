@@ -239,6 +239,7 @@ const Navbar = () => {
               onClose={onClose}
               open={open}
               className='overflow-y-auto'>
+              {wishlist?.wishlistItems?.length <= 0 ? <p className="flex h-full w-full items-center justify-center">There are no items in your wishlist</p> : null}
               {wishlist?.wishlistItems?.length > 0 &&
                 wishlist?.wishlistItems.map((product) => {
                   return <WishCard key={product._id} product={product} />

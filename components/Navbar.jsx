@@ -220,18 +220,60 @@ const Navbar = () => {
               <div onClick={showDrawer} className='cursor-pointer'>
                 <Image src={wish} alt='WishList' className='mx-2 ' />
               </div>
-              <Link href='/Cart'>
-                <Badge
-                  badgeContent={cart.quantity}
-                  color='warning'
-                  className=''>
-                  <Image
-                    src={cartPic}
-                    alt='Cart'
-                    className='mx-2 animate-none '
-                  />
-                </Badge>
-              </Link>
+              {router.route == "/Labs" ? (
+                <Link href='/LabCart'>
+                  <Badge
+                    badgeContent={cart.quantity}
+                    color='warning'
+                    className=''>
+                    <Image
+                      src={cartPic}
+                      alt='Cart'
+                      className='mx-2 animate-none '
+                    />
+                  </Badge>
+                </Link>
+              ) : router.route == "/TestCategories" ? (
+                <Link href='/LabCart'>
+                  <Badge
+                    badgeContent={cart.quantity}
+                    color='warning'
+                    className=''>
+                    <Image
+                      src={cartPic}
+                      alt='Cart'
+                      className='mx-2 animate-none '
+                    />
+                  </Badge>
+                </Link>
+              ) : router.route == "/Test/[id]" ? (
+                <Link href='/LabCart'>
+                  <Badge
+                    badgeContent={cart.quantity}
+                    color='warning'
+                    className=''>
+                    <Image
+                      src={cartPic}
+                      alt='Cart'
+                      className='mx-2 animate-none '
+                    />
+                  </Badge>
+                </Link>
+              ) : (
+                <Link href='/Cart'>
+                  <Badge
+                    badgeContent={cart.quantity}
+                    color='warning'
+                    className=''>
+                    <Image
+                      src={cartPic}
+                      alt='Cart'
+                      className='mx-2 animate-none '
+                    />
+                  </Badge>
+                </Link>
+
+              )}
             </span>
             <Drawer
               title='Wish List'

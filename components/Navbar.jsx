@@ -153,6 +153,20 @@ const Navbar = () => {
   const [data, setData] = useState(item)
   // console.log("..................", data)
 
+  const stuff = [
+  {
+    label: <Link href='/Cart'>Pharmacy Cart</Link>,
+    key: '0',
+  },
+  {
+    label: <Link href='/LabCart'>Labs Cart</Link>,
+    key: '1',
+  },
+
+];
+
+  const handleClick = () => {}
+
   return (
     <div className='w-full h-full'>
       <div className='flex flex-col w-full'>
@@ -168,19 +182,6 @@ const Navbar = () => {
                 Become a Partner
               </p>
             </Link>
-            <Dropdown
-              menu={{
-                items,
-              }}
-              className='flex items-center justify-center text-center cursor-pointer'
-              onClick={(e) => e.preventDefault()}>
-              <a onClick={(e) => e.preventDefault()}>
-                <Space className='md:flex flex-row items-center text-white mx-2 text-sm hidden  whitespace-nowrap'>
-                  Country Selector
-                  <BsGlobe />
-                </Space>
-              </a>
-            </Dropdown>
             {/* sm screen */}
             <span className='flex flex-row  items-center mx-8 md:hidden'>
               <Space className='flex-row text-white mx-2 text-sm   whitespace-nowrap'>
@@ -193,59 +194,97 @@ const Navbar = () => {
                 <Image src={wish} alt='WishList' className='mx-2 ' />
               </div>
               {router.route == "/Labs" ? (
-                <Link href='/LabCart'>
-                  <Badge
-                    badgeContent={labCart.quantity}
-                    color='warning'
-                    className=''>
-                    <Image
-                      src={cartPic}
-                      alt='Cart'
-                      className='mx-2 animate-none '
-                    />
-                  </Badge>
-                </Link>
+              <Dropdown
+                menu={{
+                  items:stuff,
+                }}
+                className='flex items-center justify-center text-center cursor-pointer'
+                onClick={(e) => e.preventDefault()}>
+                <a onClick={(e) => e.preventDefault()}>
+                  <Space className='flex-row items-center text-white mx-2 text-sm   whitespace-nowrap'>
+                      <Badge
+                        badgeContent={labCart.quantity}
+                        color='warning'
+                        className=''>
+                        <Image
+                          src={cartPic}
+                          alt='Cart'
+                          className='mx-2 animate-none '
+                        />
+                      </Badge>
+                  </Space>
+                </a>
+              </Dropdown>
               ) : router.route == "/TestCategories" ? (
-                <Link href='/LabCart'>
-                  <Badge
-                    badgeContent={labCart.quantity}
-                    color='warning'
-                    className=''>
-                    <Image
-                      src={cartPic}
-                      alt='Cart'
-                      className='mx-2 animate-none '
-                    />
-                  </Badge>
-                </Link>
+              <Dropdown
+                menu={{
+                  items:stuff,
+                }}
+                className='flex items-center justify-center text-center cursor-pointer'
+                onClick={(e) => e.preventDefault()}>
+                <a onClick={(e) => e.preventDefault()}>
+                  <Space className=' flex-row items-center text-white mx-2 text-sm   whitespace-nowrap'>
+                      <Badge
+                        badgeContent={labCart.quantity}
+                        color='warning'
+                        className=''>
+                        <Image
+                          src={cartPic}
+                          alt='Cart'
+                          className='mx-2 animate-none '
+                        />
+                      </Badge>
+                  </Space>
+                </a>
+              </Dropdown>
               ) : router.route == "/Test/[id]" ? (
-                <Link href='/LabCart'>
-                  <Badge
-                    badgeContent={labCart.quantity}
-                    color='warning'
-                    className=''>
-                    <Image
-                      src={cartPic}
-                      alt='Cart'
-                      className='mx-2 animate-none '
-                    />
-                  </Badge>
-                </Link>
+              <Dropdown
+                menu={{
+                  items:stuff,
+                }}
+                className='flex items-center justify-center text-center cursor-pointer'
+                onClick={(e) => e.preventDefault()}>
+                <a onClick={(e) => e.preventDefault()}>
+                  <Space className=' flex-row items-center text-white mx-2 text-sm   whitespace-nowrap'>
+                      <Badge
+                        badgeContent={labCart.quantity}
+                        color='warning'
+                        className=''>
+                        <Image
+                          src={cartPic}
+                          alt='Cart'
+                          className='mx-2 animate-none '
+                        />
+                      </Badge>
+                  </Space>
+                </a>
+              </Dropdown>
               ) : (
-                <Link href='/Cart'>
-                  <Badge
-                    badgeContent={cart.quantity}
-                    color='warning'
-                    className=''>
-                    <Image
-                      src={cartPic}
-                      alt='Cart'
-                      className='mx-2 animate-none '
-                    />
-                  </Badge>
-                </Link>
+              <Dropdown
+                menu={{
+                  items:stuff,
+                }}
+                className='flex items-center justify-center text-center cursor-pointer'
+                onClick={(e) => e.preventDefault()}>
+                <a onClick={(e) => e.preventDefault()}>
+                  <Space className='flex-row items-center text-white mx-2 text-sm  whitespace-nowrap'>
+                      <Badge
+                        badgeContent={cart.quantity}
+                        color='warning'
+                        className=''>
+                        <Image
+                          src={cartPic}
+                          alt='Cart'
+                          className='mx-2 animate-none '
+                        />
+                      </Badge>
+                  </Space>
+                </a>
+              </Dropdown>
+                
 
               )}
+
               <Space className=' ml-6 flex-row items-center text-white text-sm   whitespace-nowrap'>
                 <BsGlobe size={20} />
               </Space>
@@ -271,57 +310,94 @@ const Navbar = () => {
                 <Image src={wish} alt='WishList' className='mx-2 ' />
               </div>
               {router.route == "/Labs" ? (
-                <Link href='/LabCart'>
-                  <Badge
-                    badgeContent={labCart.quantity}
-                    color='warning'
-                    className=''>
-                    <Image
-                      src={cartPic}
-                      alt='Cart'
-                      className='mx-2 animate-none '
-                    />
-                  </Badge>
-                </Link>
+              <Dropdown
+                menu={{
+                  items:stuff,
+                }}
+                className='flex items-center justify-center text-center cursor-pointer'
+                onClick={(e) => e.preventDefault()}>
+                <a onClick={(e) => e.preventDefault()}>
+                  <Space className='md:flex flex-row items-center text-white mx-2 text-sm hidden  whitespace-nowrap'>
+                      <Badge
+                        badgeContent={labCart.quantity}
+                        color='warning'
+                        className=''>
+                        <Image
+                          src={cartPic}
+                          alt='Cart'
+                          className='mx-2 animate-none '
+                        />
+                      </Badge>
+                  </Space>
+                </a>
+              </Dropdown>
               ) : router.route == "/TestCategories" ? (
-                <Link href='/LabCart'>
-                  <Badge
-                    badgeContent={labCart.quantity}
-                    color='warning'
-                    className=''>
-                    <Image
-                      src={cartPic}
-                      alt='Cart'
-                      className='mx-2 animate-none '
-                    />
-                  </Badge>
-                </Link>
+              <Dropdown
+                menu={{
+                  items:stuff,
+                }}
+                className='flex items-center justify-center text-center cursor-pointer'
+                onClick={(e) => e.preventDefault()}>
+                <a onClick={(e) => e.preventDefault()}>
+                  <Space className='md:flex flex-row items-center text-white mx-2 text-sm hidden  whitespace-nowrap'>
+                      <Badge
+                        badgeContent={labCart.quantity}
+                        color='warning'
+                        className=''>
+                        <Image
+                          src={cartPic}
+                          alt='Cart'
+                          className='mx-2 animate-none '
+                        />
+                      </Badge>
+                  </Space>
+                </a>
+              </Dropdown>
               ) : router.route == "/Test/[id]" ? (
-                <Link href='/LabCart'>
-                  <Badge
-                    badgeContent={labCart.quantity}
-                    color='warning'
-                    className=''>
-                    <Image
-                      src={cartPic}
-                      alt='Cart'
-                      className='mx-2 animate-none '
-                    />
-                  </Badge>
-                </Link>
+              <Dropdown
+                menu={{
+                  items:stuff,
+                }}
+                className='flex items-center justify-center text-center cursor-pointer'
+                onClick={(e) => e.preventDefault()}>
+                <a onClick={(e) => e.preventDefault()}>
+                  <Space className='md:flex flex-row items-center text-white mx-2 text-sm hidden  whitespace-nowrap'>
+                      <Badge
+                        badgeContent={labCart.quantity}
+                        color='warning'
+                        className=''>
+                        <Image
+                          src={cartPic}
+                          alt='Cart'
+                          className='mx-2 animate-none '
+                        />
+                      </Badge>
+                  </Space>
+                </a>
+              </Dropdown>
               ) : (
-                <Link href='/Cart'>
-                  <Badge
-                    badgeContent={cart.quantity}
-                    color='warning'
-                    className=''>
-                    <Image
-                      src={cartPic}
-                      alt='Cart'
-                      className='mx-2 animate-none '
-                    />
-                  </Badge>
-                </Link>
+              <Dropdown
+                menu={{
+                  items:stuff,
+                }}
+                className='flex items-center justify-center text-center cursor-pointer'
+                onClick={(e) => e.preventDefault()}>
+                <a onClick={(e) => e.preventDefault()}>
+                  <Space className='md:flex flex-row items-center text-white mx-2 text-sm hidden  whitespace-nowrap'>
+                      <Badge
+                        badgeContent={cart.quantity}
+                        color='warning'
+                        className=''>
+                        <Image
+                          src={cartPic}
+                          alt='Cart'
+                          className='mx-2 animate-none '
+                        />
+                      </Badge>
+                  </Space>
+                </a>
+              </Dropdown>
+                
 
               )}
             </span>

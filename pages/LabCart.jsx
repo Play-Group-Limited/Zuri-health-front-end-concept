@@ -17,11 +17,12 @@ import { Radio, Space } from "antd"
 const LabCart = () => {
   const [openBasic, setOpenBasic] = useState(false)
   const [openDate, setOpenDate] = useState(false)
-  const [openLocation, setOpenLocation] = useState(false)
+  const [openLocation, setOpenLocation] = useState(true)
   const [openDelivery, setOpenDelivery] = useState(false)
   const [prescriptionRequired, setPrescriptionRequired] = useState(false)
   const [prescription, setPrescription] = useState("")
   const [loading, setLoading] = useState(false)
+  const [choice, setOpenChoice] = useState(false)
 
   // const handleChange = (e) => {
   //     const { name, value } = e.target
@@ -168,6 +169,14 @@ const LabCart = () => {
     console.log('radio checked', e.target.value);
     setValue(e.target.value);
   };
+
+  const handleChoice = () => {
+    if (value == 2){
+      setOpenChoice(true)
+    } else {
+      setOpenChoice(false)
+    }
+  }
 
   return (
     <div className='w-full h-full flex item-center justify-center'>
@@ -369,13 +378,14 @@ const LabCart = () => {
                       </div>
                     ) : null}
                   </div>
-
-                  <div className='px-8 my-8 py-4 md:w-[80%] border border-black bg-gray-200 flex flex-col rounded-lg  w-full '>
+                  
+                  {value == 2 ? (
+                    <div className='px-8 my-8 py-4 md:w-[80%] border border-black bg-gray-200 flex flex-col rounded-lg  w-full '>
                     <div
                       onClick={() => setOpenDelivery((prev) => !prev)}
                       className='flex flex-row justify-between'>
                       <div className='flex flex-col mr-16'>
-                        <h3 className='font-bold text-xl'>Sample Location Location</h3>
+                        <h3 className='font-bold text-xl'>Specify Location</h3>
                         <p className='text-xs'>
                             Please enter the address which you would like us to collect the sample at
                         </p>
@@ -415,7 +425,8 @@ const LabCart = () => {
                         </select>
                       </div>
                     ) : null}
-                  </div>
+                    </div>
+                  ) : null}
                 </div>
 
                 <button

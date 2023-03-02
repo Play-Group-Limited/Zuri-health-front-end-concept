@@ -146,10 +146,7 @@ const Test = () => {
                   <p className='text-white uppercase'> Add to cart </p>
                 </button>
 
-                <div className='flex flex-row mb-6'>
-                  <BsCheckCircle size={30} className='mr-4' />
-                  <p>In Stock (5 pieces available)</p>
-                </div>
+                
               </div>
 
               <hr className='w-full my-6' />

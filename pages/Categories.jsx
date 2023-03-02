@@ -201,7 +201,7 @@ const Categories = ({products, categories}) => {
                         <DrugList products={products} />
                     ) : (
                         
-                        <div className='w-full h-full min-w-full'>
+                        <div className='w-full h-full min-w-[60vw]'>
                             <div className='flex flex-col text-center items-center justify-center'>
                                 <h3 className='text-3xl font-bold underline my-4'>Oh No ...</h3>
                                 <p>

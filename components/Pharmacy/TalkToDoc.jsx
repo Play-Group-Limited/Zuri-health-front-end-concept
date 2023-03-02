@@ -14,7 +14,7 @@ const TalkToDoc = () => {
                 <br />
                 A Doctor
             </h3>
-            <Link href='/Doctors'>
+            <Link href='https://api.whatsapp.com/send/?phone=2349130006888&text=Hi&type=phone_number&app_absent=0'>
                 <button className='bg-black mt-6 text-white rounded-xl flex flex-row items-center p-4'>
                     <p className='text-sm '>Book Now</p>
                     <GoChevronRight  className='ml-4'/>

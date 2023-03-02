@@ -41,7 +41,7 @@ const Categories = ({products, categories}) => {
   return (
     <div className='w-full h-full flex flex-col items-center justify-center'>
         <div className='bg-[#5BDADD] w-full px-4  py-8 flex items-center justify-center'>
-            <div className='w-[75%]'>
+            <div className='w-[1440px]'>
                 <Breadcrumb>
                     {breadcrumbItems.map(({ name, path }, index) => (
                         <Breadcrumb.Item key={index}>

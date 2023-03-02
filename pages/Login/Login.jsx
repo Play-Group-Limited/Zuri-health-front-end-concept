@@ -52,14 +52,12 @@ const Login = () => {
                             <input type="text" id="days" value={password} onChange={(e) => setPassword(e.target.value)} className="block  px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-[#479ED5] peer" placeholder=" " />
                             <label htmlFor="days" className="absolute text-xs text-gray-500   top-0 z-10 origin-[0] left-2.5 peer-focus:text-[#479ED5] ">Password</label>
                         </div>
-                        {/* <Link href='/Verification'> */}
-                        <a className='flex flex-col justify-center'>
+                        <Link href='/Dashboard/UserDashboard'>
                             <button type='submit' className='w-fit inline-flex justify-between items-center mt-8 md:mr-4 py-2 px-3 text-sm font-medium text-center text-white bg-[#003D64] rounded-lg hover:bg-[#00F8ED] focus:ring-4 focus:outline-none focus:ring-blue-300'>
                                 Sign In
                                 <svg aria-hidden="true" className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" ></path></svg>
                             </button>
-                        </a>
-                        {/* </Link> */}
+                        </Link>
                     </form>
                     
                     <div className='my-4 w-full md:w-[40%]'>

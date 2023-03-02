@@ -13,7 +13,7 @@ import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper"
 import axios from "axios"
 import { API_URL } from "../../config/api.config"
 import { useDispatch } from "react-redux"
-import { addProduct, addProductToCart } from "../../redux/cartSlice"
+import { addProduct, addProductToLabCart } from "../../redux/labCartSlice"
 import { useRouter } from "next/router"
 import { toast } from "react-toastify"
 
@@ -58,7 +58,7 @@ const Test = () => {
   }
 
   const handleClick = () => {
-    dispatch(addProductToCart({ product: testProduct, quantity }))
+    dispatch(addProductToLabCart({ product: testProduct, quantity }))
     toast.success("items added to cart")
     setOpen(true)
   }

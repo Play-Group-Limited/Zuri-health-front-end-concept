@@ -119,7 +119,7 @@ const Pharmacy = ({ products }) => {
             <Info />
           </div>
 
-          <hr className='my-6 md:my-12 border-2 border-black mx-2 max-w-[1440px] w-full'/>
+          <hr className='my-6 md:my-12  mx-2 max-w-[1440px] w-full'/>
 
           <div className='my-4 w-full'>
             <Testimonials />

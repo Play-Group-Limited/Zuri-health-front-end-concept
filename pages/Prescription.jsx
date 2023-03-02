@@ -5,6 +5,7 @@ import axios from "axios"
 import { API_URL } from "../config/api.config"
 import { toast } from "react-toastify"
 import { BsPatchCheckFill } from "react-icons/bs"
+import Link from "next/link"
 const { Dragger } = Upload
 
 const Prescription = () => {
@@ -86,6 +87,13 @@ const Prescription = () => {
             </div>
             <div className='mx-4 my-4'>
               <BsPatchCheckFill className='text-[200px] mx-auto text-[#57E8EC]' />
+            </div>
+            <div className="w-full flex items-center justify-center mt-12">
+              <Link href='/Cart'>
+                <button className="bg-[#57E8EC] p-4 rounded-xl ">
+                  <p>Procced to checkout</p>
+                </button>
+              </Link>
             </div>
           </div>
         </div>

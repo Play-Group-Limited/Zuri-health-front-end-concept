@@ -58,8 +58,11 @@ const Footer = () => {
             <Link href='/Doctors'>
               <p className='text-sm py-2'>Consult a doctor</p>
             </Link>
-            <Link href='/Doctors'>
-              <p className='text-sm py-2'>Health app</p>
+            <Link href='https://apps.apple.com/us/app/zuri-health/id1554395747'>
+              <p className='text-sm py-2'> Download our IOS App </p>  
+            </Link>
+            <Link href='https://play.google.com/store/apps/details?id=com.zurihealth_patient&hl=en&gl=US'>
+              <p className='text-sm py-2'> Download our Android App </p>  
             </Link>
           </div>
           <div className='flex flex-col text-center md:text-start pb-8'>

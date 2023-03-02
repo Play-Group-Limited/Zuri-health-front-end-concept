@@ -10,12 +10,12 @@ const Speciality = () => {
       <div className='max-w-[1440px] w-full my-12 md:mx-4'>
         <div className='bg-[#5BDADD] w-full h-full  p-4 pt-8 md:p-12 md:rounded-3xl border border-blue-400  '>
           <div className='flex flex-col md:flex-row justify-evenly w-full'>
-            <div className='flex flex-col items-center md:items-start justify-center'>
+            <div className='flex flex-col items-center md:items-start justify-center max-w-[1440px]'>
               <h3 className='text-3xl font-bold text-center'>
-                Explore by Speciality
+                Explore by Category
               </h3>
               <p className=''>
-                Find experienced doctors accross all specialities
+                Find all the medicine you need from here
               </p>
               <Link href='/Categories'>
                 <p className='mx-2 underline text-center md:hidden pt-6'>
@@ -25,11 +25,11 @@ const Speciality = () => {
             </div>
 
             {/* cards */}
-            <div className='flex flex-col md:flex-row md:justify-between'>
+            <div className='flex flex-col md:flex-row '>
               <SpecialityList />
               <div className='h-[100%] flex flex-col justify-center items-center'>
                 <Link href='/Categories'>
-                  <p className='mx-2 underline text-center hidden md:block '>
+                  <p className='mx-2 underline text-center hidden md:block  whitespace-nowrap'>
                     View All
                   </p>
                 </Link>

@@ -382,8 +382,11 @@ const Navbar = () => {
                         <Links>Find a doctor</Links>
                         <Links>Video Consultation</Links>
                         <Links>Book a home vist</Links>
-                        <Links>Ask free health</Links>
+                      </Link>
+                      <Link href='/Blog'>
                         <Links>Read health articles</Links>
+                      </Link>
+                      <Link href='/Doctors'>
                         <Links>Chat with a doctor</Links>
                       </Link>
                     </div>
@@ -440,7 +443,6 @@ const Navbar = () => {
                         <Links>Book a Lab test</Links>
                         <Links>Get Tested At Home</Links>
                         <Links>Get Vaccinated</Links>
-                        <Links>Ask free health</Links>
                         <Links>Men Wellness Packages</Links>
                         <Links>Womens Wellness Packages</Links>
                       </Link>
@@ -457,7 +459,7 @@ const Navbar = () => {
                     </div>
                     {/* list */}
                     <div className='my-4 mx-2'>
-                      <Link href='https://api.whatsapp.com/send/?phone=2349130006888&text=Hi&type=phone_number&app_absent=0'>
+                      <Link href='https://api.whatsapp.com/send/?phone=2349130006888&text=Hi&type=phone_number&app_absent=0' passHref={true}>
                         <Links>Chat With Vera</Links>
                         <Links>Talk to a CX Champion</Links>
                       </Link>
@@ -482,7 +484,11 @@ const Navbar = () => {
                     <div className='my-4 mx-2'>
                       <Link href='/Categories'>
                         <Links>Order Medication</Links>
+                      </Link>
+                      <Link href='/Prescription'>
                         <Links>Upload Prescription</Links>
+                      </Link>
+                      <Link href='/Categories'>
                         <Links>Vitamins &amp; Supplements</Links>
                         <Links>Health &amp; Beauty</Links>
                         <Links>Personal Care</Links>
@@ -517,7 +523,12 @@ const Navbar = () => {
                       </Link>
                       <Link href='https://apps.apple.com/us/app/zuri-health/id1554395747'>
                         <Links className='text-slate-600 my-2'>
-                          Download our App
+                          Download our IOS App
+                        </Links>
+                      </Link>
+                      <Link href='https://play.google.com/store/apps/details?id=com.zurihealth_patient&hl=en&gl=US'>
+                        <Links className='text-slate-600 my-2'>
+                          Download our Android App
                         </Links>
                       </Link>
                       <Link href='/Partner'>
@@ -564,7 +575,6 @@ const Navbar = () => {
             <div className='lg:flex flex-row hidden '>
               <Link href='/Doctors'>
                 <div
-                  onClick={() => setOpenMenu(true)}
                   className='flex flex-row items-center mx-2'>
                   <Links className='mx-2'>Engage with doctors</Links>
                   <RiArrowDropDownLine />

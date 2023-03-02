@@ -3,7 +3,9 @@ import React, { useEffect, useState } from "react"
 import { BsCart } from "react-icons/bs"
 import { RxCrossCircled } from "react-icons/rx"
 import { useDispatch } from "react-redux"
+import { toast } from "react-toastify"
 import drug from "../../public/assets/stockImgs/categories/drug.png"
+import { addProductToCart } from "../../redux/cartSlice"
 import { removeFromWishlist } from "../../redux/wishlistSlice"
 
 const WishCard = ({ product }) => {
@@ -11,6 +13,12 @@ const WishCard = ({ product }) => {
 
   const handleRemove = (id) => {
     dispatch(removeFromWishlist({ itemId: id }))
+  }
+
+  let quantity = 1;
+  const handleClick = () => {
+    dispatch(addProductToCart({ product, quantity }))
+    toast.success("items added to cart")
   }
 
   return (
@@ -28,7 +36,7 @@ const WishCard = ({ product }) => {
             {product.description.slice(0, 50)}...
           </h3>
         </div>
-        <button className='flex items-center justify-center p-2 mt-6 rounded-lg bg-[#E9526F] '>
+        <button onClick={() => handleClick(product._id)} className='flex items-center justify-center p-2 mt-6 rounded-lg bg-[#E9526F] '>
           <p className='text-white text-sm mr-2'>Add to cart</p>
           <BsCart className='text-white' />
         </button>

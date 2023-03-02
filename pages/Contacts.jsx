@@ -11,13 +11,15 @@ const Contacts = () => {
 
   return (
     <div className='w-full h-full'>
-        <div className='bg-[#5BDADD] w-full h-[10%] px-2 lg:px-80 py-8 my-8'>
-            <h1 className='text-2xl font-bold'>Contact us</h1>
+        <div className='bg-[#5BDADD] w-full h-[10%] px-4  py-8 flex items-center justify-center'>
+            <div className='w-[1440px]'>
+                <h1 className='text-2xl font-bold'>Contact us</h1>
+            </div>
         </div>
-        <div className='lg:mx-60 md:mx-20 mx-4 md:ml-4 flex flex-col  mt-8'>
-            <div className='flex flex-col '>
+        <div className='w-full flex flex-col items-center justify-center mt-8'>
+            <div className='flex flex-col justify-center max-w-[1440px] px-2'>
 
-                <div className='flex flex-row justify-between'>
+                <div className='flex flex-col lg:flex-row justify-between'>
                     <div className='flex flex-col'>
                         <h1 className='font-bold text-3xl lg:w-[30vw]'>We are at your disposal 7 days a week!</h1>
 

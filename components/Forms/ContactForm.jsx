@@ -8,10 +8,10 @@ const ContactForm = () => {
     toast.success("Form submitted")
   }
   return (
-    <div className='bg-gray-200 flex flex-col border mt-12 px-8 md:px-6 lg:px-12 py-6 md:w-[30vw] lg:w-full rounded-3xl'>
+    <div className='bg-gray-200 flex flex-col border mt-12 px-8 md:px-6 lg:px-12 py-6  lg:w-full rounded-3xl'>
         <p>Please ﬁll in the form below to start</p>
 
-        <form onSubmit={(e) => handleSubmit(e)} className='my-4 flex flex-col md:flex-row'>
+        <form onSubmit={(e) => handleSubmit(e)} className='my-4 flex flex-col lg:flex-row'>
           <div className='flex flex-col lg:w-[30vw] mr-4'>
             <input type="text" placeholder='Type of Query' className='border-2 w-full p-4 rounded-xl my-2' />
             <input type="text" placeholder='Name' className='border-2 w-full p-4 rounded-xl my-2' />

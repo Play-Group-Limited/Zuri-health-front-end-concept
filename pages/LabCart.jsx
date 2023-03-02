@@ -11,7 +11,7 @@ import { useRouter } from "next/router"
 import { API_URL } from "../config/api.config"
 import Link from "next/link"
 import { toast } from "react-toastify"
-import { clearCart, reset } from "../redux/cartSlice"
+import { clearLabCart, reset } from "../redux/labCartSlice"
 import { Radio, Space } from "antd"
 
 const LabCart = () => {
@@ -46,18 +46,18 @@ const LabCart = () => {
   const router = useRouter()
 
   const dispatch = useDispatch()
-  const cart = useSelector((state) => state.cart)
+  const labCart = useSelector((state) => state.labCart)
   useEffect(() => {
-    console.log("CART", cart.products)
-    if (cart.products.length > 0) {
-      cart.products.forEach((item) => {
+    console.log("CART", labCart.products)
+    if (labCart.products.length > 0) {
+      labCart.products.forEach((item) => {
         console.log("MAAAHN", item)
         if (item.product.prescription) {
           setPrescriptionRequired(true)
         }
       })
     }
-  }, [cart, cart.length])
+  }, [labCart, labCart.length])
 
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
@@ -71,7 +71,7 @@ const LabCart = () => {
 
 
 
-  let amount = cart.total
+  let amount = labCart.total
 
   const checkForInputs = () => {
     if (!name) {
@@ -111,13 +111,13 @@ const LabCart = () => {
       throw ""
     }
     if (prescriptionRequired && !prescription) {
-      toast.error("A product in your cart requires prescription")
+      toast.error("A product in your labCart requires prescription")
       throw ""
     }
   }
 
   const makeOrder = async () => {
-    const details = cart.products.map((item) => {
+    const details = labCart.products.map((item) => {
       return {
         product_id: item.product._id,
         quantity: item.quantity,
@@ -126,7 +126,7 @@ const LabCart = () => {
     console.log(details)
     checkForInputs()
     // add date and time
-    // split the redux cart to send data to one LabsCart for tests and Cart for the phamacy products
+    // split the redux labCart to send data to one LabsCart for tests and Cart for the phamacy products
     try {
       const payload = {
         name: name,
@@ -157,7 +157,7 @@ const LabCart = () => {
 
   if (typeof window !== "undefined") {
     // Perform localStorage action
-    const item = localStorage.getItem("cart")
+    const item = localStorage.getItem("labCart")
     console.log("item", item)
     let item_serialized = JSON.stringify(item)
     console.log("serial", item_serialized)
@@ -207,14 +207,14 @@ const LabCart = () => {
                       Your Order Summary:{" "}
                     </p>
                     <p className='md:text-xl font-bold text-gray-500 ml-2'>
-                      {cart.quantity} items
+                      {labCart.quantity} items
                     </p>
                   </div>
 
                   <div className='flex flex-row items-center'>
                     <button
                       className='text-lg font-semibold ml-2 flex items-center hover:text-red-500 transition-all duration-150 ease-linear'
-                      onClick={() => dispatch(clearCart())}>
+                      onClick={() => dispatch(clearLabCart())}>
                       <BiTrash size={20} className='mr-4' />
                       Clear Cart
                     </button>
@@ -222,8 +222,8 @@ const LabCart = () => {
                 </div>
                 <hr className='my-4 border-black' />
 
-                {cart.products?.length > 0 &&
-                  cart.products.map((product, index) => {
+                {labCart.products?.length > 0 &&
+                  labCart.products.map((product, index) => {
                     return (
                       <CartCard
                         key={product._id}
@@ -248,7 +248,7 @@ const LabCart = () => {
                   <h2 className='uppercase font-bold text-xl'>Sub total</h2>
                   <p className='uppercase font-bold text-xl'>
                     {" "}
-                    KES {cart.total}
+                    KES {labCart.total}
                   </p>
                 </div>
               </div>

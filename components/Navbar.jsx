@@ -35,6 +35,7 @@ const Navbar = () => {
   // console.log(router.route === item.name ? "page" : undefined)
 
   const cart = useSelector((state) => state.cart)
+  const labCart = useSelector((state) => state.labCart)
   const wishlist = useSelector((state) => state.wishlist)
 
   useEffect(() => {
@@ -191,11 +192,60 @@ const Navbar = () => {
               <div onClick={showDrawer} className='cursor-pointer'>
                 <Image src={wish} alt='WishList' className='mx-2 ' />
               </div>
-              <Link href='/Cart'>
-                <Badge badgeContent={cart.quantity} color='warning'>
-                  <Image src={cartPic} alt='Cart' className='mx-2 ' />
-                </Badge>
-              </Link>
+              {router.route == "/Labs" ? (
+                <Link href='/LabCart'>
+                  <Badge
+                    badgeContent={labCart.quantity}
+                    color='warning'
+                    className=''>
+                    <Image
+                      src={cartPic}
+                      alt='Cart'
+                      className='mx-2 animate-none '
+                    />
+                  </Badge>
+                </Link>
+              ) : router.route == "/TestCategories" ? (
+                <Link href='/LabCart'>
+                  <Badge
+                    badgeContent={labCart.quantity}
+                    color='warning'
+                    className=''>
+                    <Image
+                      src={cartPic}
+                      alt='Cart'
+                      className='mx-2 animate-none '
+                    />
+                  </Badge>
+                </Link>
+              ) : router.route == "/Test/[id]" ? (
+                <Link href='/LabCart'>
+                  <Badge
+                    badgeContent={labCart.quantity}
+                    color='warning'
+                    className=''>
+                    <Image
+                      src={cartPic}
+                      alt='Cart'
+                      className='mx-2 animate-none '
+                    />
+                  </Badge>
+                </Link>
+              ) : (
+                <Link href='/Cart'>
+                  <Badge
+                    badgeContent={cart.quantity}
+                    color='warning'
+                    className=''>
+                    <Image
+                      src={cartPic}
+                      alt='Cart'
+                      className='mx-2 animate-none '
+                    />
+                  </Badge>
+                </Link>
+
+              )}
               <Space className=' ml-6 flex-row items-center text-white text-sm   whitespace-nowrap'>
                 <BsGlobe size={20} />
               </Space>
@@ -223,7 +273,7 @@ const Navbar = () => {
               {router.route == "/Labs" ? (
                 <Link href='/LabCart'>
                   <Badge
-                    badgeContent={cart.quantity}
+                    badgeContent={labCart.quantity}
                     color='warning'
                     className=''>
                     <Image
@@ -236,7 +286,7 @@ const Navbar = () => {
               ) : router.route == "/TestCategories" ? (
                 <Link href='/LabCart'>
                   <Badge
-                    badgeContent={cart.quantity}
+                    badgeContent={labCart.quantity}
                     color='warning'
                     className=''>
                     <Image
@@ -249,7 +299,7 @@ const Navbar = () => {
               ) : router.route == "/Test/[id]" ? (
                 <Link href='/LabCart'>
                   <Badge
-                    badgeContent={cart.quantity}
+                    badgeContent={labCart.quantity}
                     color='warning'
                     className=''>
                     <Image

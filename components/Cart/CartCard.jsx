@@ -7,8 +7,8 @@ import {
   modifyAddProductQuantity,
   modifySubtractProductQuantity,
   removeProduct,
-  removeProductFromCart,
-} from "../../redux/cartSlice"
+  removeProductFromLabCart,
+} from "../../redux/labCartSlice"
 
 import drug from "../../public/assets/stockImgs/Pharmacy/drugs/drug.png"
 
@@ -38,7 +38,7 @@ const CartCard = ({ product, index }) => {
   }
 
   const handleRemove = () => {
-    dispatch(removeProductFromCart({ id: product.product._id }))
+    dispatch(removeProductFromLabCart({ id: product.product._id }))
   }
   return (
     <div className='flex flex-col md:flex-row p-8 border my-6 border-black rounded-lg justify-between'>

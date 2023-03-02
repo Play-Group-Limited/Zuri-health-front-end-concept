@@ -1,5 +1,6 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit"
 import cartReducer from "./cartSlice"
+import labCartReducer from "./labCartSlice"
 import wishlistReducer from "./wishlistSlice"
 import { persistReducer } from "redux-persist"
 import storage from "redux-persist/lib/storage"
@@ -16,7 +17,9 @@ const customizedMiddleware = getDefaultMiddleware({
 
 export const rootReducers = combineReducers({
   cart: cartReducer,
+  labCart: labCartReducer,
   wishlist: wishlistReducer,
+
 })
 
 const persistedReducer = persistReducer(persistStorage, rootReducers)

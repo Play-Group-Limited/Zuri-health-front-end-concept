@@ -80,8 +80,8 @@ const Coparate = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='mx-4  relative md:my-[14rem] py-12 h-[50vh]'>
-                        <div className='flex flex-col md:flex-row relative justify-between items-center'>
+                    <div className='px-4 w-full relative md:my-[14rem] py-12 h-[50vh]'>
+                        <div className='flex flex-col md:flex-row relative w-full justify-between items-center'>
                             <div className='flex flex-col relative h-full'>
                                 <p className='text-black flex items-center justify-center font-bold text-4xl '>
                                     Ready To Book Your 
@@ -92,7 +92,7 @@ const Coparate = () => {
                                 <Image src={line} alt='line' className='absolute -bottom-[6vw] md:-right-[10%] md:hidden lg:-right-24 hidden lg:block'/>
                             </div>
                             
-                            <div className='lg:w-[50vw] w-[50vw]'>
+                            <div className='lg:w-[30vw] w-full md:w-[50vw]'>
                                 <CorporateForm />
                             </div>
 

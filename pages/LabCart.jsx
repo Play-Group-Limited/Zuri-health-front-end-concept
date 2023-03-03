@@ -23,6 +23,7 @@ const LabCart = () => {
   const [prescription, setPrescription] = useState("")
   const [loading, setLoading] = useState(false)
   const [choice, setOpenChoice] = useState(false)
+  const [value, setValue] = useState(1)
 
   // const handleChange = (e) => {
   //     const { name, value } = e.target
@@ -70,8 +71,6 @@ const LabCart = () => {
   const [city, setCity] = useState("")
   const [country, setCountry] = useState("Kenya")
 
-
-
   let amount = labCart.total
 
   const checkForInputs = () => {
@@ -95,19 +94,19 @@ const LabCart = () => {
       toast.error("Include sample collection time")
       throw ""
     }
-    if (!address) {
+    if (value !== 1 && !address) {
       toast.error("Include your address")
       throw ""
     }
-    if (!hseNumber) {
+    if (value !== 1 && !hseNumber) {
       toast.error("Include your Hse Number")
       throw ""
     }
-    if (!city) {
+    if (value !== 1 && !city) {
       toast.error("Include your city")
       throw ""
     }
-    if (!country) {
+    if (value !== 1 && !country) {
       toast.error("Include your country")
       throw ""
     }
@@ -129,22 +128,33 @@ const LabCart = () => {
     // add date and time
     // split the redux labCart to send data to one LabsCart for tests and Cart for the phamacy products
     try {
+      let delivery_address
+
+      if (value === 1) {
+        delivery_address = {
+          inhouse: true,
+        }
+      } else {
+        delivery_address = {
+          address,
+          hseNumber,
+          city,
+        }
+      }
+
       const payload = {
         name: name,
         email: email,
         phone: phone,
         country,
         details,
-        delivery_address: {
-          address,
-          hseNumber,
-          city,
-        },
-        prescription,
+        delivery_address,
         payment_type: "online",
+        date,
+        time,
       }
       const { data } = await axios.post(
-        `${API_URL}/pharmacy/add_zurihealth_direct_order`,
+        `${API_URL}/labs_and_diagnostic/add_zurihealth_direct_labs_order`,
         payload
       )
       if (data) {
@@ -164,14 +174,13 @@ const LabCart = () => {
     console.log("serial", item_serialized)
   }
 
-  const [value, setValue] = useState(1);
   const onChange = (e) => {
-    console.log('radio checked', e.target.value);
-    setValue(e.target.value);
-  };
+    console.log("radio checked", e.target.value)
+    setValue(e.target.value)
+  }
 
   const handleChoice = () => {
-    if (value == 2){
+    if (value == 2) {
       setOpenChoice(true)
     } else {
       setOpenChoice(false)
@@ -319,7 +328,7 @@ const LabCart = () => {
                       <div className='flex flex-col mr-16'>
                         <h3 className='font-bold text-xl'>Date &amp; Time</h3>
                         <p className='text-xs'>
-                        Please specify Your Sample collection Date & Time
+                          Please specify Your Sample collection Date & Time
                         </p>
                       </div>
 
@@ -342,19 +351,21 @@ const LabCart = () => {
                           placeholder='Sample collection time'
                           className='bg-white p-4 my-4  w-full rounded-lg border border-black'
                         />
-                    
                       </div>
                     ) : null}
                   </div>
-                  
+
                   <div className='px-8 py-4 md:w-[80%] flex flex-col rounded-lg  w-full '>
                     <div
                       onClick={() => setOpenLocation((prev) => !prev)}
                       className='flex flex-row justify-between'>
                       <div className='flex flex-col mr-16'>
-                        <h3 className='font-bold text-xl'>Sample Collection Location</h3>
+                        <h3 className='font-bold text-xl'>
+                          Sample Collection Location
+                        </h3>
                         <p className='text-xs'>
-                            Select where you&apos;d like the sample collection to take place
+                          Select where you&apos;d like the sample collection to
+                          take place
                         </p>
                       </div>
 
@@ -364,67 +375,95 @@ const LabCart = () => {
                     {openLocation ? (
                       <div className='mt-6'>
                         <Radio.Group onChange={onChange} value={value}>
-                            <Space direction="vertical">
-                                <Radio value={1} className='text-black pb-4'>
-                                    <h3 className="pl-4 font-bold">At Zuri&apos;s Laboratory</h3>
-                                    <p className="pl-4 text-xs">Emilia Apartments, Gatundu Road</p>
-                                </Radio>
-                                <Radio value={2} className='text-black pb-4'>
-                                    <h3 className="pl-4 font-bold">At Another Location</h3>
-                                </Radio>
-                            </Space>
+                          <Space direction='vertical'>
+                            <Radio value={1} className='text-black pb-4'>
+                              <h3 className='pl-4 font-bold'>
+                                At Zuri&apos;s Laboratory
+                              </h3>
+                              <p className='pl-4 text-xs'>
+                                Emilia Apartments, Gatundu Road
+                              </p>
+                            </Radio>
+                            <Radio value={2} className='text-black pb-4'>
+                              <h3 className='pl-4 font-bold'>
+                                At Another Location
+                              </h3>
+                            </Radio>
+                          </Space>
                         </Radio.Group>
-                    
                       </div>
                     ) : null}
                   </div>
-                  
+
                   {value == 2 ? (
                     <div className='px-8 my-8 py-4 md:w-[80%] border border-black bg-gray-200 flex flex-col rounded-lg  w-full '>
-                    <div
-                      onClick={() => setOpenDelivery((prev) => !prev)}
-                      className='flex flex-row justify-between'>
-                      <div className='flex flex-col mr-16'>
-                        <h3 className='font-bold text-xl'>Specify Location</h3>
-                        <p className='text-xs'>
-                            Please enter the address which you would like us to collect the sample at
-                        </p>
+                      <div
+                        onClick={() => setOpenDelivery((prev) => !prev)}
+                        className='flex flex-row justify-between'>
+                        <div className='flex flex-col mr-16'>
+                          <h3 className='font-bold text-xl'>
+                            Specify Location
+                          </h3>
+                          <p className='text-xs'>
+                            Please enter the address which you would like us to
+                            collect the sample at
+                          </p>
+                        </div>
+
+                        <FiChevronDown size={40} />
                       </div>
 
-                      <FiChevronDown size={40} />
-                    </div>
-
-                    {openDelivery ? (
-                      <div className='mt-6'>
-                        <input
-                          type='text'
-                          value={address}
-                          onChange={(e) => setAddress(e.target.value)}
-                          placeholder='Address'
-                          className='bg-white p-4 my-4  w-full rounded-lg border border-black'
-                        />
-                        <input
-                          type='text'
-                          value={hseNumber}
-                          onChange={(e) => setHseNumber(e.target.value)}
-                          placeholder='House no / Flat no'
-                          className='bg-white p-4 my-4  w-full rounded-lg border border-black'
-                        />
-                        <input
-                          type='text'
-                          value={city}
-                          onChange={(e) => setCity(e.target.value)}
-                          placeholder='City / Town'
-                          className='bg-white p-4 my-4  w-full rounded-lg border border-black'
-                        />
-                        <select value={country} onChange={(e) => setCountry(e.target.value)} placeholder="State / County" className='bg-white p-4 my-4  w-full rounded-lg border border-black'>
-                          <option onClick={() => setCountry('Kenya')} value="Kenya">Kenya</option>
-                          <option onClick={() => setCountry('Ghana')} value="Ghana">Ghana</option>
-                          <option onClick={() => setCountry('Nigeria')} value="Nigeria">Nigeria</option>
-                          <option onClick={() => setCountry('Zambia')} value="Zambia">Zambia</option>
-                        </select>
-                      </div>
-                    ) : null}
+                      {openDelivery ? (
+                        <div className='mt-6'>
+                          <input
+                            type='text'
+                            value={address}
+                            onChange={(e) => setAddress(e.target.value)}
+                            placeholder='Address'
+                            className='bg-white p-4 my-4  w-full rounded-lg border border-black'
+                          />
+                          <input
+                            type='text'
+                            value={hseNumber}
+                            onChange={(e) => setHseNumber(e.target.value)}
+                            placeholder='House no / Flat no'
+                            className='bg-white p-4 my-4  w-full rounded-lg border border-black'
+                          />
+                          <input
+                            type='text'
+                            value={city}
+                            onChange={(e) => setCity(e.target.value)}
+                            placeholder='City / Town'
+                            className='bg-white p-4 my-4  w-full rounded-lg border border-black'
+                          />
+                          <select
+                            value={country}
+                            onChange={(e) => setCountry(e.target.value)}
+                            placeholder='State / County'
+                            className='bg-white p-4 my-4  w-full rounded-lg border border-black'>
+                            <option
+                              onClick={() => setCountry("Kenya")}
+                              value='Kenya'>
+                              Kenya
+                            </option>
+                            <option
+                              onClick={() => setCountry("Ghana")}
+                              value='Ghana'>
+                              Ghana
+                            </option>
+                            <option
+                              onClick={() => setCountry("Nigeria")}
+                              value='Nigeria'>
+                              Nigeria
+                            </option>
+                            <option
+                              onClick={() => setCountry("Zambia")}
+                              value='Zambia'>
+                              Zambia
+                            </option>
+                          </select>
+                        </div>
+                      ) : null}
                     </div>
                   ) : null}
                 </div>

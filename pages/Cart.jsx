@@ -148,7 +148,7 @@ const Cart = () => {
         payment_type: "online",
       }
       const { data } = await axios.post(
-        `${API_URL}/pharmacy/add_zurihealth_direct_order`,
+        `${API_URL}/pharmacy/add_zurihealth_direct_pharmacy_order`,
         payload
       )
       if (data) {
@@ -340,11 +340,31 @@ const Cart = () => {
                           placeholder='City / Town'
                           className='bg-white p-4 my-4  w-full rounded-lg border border-black'
                         />
-                        <select value={country} onChange={(e) => setCountry(e.target.value)} placeholder="State / County" className='bg-white p-4 my-4  w-full rounded-lg border border-black'>
-                          <option onClick={() => setCountry('Kenya')} value="Kenya">Kenya</option>
-                          <option onClick={() => setCountry('Ghana')} value="Ghana">Ghana</option>
-                          <option onClick={() => setCountry('Nigeria')} value="Nigeria">Nigeria</option>
-                          <option onClick={() => setCountry('Zambia')} value="Zambia">Zambia</option>
+                        <select
+                          value={country}
+                          onChange={(e) => setCountry(e.target.value)}
+                          placeholder='State / County'
+                          className='bg-white p-4 my-4  w-full rounded-lg border border-black'>
+                          <option
+                            onClick={() => setCountry("Kenya")}
+                            value='Kenya'>
+                            Kenya
+                          </option>
+                          <option
+                            onClick={() => setCountry("Ghana")}
+                            value='Ghana'>
+                            Ghana
+                          </option>
+                          <option
+                            onClick={() => setCountry("Nigeria")}
+                            value='Nigeria'>
+                            Nigeria
+                          </option>
+                          <option
+                            onClick={() => setCountry("Zambia")}
+                            value='Zambia'>
+                            Zambia
+                          </option>
                         </select>
                       </div>
                     ) : null}

@@ -170,7 +170,7 @@ const Navbar = () => {
   return (
     <div className='w-full h-full'>
       <div className='flex flex-col w-full'>
-        <div className='bg-black py-4 w-full h-full flex justify-center items-center  md:pr-0'>
+        <div className='bg-black md:py-4 w-full h-full flex justify-center items-center  md:pr-0'>
           <div className=' flex flex-row justify-center md:justify-end md:items-end w-full max-w-[1440px] lg:pr-4'>
             <Link href='/Coparate'>
               <p className='text-white mx-2 text-sm hidden md:block whitespace-nowrap'>
@@ -182,8 +182,21 @@ const Navbar = () => {
                 Become a Partner
               </p>
             </Link>
+            <Dropdown
+              menu={{
+                items,
+              }}
+              className='flex items-center justify-center text-center cursor-pointer'
+              onClick={(e) => e.preventDefault()}>
+              <a onClick={(e) => e.preventDefault()}>
+                <Space className='md:flex flex-row items-center text-white mx-2 text-sm hidden  whitespace-nowrap'>
+                  Country Selector
+                  <BsGlobe />
+                </Space>
+              </a>
+            </Dropdown>
             {/* sm screen */}
-            <span className='flex flex-row  items-center mx-8 md:hidden'>
+            <span className='flex flex-row  items-center mx-8 md:hidden bg-black w-full justify-center z-50 py-2 fixed'>
               <Space className='flex-row text-white mx-2 text-sm   whitespace-nowrap'>
                 <p className='text-white'>{lang}</p>
               </Space>
@@ -413,6 +426,7 @@ const Navbar = () => {
                   return <WishCard key={product._id} product={product} />
                 })}
             </Drawer>
+            
           </div>
         </div>
         {openMenu ? (

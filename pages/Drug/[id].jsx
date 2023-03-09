@@ -81,11 +81,11 @@ const Drug = () => {
 
   return (
     <div className='w-full h-full flex flex-col items-center justify-center'>
-      <div className='bg-[#5BDADD] w-full px-4  py-8 flex items-center justify-center'>
+      {/* <div className='bg-[#5BDADD] w-full px-4  py-8 flex items-center justify-center'>
         <div className='w-[75%]'>
           <p>home</p>
         </div>
-      </div>
+      </div> */}
       <div className='w-full mx-4 flex items-center justify-center'>
         <div className='my-8  max-w-[1440px] mx-4'>
           <div className='flex flex-col md:flex-row'>

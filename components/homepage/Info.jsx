@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import React, { useEffect, useRef, useState } from "react"
 import video1 from "../../public/assets/images/v1.png"
 import video2 from "../../public/assets/images/v2.png"
@@ -74,7 +75,9 @@ const Info = () => {
             </p>
 
             <div className='my-4'>
-              <Image src={mockup} alt='join' />
+              <Link href="https://apps.apple.com/us/app/zuri-health/id1554395747">
+                <Image src={mockup} alt='join' />
+              </Link>
             </div>
           </div>
           <div className='flex flex-col justify-cente items-center text-center my-4'>

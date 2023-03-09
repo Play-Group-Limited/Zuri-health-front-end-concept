@@ -34,7 +34,7 @@ const CategorySearch = ({products, categories}) => {
 
   return (
     <div className='w-full h-full flex flex-col items-center justify-center'>
-        <div className='bg-[#5BDADD] w-full px-4  py-8 flex items-center justify-center'>
+        {/* <div className='bg-[#5BDADD] w-full px-4  py-8 flex items-center justify-center'>
             <div className='w-[1440px]'>
                 <Breadcrumb>
                     {breadcrumbItems.map(({ name, path }, index) => (
@@ -47,7 +47,7 @@ const CategorySearch = ({products, categories}) => {
                 <Breadcrumb.Item>{pathSegments[pathSegments.length - 1]}</Breadcrumb.Item>
                 </Breadcrumb>
             </div>
-        </div>
+        </div> */}
         <div className='max-w-[1440px] mx-2 md:ml-4 flex flex-col items-center justify-center'>
 
             {/* <div>

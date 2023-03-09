@@ -19,7 +19,7 @@ const SmsForm = () => {
 
         <form onSubmit={(e) => handleSubmit(e)} className='my-4'>
             <input type="text" placeholder='Name' className='border-2 w-full p-4 rounded-xl my-2' />
-            <input type="number" placeholder='Contact Number' className='border-2 w-full p-4 rounded-xl my-2' />
+            <input type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder='Contact Number' className='border-2 w-full p-4 rounded-xl my-2' />
               <button type='submit'  className='w-full bg-[#ED3763] p-4 rounded-xl my-4 flex flex-row items-center justify-between'>
                   <p className='font-bold text-white'>Submit Information Now</p>
                   <BiChevronRight  className='text-white'/>

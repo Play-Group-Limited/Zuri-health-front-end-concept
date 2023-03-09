@@ -143,41 +143,41 @@ const Navbar = () => {
     {
       key: "1",
       label: (
-        <a href='/Pharmacy' className='flex p-2'>
+        <Link href='/Pharmacy' className='flex p-2'>
             Find Medicine Fast
-        </a>
+        </Link>
       ),
     },
     {
       key: "2",
       label: (
-        <a href='/Prescription' className='flex p-2'>
+        <Link href='/Prescription' className='flex p-2'>
             Upload Prescription
-        </a>
+        </Link>
       ),
     },
     {
       key: "3",
       label: (
-        <a href='/Categories' className='flex p-2'>
+        <Link href='/Categories' className='flex p-2'>
             Popular items
-        </a>
+        </Link>
       ),
     },
     {
       key: "4",
       label: (
-        <a href='/Categories' className='flex p-2'>
+        <Link href='/Categories' className='flex p-2'>
             Various Categories
-        </a>
+        </Link>
       ),
     },
     {
       key: "5",
       label: (
-        <a href='/ContinuosCare' className='flex p-2'>
+        <Link href='/ContinuosCare' className='flex p-2'>
             Continuous Care
-        </a>
+        </Link>
       ),
     },
   ]

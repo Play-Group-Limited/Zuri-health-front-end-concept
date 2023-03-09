@@ -139,6 +139,48 @@ const Navbar = () => {
       ),
     },
   ]
+  const pharmacy = [
+    {
+      key: "1",
+      label: (
+        <a href='/Pharmacy' className='flex p-2'>
+            Find Medicine Fast
+        </a>
+      ),
+    },
+    {
+      key: "2",
+      label: (
+        <a href='/Prescription' className='flex p-2'>
+            Upload Prescription
+        </a>
+      ),
+    },
+    {
+      key: "3",
+      label: (
+        <a href='/Categories' className='flex p-2'>
+            Popular items
+        </a>
+      ),
+    },
+    {
+      key: "4",
+      label: (
+        <a href='/Categories' className='flex p-2'>
+            Various Categories
+        </a>
+      ),
+    },
+    {
+      key: "5",
+      label: (
+        <a href='/ContinuosCare' className='flex p-2'>
+            Continuous Care
+        </a>
+      ),
+    },
+  ]
 
   const [open, setOpen] = useState(false)
   const showDrawer = () => {
@@ -682,12 +724,17 @@ const Navbar = () => {
                                 ) : null} */}
                 </div>
               </Link>
-              <Link href='/Pharmacy'>
-                <div className='flex flex-row items-center mx-2'>
-                  <Links className='mx-2'>Pharmacy</Links>
+              <Dropdown
+              menu={{
+                items: pharmacy,
+              }}
+              className='flex items-center justify-center text-center cursor-pointer'
+              onClick={(e) => e.preventDefault()}>
+                <div className='flex flex-row items-center mx-2' onClick={(e) => e.preventDefault()}>
+                  <Links className='mx-2'>Order Medicine</Links>
                   <RiArrowDropDownLine />
                 </div>
-              </Link>
+            </Dropdown>
             </div>
 
             <div onClick={() => setOpenMenu(true)} className='hidden lg:block'>

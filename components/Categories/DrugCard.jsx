@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 import drug from "../../public/assets/stockImgs/categories/drug.png"
 import { TbHeartPlus } from "react-icons/tb"
@@ -39,6 +39,8 @@ const DrugCard = ({ product }) => {
     // console.log(".............................",updatedItems)
     // localStorage.setItem("key", JSON.stringify(updatedItems))
   }
+
+
 
   const handleAdd = (num) => {
     let quantity = num

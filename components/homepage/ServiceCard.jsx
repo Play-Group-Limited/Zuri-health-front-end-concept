@@ -5,7 +5,7 @@ import { BsChevronDown } from "react-icons/bs"
 
 const ServiceCard = ({ image, text, link }) => {
   return (
-    <div className='group h-[35vh] md:h-[30vh] w-[300px] md:w-full  mx-auto relative'>
+    <div className='group h-[35vh] md:h-[30vh] xl:h-[300px] w-[300px] md:w-full  mx-auto relative'>
       <Link href={link}>
         <div className=' overflow-hidden w-full h-full rounded-[30%] p-4 py-6  flex  items-center justify-center relative'>
           <Image

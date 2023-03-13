@@ -37,6 +37,8 @@ const Navbar = () => {
   const cart = useSelector((state) => state.cart)
   const labCart = useSelector((state) => state.labCart)
   const wishlist = useSelector((state) => state.wishlist)
+  let totalQuantity = labCart.quantity + cart.quantity
+
 
   useEffect(() => {
     const handleRouteChange = (url) => {
@@ -258,7 +260,7 @@ const Navbar = () => {
                 <a onClick={(e) => e.preventDefault()}>
                   <Space className='flex-row items-center text-white mx-2 text-sm   whitespace-nowrap'>
                       <Badge
-                        badgeContent={labCart.quantity}
+                        badgeContent={totalQuantity}
                         color='warning'
                         className=''>
                         <Image
@@ -280,7 +282,7 @@ const Navbar = () => {
                 <a onClick={(e) => e.preventDefault()}>
                   <Space className=' flex-row items-center text-white mx-2 text-sm   whitespace-nowrap'>
                       <Badge
-                        badgeContent={labCart.quantity}
+                        badgeContent={totalQuantity}
                         color='warning'
                         className=''>
                         <Image
@@ -302,7 +304,7 @@ const Navbar = () => {
                 <a onClick={(e) => e.preventDefault()}>
                   <Space className=' flex-row items-center text-white mx-2 text-sm   whitespace-nowrap'>
                       <Badge
-                        badgeContent={labCart.quantity}
+                        badgeContent={totalQuantity}
                         color='warning'
                         className=''>
                         <Image
@@ -324,7 +326,7 @@ const Navbar = () => {
                 <a onClick={(e) => e.preventDefault()}>
                   <Space className='flex-row items-center text-white mx-2 text-sm  whitespace-nowrap'>
                       <Badge
-                        badgeContent={cart.quantity}
+                        badgeContent={totalQuantity}
                         color='warning'
                         className=''>
                         <Image
@@ -396,7 +398,7 @@ const Navbar = () => {
                 <a onClick={(e) => e.preventDefault()}>
                   <Space className='md:flex flex-row items-center text-white mx-2 text-sm hidden  whitespace-nowrap'>
                       <Badge
-                        badgeContent={labCart.quantity}
+                        badgeContent={totalQuantity}
                         color='warning'
                         className=''>
                         <Image
@@ -418,7 +420,7 @@ const Navbar = () => {
                 <a onClick={(e) => e.preventDefault()}>
                   <Space className='md:flex flex-row items-center text-white mx-2 text-sm hidden  whitespace-nowrap'>
                       <Badge
-                        badgeContent={labCart.quantity}
+                        badgeContent={totalQuantity}
                         color='warning'
                         className=''>
                         <Image
@@ -440,7 +442,7 @@ const Navbar = () => {
                 <a onClick={(e) => e.preventDefault()}>
                   <Space className='md:flex flex-row items-center text-white mx-2 text-sm hidden  whitespace-nowrap'>
                       <Badge
-                        badgeContent={cart.quantity}
+                        badgeContent={totalQuantity}
                         color='warning'
                         className=''>
                         <Image
@@ -709,13 +711,11 @@ const Navbar = () => {
                 <div
                   className='flex flex-row items-center mx-2'>
                   <Links className='mx-2'>Engage with doctors</Links>
-                  <RiArrowDropDownLine />
                 </div>
               </Link>
               <Link href='/Labs'>
                 <div className='flex flex-row items-center mx-2'>
                   <Links className='mx-2'>Lab Test & Diagnostics</Links>
-                  <RiArrowDropDownLine />
 
                   {/* {openLabs ? (
                                     <div className='absolute w-full h-full'>

@@ -89,9 +89,9 @@ const Prescription = () => {
               <BsPatchCheckFill className='text-[200px] mx-auto text-[#57E8EC]' />
             </div>
             <div className="w-full flex items-center justify-center mt-12">
-              <Link href='/Cart'>
+              <Link href='/Pharmacy'>
                 <button className="bg-[#57E8EC] p-4 rounded-xl ">
-                  <p>Procced to checkout</p>
+                  <p>Continue Shoppping</p>
                 </button>
               </Link>
             </div>

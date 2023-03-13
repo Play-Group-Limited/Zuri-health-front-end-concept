@@ -1,5 +1,5 @@
 import Image from "next/image"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { BiTrash } from "react-icons/bi"
 import {
@@ -19,10 +19,18 @@ const CartCard = ({ product, index }) => {
 
   // console.log('image: ', product.product.imageUrl[0].imgPath)
   console.log("find yourself", product)
+  
 
   let [quantity, setQuantity] = useState(product?.quantity)
   // console.log('product: ', product.product?.name)
   console.log("index", index)
+
+  useEffect(() => {
+    if(quantity < 0) {
+      setQuantity(0)
+    }
+
+  }, [quantity]) 
 
   const handleMinus = () => {
     let quant = quantity - 1

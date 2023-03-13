@@ -21,6 +21,13 @@ const Test = () => {
   const [testProduct, setTestProduct] = useState({})
   let [quantity, setQuantity] = useState(1)
 
+  useEffect(() => {
+    if(quantity < 0) {
+      setQuantity(0)
+    }
+
+  }, [quantity])
+  
   const router = useRouter()
 
   useEffect(() => {

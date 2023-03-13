@@ -61,6 +61,13 @@ const Drug = () => {
     }
   }, [router.isReady, router.query.id, router])
 
+  useEffect(() => {
+    if(quantity < 0) {
+      setQuantity(0)
+    }
+
+  }, [quantity])
+  
   const dispatch = useDispatch()
 
   const handleMinus = () => {

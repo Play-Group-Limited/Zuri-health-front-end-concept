@@ -53,7 +53,7 @@ const DoctorsForm = () => {
   }
 
   return (
-    <div className='bg-gray-200 flex flex-col border md:px-12 p-8 md:py-6 relative rounded-xl z-50'>
+    <div className='bg-gray-200 flex flex-col border md:px-12 p-8 md:py-6 relative rounded-xl z-20'>
         <h2 className='text-2xl mb-4'>Connect with doctors Virtually</h2>
         <p>Please ﬁll in the form below to join</p>
 

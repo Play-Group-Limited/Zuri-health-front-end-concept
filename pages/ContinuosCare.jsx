@@ -17,7 +17,7 @@ const ContinuosCare = () => {
                 <div className='md:hidden top-10 w-full flex items-center justify-center'>
                     <Featuredsm />
                 </div>
-                <div className='hidden md:block absolute top-60 right-0'>
+                <div className='hidden md:block absolute top-60 right-0 '>
                     <CCPForm />
                 </div>
                 
